@@ -90,11 +90,11 @@ An **Item** corresponds to a single entry or row in a section. Each section type
 
 ### Design
 
-Check out mockups in `/resources`. For the sake of showing how input works on the "create" mockup, each section starts with one row (item) already there, but we should make it start empty with the form header/labels and add button. Empty sections should essentially be ignored when checking if any fields are empty. Only sections you can't omit are the general and affirmation sections. 
+Check out mockups in `/resources`. For the sake of showing how input works on the "create" mockup, each section starts with one row (item) already there, but we should make it start empty with the form header/labels and add button. Empty sections should essentially be ignored when checking if any fields are empty. Only sections you can't omit are the general and affirmation sections.
 
 ### Code
 
-**Writing the Code***  
+**Writing the Code**   
 Reports, sections, and items should be implemented with constructors. This will enhance code readability and organization.
 
 A call to a specific value in an Item could be as simple as `Report.sections[i].items[j].value`, where `sections` is an array of Section objects, and `items` is an array of Item objects.
