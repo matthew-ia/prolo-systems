@@ -12,13 +12,13 @@ A prototype of a business management tool to help keep track of property declara
 
 ## Assignment Specs
 
-**Background**
+**Background**  
 Every business owner must every year file a document declaring all equipment, furniture. The form
 requires a brief description for some item (or group of items) along with the data purchased and cost.
 When an item is no longer in use, it must be declared as “deleted” from use. When items are purchased
 in the last year, they are listed as “additions”.
 
-**Website**
+**Website**  
 Your task is to produce a website that after entry for one year allows a business owner to reuse the data
 in the next year (and subsequent years). The site in real life would print the form; however, that is
 beyond the scope of this project.
