@@ -68,7 +68,7 @@ We want to make this
 
 ## Specifications
 
-### Organization
+### Overview
 
 **Client** runs the javascript function to get locally stored object data if it exists. Has an array of Report objects.
 
@@ -88,7 +88,14 @@ Each report will have these 5 sections:
 
 An **Item** corresponds to a single entry or row in a section. Each section type will have a different item type. For example, the _Personal Property_ section will have an item that holds the user input for: year acquired, item(s) name, group, status, value, and cost. An _Other and Supplies_ section would have an item with just the year acquired, name, and cost.
 
-Implementing the Report objects should be done with a constructor. The rest of the objects/values could simply be implemented as a 3D array, _**however**_, I think these should be implemented with constructors as well (and be proper objects). This will enhance code readability and organization.
+### Design
+
+Check out mockups in `/resources`. For the sake of showing how input works on the "create" mockup, each section starts with one row (item) already there, but we should make it start empty with the form header/labels and add button. Empty sections should essentially be ignored when checking if any fields are empty. Only sections you can't omit are the general and affirmation sections. 
+
+### Code
+
+**Writing the Code***  
+Reports, sections, and items should be implemented with constructors. This will enhance code readability and organization.
 
 A call to a specific value in an Item could be as simple as `Report.sections[i].items[j].value`, where `sections` is an array of Section objects, and `items` is an array of Item objects.
 
@@ -96,36 +103,85 @@ An example structure for a report could be written as follows:
 
 ```javascript
 
-function Item() {
-    this.yearAcq;
-    this.name;
-    this.cost;
-    
-}
-
-function Section() {
+// Declare/Define Section object and its Item array, methods
+function GeneralSection() {
     this.items;
-    this.init = function() {
-        items[0] = new Item();
+
+    // Each section defines its own Item type
+    function Item(reportName, id, ownerName, address) {
+        this.reportName = reportName;
+        this.id = id;
+        this.ownerName = ownerName;
+        this.address = address;
+    }
+
+    function addItem(reportName, id, ownerName, address) {
+        if (items.length = 0) { // if array is empty, create first item
+            item[0] = new Item(reportName, id, ownerName, address);
+        } else { // push new item onto array
+            let item = new Item(reportName, id, ownerName, address);
+            items.push(item);
+        }
+
     }
 }
 
+// ...
+// rest of Section objects
+// All of them need an items array, decl./def. of an Item object, and addItem(...)
+
+// Declare/Define Report object and its variables, methods
 function Report(name, id) {
     this.reportName = name;
     this.id = id;
-    this.sections;
-    this.init = function() {
-        for (i = 0; i < 5; i++) {
-            sections[i] = new Section();
-        }
+    // initialize Report object with an array of Section objects
+    this.initReport = function() {
+        // Create 5 sections, corresponding on General, Personal Prop., etc.
+        this.general = new GeneralSection(0);
+        this.personal = new PersonalSection(1);
+        //...
+        // ...
+        // Other setup stuff
+        // Note general needs only one item object (0),
+        // because it only has one set of inputs
+        // (affirmation should probably be the same)
+        general.items[0].reportName = reportName;
+        general.items[0].id = id;
     }
-
 }
 
 var report = new Report("Ray's Weather", 1);
+report.init();
+
+// when user inputs data, save it to the item variables
+report.general.item[0].reportName = ...;
+report.personal.item[0].yearAcq = ...;
+
 ```
 
+**Project Directory Organization**  
 
+We should try to modularize our code as best we can, at least separate the declarations and definitions of Report/Section/Item in one file, from the client file that runs it all, gets user input, etc.
+
+Example file structure:
+```
+project
+|-- src
+|   |-- css
+|   |   `-- style.css
+|   |-- js
+|   |   |-- client.js
+|   |   `-- report.js
+|   |-- index.html
+|   |-- other.html
+|-- README.md
+|-- resources
+|   |-- somefile.txt
+|   |-- mockup.png
+|   `-- mockup2.png
+```
+
+Exporting `src` only will contain everything needed just to run site, while the others files/folders have extra stuff for developing and managing the project.
 
 
 ## Attribution
