@@ -1,0 +1,103 @@
+/* == Styles for ProLo Systems (Marathon Projects) */
+
+html, body, ul, img {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+}
+
+h2 {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+}
+
+#user-photo {
+    border: 1px solid black;
+}
+
+.dropdown-arrow {
+    border: 1px solid black;
+}
+
+#navbar {
+    position: relative;
+    height: 100px;
+    width: 100%;
+    border-bottom: 1px solid red;
+}
+
+#nav-menu {
+    float: left;
+    list-style-type: none;
+    height: 1rem;
+    margin: auto;
+    padding-top: 40px;
+    padding-left: 6%;
+}
+
+#brand {
+    float: left;
+    margin: 0;
+    padding: 0;
+    margin: auto;
+    padding-top: 20px;
+    padding-left: 6%;
+}
+
+#brand p {
+    margin: 0;
+    padding: 20px;
+    border: 1px solid black;
+}
+
+#account-cluster {
+    float: right;
+    padding-right: 6%;
+    padding-top: 40px;
+}
+
+#account li {
+    display: inline;
+}
+
+#nav-menu li {
+    display: inline;
+}
+
+#nav-menu li a {}
+
+#user-name {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+
+.section {
+    border: 1px solid black;
+    width: 80%;
+    margin: 10% auto;
+}
+
+.section::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+#general input, #general select {
+    display: block;
+}
+
+.sub-section {
+    float: left;
+}
+
+.addRow {
+    text-align: center;
+}
+
+.content-container {}
