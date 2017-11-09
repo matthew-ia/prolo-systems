@@ -22,6 +22,9 @@ Lap 2: HTML
 
 <body>
   <div id="navbar-container">
+    <!-- TODO: fix this so its fixed, but elements inside it look as they do now -->
+
+    <!-- NAVBAR MENU -->
     <div id="navbar">
       <div id="brand">
         <p>ProLo Systems</p>
@@ -32,6 +35,7 @@ Lap 2: HTML
           <li><a href="">New Report</a></li>
         </ul>
       </nav>
+      <!-- ACCOUNT INFO -->
       <div id="account-cluster">
         <ul id="account">
           <li id="user-photo">User</li>
@@ -43,6 +47,7 @@ Lap 2: HTML
   </div>
 
   <div class="content-container">
+    <!-- GENERAL -->
     <div class="section">
       <form id="general">
         <input type="text" name="reportName" placeholder="Report Name">
@@ -55,75 +60,76 @@ Lap 2: HTML
         </div>
         <div id="audit-contact" class="sub-section">
           <h2>Audit Contact</h2>
-          <input type="text" name="contactName" placeholder="Report Name">
-          <input type="text" name="contactPhoneNumber" placeholder="Report Name">
+          <input type="text" name="contactName" placeholder="Contact Name">
+          <input type="text" name="contactPhoneNumber" placeholder="Contact Phone #">
           <textarea name="contactAddress" placeholder="Business Address"></textarea>
         </div>
         <div id="classification" class="sub-section">
           <h2>Classification</h2>
           <select name="businessCategory">
-                <option value="" disabled selected>Business Type</option>
-                <option value="1">Category 1</option>
-                <option value="2">Category 2</option>
-                <option value="3">Category 3</option>
-              </select>
+            <option value="" disabled selected>Business Type</option>
+            <option value="1">Category 1</option>
+            <option value="2">Category 2</option>
+            <option value="3">Category 3</option>
+          </select>
           <select name="businessType">
-                <option value="" disabled selected>Business Category</option>
-                <option value="1">Type 1</option>
-                <option value="2">Type 2</option>
-                <option value="3">Type 3</option>
-              </select>
+            <option value="" disabled selected>Business Category</option>
+            <option value="1">Type 1</option>
+            <option value="2">Type 2</option>
+            <option value="3">Type 3</option>
+          </select>
         </div>
       </form>
     </div>
 
 
-    <!-- This will be on different page or view of the form, to break the sections up -->
+    <!--Each section will be on different page or view of the form, to break the sections up -->
+    <!-- PERSONAL PROPERTY -->
     <div class="section">
       <h2>Personal Property</h2>
       <form id="personal">
         <table>
           <thead>
             <tr>
-                  <th>Year Acq.</th>
-                  <th>Item Description</th>
-                  <th>Group</th>
-                  <th>Status</th>
-                  <th>Amt. Changed</th>
-                  <th>Cost</th>
-                </tr>
+              <th>Year Acq.</th>
+              <th>Item Description</th>
+              <th>Group</th>
+              <th>Status</th>
+              <th>Amt. Changed</th>
+              <th>Cost</th>
+            </tr>
           </thead>
           <tbody>
             <tr>
-                  <td><input type="text" name="yearAcquired" placeholder="2017"></td>
-                  <td><input type="text" name="itemDescription" placeholder="2017"></td>
-                  <td>
-                    <select name="group">
-                      <option value="" disabled selected>Choose Group</option>
-                      <option value="1">Machinery &amp; Equp.</option>
-                      <option value="2">Office Furniture &amp; Fix.</option>
-                      <option value="3">Computer Equip.</option>
-                      <option value="4">Other &amp; Farm Equip.</option>
-                      <option value="5">Leadhold Improv.</option>
-                      <option value="6">Rental Equip.</option>
-                      <option value="7">Heavy Equip.</option>
-                      <option value="8">Signs &amp; Billboards</option>
-                      <option value="9">Misc</option>
-                    </select>
-                  </td>
-                  <td>
-                    <select name="status">
-                      <option value="0" selected>Prior</option>
-                      <option value="1">Addition</option>
-                      <option value="2">Deletion</option>
-                    </select>
-                  </td>
-                  <td><input type="text" name="amtChanged" placeholder="-"></td>
-                  <td><input type="text" name="cost" placeholder="$0"></td>
-                </tr>
+              <td><input type="text" name="yearAcquired" placeholder="2017"></td>
+              <td><input type="text" name="itemDescription" placeholder="Item A"></td>
+              <td>
+                <select name="group">
+                  <option value="" disabled selected>Choose Group</option>
+                  <option value="1">Machinery &amp; Equp.</option>
+                  <option value="2">Office Furniture &amp; Fix.</option>
+                  <option value="3">Computer Equip.</option>
+                  <option value="4">Other &amp; Farm Equip.</option>
+                  <option value="5">Leadhold Improv.</option>
+                  <option value="6">Rental Equip.</option>
+                  <option value="7">Heavy Equip.</option>
+                  <option value="8">Signs &amp; Billboards</option>
+                  <option value="9">Misc</option>
+                </select>
+              </td>
+              <td>
+                <select name="status">
+                  <option value="0" selected>Prior</option>
+                  <option value="1">Addition</option>
+                  <option value="2">Deletion</option>
+                </select>
+              </td>
+              <td><input type="text" name="amtChanged" placeholder="-"></td>
+              <td><input type="text" name="cost" placeholder="$0"></td>
+            </tr>
             <tr>
-                  <!-- We will generate more table rows based on saved data, or when user adds a new row of inputs -->
-                </tr>
+              <!-- We will generate more table rows based on saved data, or when user adds a new row of inputs -->
+            </tr>
           </tbody>
         </table>
         <div class="addRow">
@@ -132,19 +138,91 @@ Lap 2: HTML
       </form>
     </div>
 
+    <!-- VEHICLES -->
     <div class="section">
       <h2>Vehicles</h2>
-      <!-- Will generate section the same way, mostly with javascript -->
+      <form id="vehicles">
+        <table>
+          <thead>
+            <tr>
+              <th>Year Acq.</th>
+              <th>Model Year</th>
+              <th>Make</th>
+              <th>Model</th>
+              <th>Body/Size</th>
+              <th>Title #</th>
+              <th>Vehicle ID #</th>
+              <th>Title #</th>
+              <th>Cost</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><input type="text" name="yearAcquired" placeholder="2017"></td>
+              <td><input type="text" name="modelYear" placeholder="2000"></td>
+              <td><input type="text" name="make" placeholder="Make name"></td>
+              <td><input type="text" name="model" placeholder="Model Name"></td>
+              <td><input type="text" name="bodySize" placeholder="Body type"></td>
+              <td><input type="text" name="titleNum" placeholder="55555555555 AB"></td>
+              <td><input type="text" name="vehicleId" placeholder="ABCDEFGHIJKLMNOPQ"></td>
+              <td>
+                <select name="group-vehicle">
+                  <option value="" disabled selected>Choose Group</option>
+                  <option value="1">Unreg. Motor Vehicle</option>
+                  <option value="2">Special Equip. Attach.</option>
+                  <option value="3">Aircraft</option>
+                </select>
+              </td>
+              <td><input type="text" name="cost" placeholder="$0"></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="addRow">
+          <button>Add Row</button>
+        </div>
+      </form>
+      <!-- Will generate this section the same way, mostly with javascript -->
     </div>
 
+    <!-- OTHER & SUPPLIES -->
     <div class="section">
       <h2>Other &amp; Supplies</h2>
-      <!-- Will generate section the same way, mostly with javascript -->
+      <form id="other-supplies">
+        <table>
+          <thead>
+            <tr>
+              <th>Year Acq.</th>
+              <th>Item(s) Description</th>
+              <th>Cost</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><input type="text" name="yearAcquired" placeholder="2017"></td>
+              <td><input type="text" name="itemDescription" placeholder="Items A"></td>
+              <td><input type="text" name="cost" placeholder="$0"></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="addRow">
+          <button>Add Row</button>
+        </div>
+      </form>
+      <!-- Will generate this section the same way, mostly with javascript -->
     </div>
 
+    <!-- AFFIRMATION -->
     <div class="section">
       <h2>Affirmation</h2>
-      <!-- Will generate section the same way, mostly with javascript -->
+      <form id="affirmation">
+        <table>
+          <tr>
+            <td><label>Signature<input type="text" name="signature" placeholder="Your Name"></label></td>
+          </tr>
+        </table>
+      </form>
+      <button>Submit</button>
+      <!-- We need to think about how the affirmation will look/work more so -->
     </div>
 
   </div>
