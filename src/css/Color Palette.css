@@ -1,0 +1,35 @@
+/* COLOR PALETTE */
+
+/* NOTE: do not use these css variables
+   just copy and paste the hex as needed. */
+
+:root {
+    /* Primary =========== */
+    /* =================== */
+    /* Darker */
+    --darker: #373853;
+    /* Dark */
+    --dark: #48496C;
+    /* Regular */
+    --regular: #666791;
+    /* Light */
+    --light: #B8B9D5;
+    /* Lighter */
+    --lighter: #FAF5FA;
+    /* Black */
+    --black: #323239;
+    /* Gray	*/
+    --gray: #595A6F;
+    /* Secondary ========= */
+    /* =================== */
+    /* Purple */
+    --purple: #827BCB;
+    /* Blue	*/
+    --blue: #3E8DD1;
+    /* Green */
+    --green: #3ED1AA;
+    /* Red */
+    --red: #F76644;
+    /* Yellow */
+    --yellow: #FFD41F;
+}
