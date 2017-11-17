@@ -1,10 +1,10 @@
 /* General Function - Declare/Define Section object and its Item array */
 function GeneralSection()  
 {
-    this.items;
+    this.items = [];
 
     // Each section defines its own Item type.
-    function Item(reportName, LogNumber, date, ownerName, businessAddress,
+    this.Item = function(reportName, logNumber, date, ownerName, businessAddress,
                 contactName, contactPhoneNumber, contactAddress, businessCategory,
                 businessType)
     {
@@ -20,34 +20,34 @@ function GeneralSection()
             this.businessType = businessType;
     }
 
-    function addItem(reportName, LogNumber, date, ownerName, businessAddress,
+    this.addItem  = function(reportName, logNumber, date, ownerName, businessAddress,
                 contactName, contactPhoneNumber, contactAddress, businessCategory,
                 businessType)
     {
-        if(items.length = 0)
+        if(this.items.length = 0)
         {
             /* if array is empty, create first item */
-            items[0] = new Item(reportName, LogNumber, date, ownerName, businessAddress,
+            this.items[0] = new this.Item(reportName, logNumber, date, ownerName, businessAddress,
                 contactName, contactPhoneNumber, contactAddress, businessCategory,
                 businessType);
         }
         else
         {
             /* push new items into the array */
-            let item = new Item(reportName, LogNumber, date, ownerName, businessAddress,
+            let item = new this.Item(reportName, logNumber, date, ownerName, businessAddress,
                 contactName, contactPhoneNumber, contactAddress, businessCategory,
                 businessType);
-            items.push(item);
+            this.items.push(item);
         }
     }
 }
 /* Personal Property Function */
-function personalSection()
+function PersonalSection()
 {
-    this.items;
+    this.items = [];
 
     // Each section defines its own Item type.
-    function Item(yearAcquired, itemDescription, group, statusP,
+    this.Item = function(yearAcquired, itemDescription, group, statusP,
                 amtChanged, cost)
     {
         this.yearAcquired = yearAcquired;
@@ -58,31 +58,31 @@ function personalSection()
         this.cost = cost;
     }
 
-    function addItem(yearAcquired, itemDescription, group, changeStatus,
+    this.addItem = function(yearAcquired, itemDescription, group, changeStatus,
                 amtChanged, cost)
     {
-        if(items.length == 0)
+        if(this.items.length == 0)
         {
             /* if array is empty, create first item */
-            items[0] = new Item(yearAcquired, itemDescription, group, changeStatus,
+            items[0] = new this.Item(yearAcquired, itemDescription, group, changeStatus,
                 amtChanged, cost);
         }
         else
         {
             /* push new items into the array */
-            let item = new Item(yearAcquired, itemDescription, group, changeStatus,
+            let item = new this.Item(yearAcquired, itemDescription, group, changeStatus,
                 amtChanged, cost);
-            items.push(item);
+            this.items.push(item);
         }
     }
 }
 /* Vehicle Function */
-function vehicleSection()
+function VehicleSection()
 {
-    this.items;
+    this.items = [];
 
     // Each section defines its own Item type.
-    function Item(yearAcquired, modelYear, make, bodySize, titleNum,
+    this.Item = function(yearAcquired, modelYear, make, bodySize, titleNum,
                 vehicle, group)
     {
         this.yearAcquired = yearAcquired;
@@ -94,68 +94,68 @@ function vehicleSection()
         this.group = group;
     }
 
-    function addItems(yearAcquired, modelYear, make, bodySize, titleNum,
+    this.addItems = function(yearAcquired, modelYear, make, bodySize, titleNum,
                 vehicle, group)
     {
-        if(items.length == 0)
+        if(this.items.length == 0)
         {
-            items[0] = new Item(yearAcquired, modelYear, make, bodySize, titleNum,
+            items[0] = new this.Item(yearAcquired, modelYear, make, bodySize, titleNum,
                 vehicle, group);
         }
         else
         {
-            let item = new Item(yearAcquired, modelYear, make, bodySize, titleNum,
+            let item = new this.Item(yearAcquired, modelYear, make, bodySize, titleNum,
                 vehicle, group);
-            items.push(item);
+            this.items.push(item);
         }
     }
 }
 /* Others & Supply Function */
-function otherSection()
+function OtherSection()
 {
-    this.items;
+    this.items = [];
 
     // Each section defines its own Item type.
-    function Item(yearAcquired, itemDescription, cost)
+    this.Item = function(yearAcquired, itemDescription, cost)
     {
         this.yearAcquired = yearAcquired;
         this.itemDescription = itemDescription;
         this.cost = cost;
     }
 
-    function addItem(yearAcquired, itemDescription, cost)
+    this.addItem = function(yearAcquired, itemDescription, cost)
     {
-        if(items.length == 0)
+        if(this.items.length == 0)
         {
-            items[0] = new Item(yearAcquired, itemDescription, cost);
+            items[0] = new this.Item(yearAcquired, itemDescription, cost);
         }
         else
         {
-            let item = new Item(yearAcquired, itemDescription, cost);
-            items.push(item);
+            let item = new this.Item(yearAcquired, itemDescription, cost);
+            this.items.push(item);
         }
     }
 }
 /* Affirmation Function */
-function affirmationSection()
+function AffirmationSection()
 {
-    this.items;
+    this.items = [];
 
-    function Item(signature)
+    this.Item = function(signature)
     {
         this.signature = signature;
     }
 
-    function addItem(signature)
+    this.addItem = function(signature)
     {
-        if(items.length == 0)
+        if(this.items.length == 0)
         {
-            items[0] = new Item(signature);
+            this.items[0] = new this.Item(signature);
         }
         else
         {
-            let item = new Item(signature);
-            items.push(item);
+            let item = new this.Item(signature);
+            this.items.push(item);
         }
     }
 }
@@ -169,11 +169,11 @@ function Report(name, id)
     // Initialize Report object with an array of section objects
     this.initReport = function() 
     {
-        this.general = new generalSection(0);
-        this.personal = new personalSection(1);
-        this.vehicle = new vehicleSection(2);
-        this.other = new otherSection(3);
-        this.affirmation = new affirmationSection(4);
+        this.general = new GeneralSection(0);
+        this.personal = new PersonalSection(1);
+        this.vehicle = new VehicleSection(2);
+        this.other = new OtherSection(3);
+        this.affirmation = new AffirmationSection(4);
     }
 }
 
