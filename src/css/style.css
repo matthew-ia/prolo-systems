@@ -1,22 +1,42 @@
-/* == Styles for ProLo Systems (Marathon Projects) */
+/* == Styles for ProLo Systems (Marathon Project) */
 
 html, body, ul, img {
     margin: 0;
     padding: 0;
+    color: #FAF5FA;
+}
+
+a {
+    color: #B8B9D5;
+    text-decoration: none;
+    font-weight: 500;
+    padding-right: 20px;
+    transition: 0.2s all ease-in-out;
+}
+
+a:hover {
+    color: #FAF5FA;
 }
 
 body {
     font-family: Roboto, Helvetica, Arial, sans-serif;
     font-size: 16px;
+    background-color: #595A6F;
 }
 
 h2 {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     text-transform: uppercase;
+    color: #666791;
 }
 
 th {
     font-size: 0.75rem;
+    text-align: left;
+}
+
+input::-webkit-input-placeholder, input, select, textarea {
+    font-size: 0.8rem;
 }
 
 #user-photo {
@@ -28,10 +48,12 @@ th {
 }
 
 #navbar {
-    position: relative;
-    height: 100px;
+    position: fixed;
+    top: 0;
+    height: 90px;
     width: 100%;
-    border-bottom: 1px solid red;
+    background-color: #373853;
+    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.25);
 }
 
 #nav-menu {
@@ -48,8 +70,8 @@ th {
     margin: 0;
     padding: 0;
     margin: auto;
-    padding-top: 20px;
-    padding-left: 6%;
+    padding-top: 14px;
+    padding-left: 8%;
 }
 
 #brand p {
@@ -72,8 +94,6 @@ th {
     display: inline;
 }
 
-#nav-menu li a {}
-
 #user-name {
     display: inline-block;
     margin: 0;
@@ -81,9 +101,11 @@ th {
 }
 
 .section {
-    border: 1px solid black;
-    width: 80%;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
+    width: 70%;
     margin: 10% auto;
+    background-color: #373853;
+    border-radius: 5px;
 }
 
 .section::after {
@@ -96,12 +118,182 @@ th {
     display: block;
 }
 
-.sub-section {
+#general h2 {
+    margin-bottom: 0;
+}
+
+#general, #affirmation {
+    padding: 25px;
+}
+
+#general .sub-section {
     float: left;
+    padding: 5px 14px;
+    width: 30%;
+}
+
+#general .sub-section:first-of-type {
+    padding-left: 0px;
 }
 
 .addRow {
     text-align: center;
 }
 
-.content-container {}
+#general input, #general select, #general textarea {
+    background-color: #48496C;
+    border: 2px solid #48496C;
+    margin: 14px 0px;
+    border-radius: 5px;
+    width: 90%;
+    height: 20px;
+    padding: 10px;
+}
+
+#general .select-container {
+    background-color: #48496C;
+    border: 2px solid #48496C;
+    margin: 14px 0px;
+    border-radius: 5px;
+}
+
+#general .sub-section:nth-of-type(3) {
+    width: 20%;
+}
+
+#general select {
+    width: 95%;
+}
+
+#general input[name="logNumber"] {
+    width: 20%;
+    margin: 14px 10px 0 0;
+    display: inline-block;
+}
+
+#general input[name="date"] {
+    width: 57.5%;
+    display: inline-block;
+    margin: 14px 0 0 0;
+}
+
+#general textarea {
+    resize: none;
+    margin-top: 0px;
+    height: 60px;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none !important;
+    border-bottom: 2px solid #666791;
+    transition: all 0.2s ease-in-out;
+}
+
+#general input:focus, #general select:focus, #general textarea:focus {
+    border: 2px solid #666791 !important;
+}
+
+textarea::-webkit-input-placeholder {
+    color: #B8B9D5;
+}
+
+#general select {
+    color: #B8B9D5;
+}
+
+#general input::-webkit-input-placeholder {
+    color: #B8B9D5;
+}
+
+input, select {
+    background-color: #373853;
+    border: none;
+    border-bottom: 2px solid #373853;
+    color: #FAF5FA;
+}
+
+select {
+    color: #666791;
+    -moz-appearance: none;
+}
+
+input::-webkit-input-placeholder {
+    color: #666791;
+}
+
+#general input[name="reportName"] {
+    background-color: transparent;
+    /*border: 2px solid #373853;*/
+    /*box-shadow: 2px 0 0 0 #373853;*/
+    border-radius: 0 !important;
+    border-width: 0 0 2px 0;
+    border-bottom: 2px solid #48496C;
+    font-size: 1.7rem;
+    height: 30px;
+    width: 27.5%;
+    font-weight: bold;
+}
+
+#general input[name="reportName"]::-webkit-input-placeholder {
+    font-size: 1.7rem;
+    font-weight: bold;
+}
+
+#general input[name="reportName"]:focus {
+    outline: none !important;
+    border: none !important;
+    border-bottom: 2px solid #666791 !important;
+    transition: all 0.2s ease-in-out;
+}
+
+:not(#general) .section h2 {
+    padding: 30px 0 0 20px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: fixed;
+}
+
+thead tr {
+    height: 40px;
+    background-color: #48496C;
+}
+
+thead tr th:first-of-type {
+    padding-left: 20px;
+}
+
+tbody tr td:first-child {
+    padding-left: 20px;
+}
+
+#personal th, #personal td input {
+    min-width: calc(100%/6);
+}
+
+#vehicles th, #vehicles td {
+    width: calc(100%/9);
+}
+
+.addRow {
+    height: 40px;
+    border-top: 1px solid #666791;
+    padding: 10px;
+}
+
+button {
+    background-color: #666791;
+    border: none;
+    padding: 10px;
+    color: #FAF5FA;
+}
+
+#affirmation input {
+    margin-left: 40px;
+}
+
+#affirmation button {
+    margin: 20px 0 0 20px;
+}

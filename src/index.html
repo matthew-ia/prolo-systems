@@ -3,10 +3,7 @@ Team: The Boys that are Back in Town (BoBaT)
 
 Authors: Matthew Alicea, Braxton Coats, Maximilian Finnican,
 & Guillaume Gutkin Nicolas
-
-Lap 2: HTML
 -->
-
 
 <!doctype html>
 <html lang="en">
@@ -21,35 +18,40 @@ Lap 2: HTML
 </head>
 
 <body>
-  <div id="navbar-container">
-    <!-- TODO: fix this so its fixed, but elements inside it look as they do now -->
-
-    <!-- NAVBAR MENU -->
-    <div id="navbar">
-      <div id="brand">
-        <p>ProLo Systems</p>
-      </div>
-      <nav>
-        <ul id="nav-menu">
-          <li><a href="">Reports</a></li>
-          <li><a href="">New Report</a></li>
-        </ul>
-      </nav>
-      <!-- ACCOUNT INFO -->
-      <div id="account-cluster">
-        <ul id="account">
-          <li id="user-photo">User</li>
-          <li class="dropdown-arrow">arrow</li>
-          <li id="user-name">User Name</li>
-        </ul>
-      </div>
+  <!-- NAVBAR MENU -->
+  <div id="navbar">
+    <div id="brand">
+      <img src="images/prolo-logo.png">
     </div>
+    <nav>
+      <ul id="nav-menu">
+        <li><a href="">Reports</a></li>
+        <li><a href="">New Report</a></li>
+      </ul>
+    </nav>
+    <!-- ACCOUNT CLUSTER
+    <div id="account-cluster">
+      <ul id="account">
+        <li id="user-photo">User</li>
+        <li class="dropdown-arrow">arrow</li>
+        <li id="user-name">User Name</li>
+      </ul>
+    </div>
+    -->
   </div>
 
-  <div class="content-container">
+
+  <div id="content-container">
+    <!-- NOTE: we will dynamically populate inside of this container
+         instead of having multiple pages for the report sections. Also could
+         use this same method to dynamically show the overview/review.
+
+         Essentially we want the section div to be saved as an object that we
+         can add or remove from the DOM, like the heat index table workouts -->
+
     <!-- GENERAL -->
-    <div class="section">
-      <form id="general">
+    <div class="section" id="general">
+      <form>
         <input type="text" name="reportName" placeholder="Report Name">
         <div id="general-info" class="sub-section">
           <h2>General Info</h2>
@@ -62,22 +64,26 @@ Lap 2: HTML
           <h2>Audit Contact</h2>
           <input type="text" name="contactName" placeholder="Contact Name">
           <input type="text" name="contactPhoneNumber" placeholder="Contact Phone #">
-          <textarea name="contactAddress" placeholder="Business Address"></textarea>
+          <textarea name="contactAddress" placeholder="Contact Address"></textarea>
         </div>
         <div id="classification" class="sub-section">
           <h2>Classification</h2>
-          <select name="businessCategory">
-            <option value="" disabled selected>Business Type</option>
-            <option value="1">Category 1</option>
-            <option value="2">Category 2</option>
-            <option value="3">Category 3</option>
-          </select>
-          <select name="businessType">
-            <option value="" disabled selected>Business Category</option>
-            <option value="1">Type 1</option>
-            <option value="2">Type 2</option>
-            <option value="3">Type 3</option>
-          </select>
+          <div class="select-container">
+            <select name="businessCategory">
+              <option value="" disabled selected>Business Type</option>
+              <option value="1">Category 1</option>
+              <option value="2">Category 2</option>
+              <option value="3">Category 3</option>
+            </select>
+          </div>
+          <div class="select-container">
+            <select name="businessType">
+              <option value="" disabled selected>Business Category</option>
+              <option value="1">Type 1</option>
+              <option value="2">Type 2</option>
+              <option value="3">Type 3</option>
+            </select>
+          </div>
         </div>
       </form>
     </div>
@@ -212,9 +218,9 @@ Lap 2: HTML
     </div>
 
     <!-- AFFIRMATION -->
-    <div class="section">
+    <div class="section" id="affirmation">
       <h2>Affirmation</h2>
-      <form id="affirmation">
+      <form>
         <table>
           <tr>
             <td><label>Signature<input type="text" name="signature" placeholder="Your Name"></label></td>
