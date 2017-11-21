@@ -246,8 +246,12 @@ input::-webkit-input-placeholder {
     transition: all 0.2s ease-in-out;
 }
 
-:not(#general) .section h2 {
+.section h2 {
     padding: 30px 0 0 20px;
+}
+
+#general h2 {
+    padding: 0;
 }
 
 table {
