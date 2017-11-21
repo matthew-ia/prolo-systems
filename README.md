@@ -186,3 +186,5 @@ Exporting `src` only will contain everything needed just to run site, while the 
 
 ## Attribution
 _if we use any resources to help us, list them and their links here (i.e. plugin, API, a guide that helps us do something very specific)_
+
+- [Chen Fengyuan – Datepicker JQuery plugin](https://github.com/fengyuanchen/datepicker)

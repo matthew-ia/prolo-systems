@@ -1,5 +1,9 @@
+/**
+ * Handles the object definitions for Reports so we can store/save input data 
+ */
+
 /* General Function - Declare/Define Section object and its Item array */
-function GeneralSection()  
+function GeneralSection()
 {
     this.items;
 
@@ -167,7 +171,7 @@ function Report(name, id)
     this.id = id;
 
     // Initialize Report object with an array of section objects
-    this.initReport = function() 
+    this.initReport = function()
     {
         this.general = new generalSection(0);
         this.personal = new personalSection(1);
@@ -176,4 +180,3 @@ function Report(name, id)
         this.affirmation = new affirmationSection(4);
     }
 }
-
