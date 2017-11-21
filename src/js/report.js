@@ -27,7 +27,7 @@
                  contactName, contactPhoneNumber, contactAddress, businessCategory,
                  businessType)
      {
-         if(this.items.length = 0)
+         if(this.items.length === 0)
          {
              /* if array is empty, create first item */
              this.items[0] = new this.Item(reportName, logNumber, date, ownerName, businessAddress,
@@ -64,7 +64,7 @@
      this.addItem = function(yearAcquired, itemDescription, group, changeStatus,
                  amtChanged, cost)
      {
-         if(this.items.length == 0)
+         if(this.items.length === 0)
          {
              /* if array is empty, create first item */
              items[0] = new this.Item(yearAcquired, itemDescription, group, changeStatus,
@@ -100,7 +100,7 @@
      this.addItems = function(yearAcquired, modelYear, make, bodySize, titleNum,
                  vehicle, group)
      {
-         if(this.items.length == 0)
+         if(this.items.length === 0)
          {
              items[0] = new this.Item(yearAcquired, modelYear, make, bodySize, titleNum,
                  vehicle, group);
@@ -128,7 +128,7 @@
 
      this.addItem = function(yearAcquired, itemDescription, cost)
      {
-         if(this.items.length == 0)
+         if(this.items.length === 0)
          {
              items[0] = new this.Item(yearAcquired, itemDescription, cost);
          }
@@ -151,7 +151,7 @@
 
      this.addItem = function(signature)
      {
-         if(this.items.length == 0)
+         if(this.items.length === 0)
          {
              this.items[0] = new this.Item(signature);
          }
@@ -172,10 +172,10 @@
      // Initialize Report object with an array of section objects
      this.initReport = function()
      {
-         this.general = new GeneralSection(0);
-         this.personal = new PersonalSection(1);
-         this.vehicle = new VehicleSection(2);
-         this.other = new OtherSection(3);
-         this.affirmation = new AffirmationSection(4);
+         this.general = new GeneralSection();
+         this.personal = new PersonalSection();
+         this.vehicle = new VehicleSection();
+         this.other = new OtherSection();
+         this.affirmation = new AffirmationSection();
      }
  }
