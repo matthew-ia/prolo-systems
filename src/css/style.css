@@ -30,14 +30,9 @@ h2 {
     color: #666791;
 }
 
-th {
-    font-size: 0.75rem;
-    text-align: left;
-}
-
-input::-webkit-input-placeholder, input, select, textarea {
-    font-size: 0.8rem;
-}
+/* NAVBAR
+ * ======
+ */
 
 #user-photo {
     border: 1px solid black;
@@ -100,6 +95,10 @@ input::-webkit-input-placeholder, input, select, textarea {
     padding: 0;
 }
 
+/* SECTION CLASSES
+* ======
+*/
+
 .section {
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
     width: 70%;
@@ -108,11 +107,112 @@ input::-webkit-input-placeholder, input, select, textarea {
     border-radius: 5px;
 }
 
+.section h2 {
+    padding: 30px 0 0 20px;
+}
+
 .section::after {
     content: "";
     display: block;
     clear: both;
 }
+
+.addRow {
+    height: 40px;
+    /*border-top: 1px solid #666791;*/
+    padding: 10px;
+    text-align: center;
+}
+
+button {
+    background-color: #666791;
+    border: none;
+    padding: 10px;
+    color: #FAF5FA;
+}
+
+/* INPUT, SELECT, and TEXTAREA
+ * ======
+ */
+
+input:focus, select:focus, textarea:focus {
+    outline: none !important;
+    border-bottom: 2px solid #666791;
+    transition: all 0.2s ease-in-out;
+}
+
+textarea::-webkit-input-placeholder {
+    color: #B8B9D5;
+}
+
+input, select {
+    background-color: #373853;
+    border: none;
+    border-bottom: 2px solid #373853;
+    color: #B8B9D5;
+}
+
+select {
+    color: #B8B9D5;
+    /*-webkit-appearance: none;
+    -webkit-border-radius: 0px;
+    background-image: url("data:image/svg+xml;utf8,<svg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='24' height='24' viewBox='0 0 24 24'><path fill='#444' d='M7.406 7.828l4.594 4.594 4.594-4.594 1.406 1.406-6 6-6-6z'></path></svg>");
+    background-position: 100% 50%;
+    background-repeat: no-repeat;*/
+}
+
+input::-webkit-input-placeholder {
+    color: #666791;
+}
+
+textarea {
+    color: #FAF5FA;
+}
+
+input::-webkit-input-placeholder, input, select, textarea {
+    font-size: 0.8rem;
+}
+
+input, select {
+    width: 80%;
+}
+
+/* TABLE
+ * ======
+ */
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: fixed;
+}
+
+thead tr {
+    height: 45px;
+    background-color: #48496C;
+}
+
+tbody tr {
+    height: 45px;
+    border-bottom: 1px solid #666791;
+}
+
+th {
+    font-size: 0.75rem;
+    text-align: left;
+}
+
+thead tr th:first-of-type {
+    padding-left: 20px;
+}
+
+tbody tr td:first-child {
+    padding-left: 20px;
+}
+
+/* GENEAL SECTION
+ * ======
+ */
 
 #general input, #general select {
     display: block;
@@ -134,10 +234,6 @@ input::-webkit-input-placeholder, input, select, textarea {
 
 #general .sub-section:first-of-type {
     padding-left: 0px;
-}
-
-.addRow {
-    text-align: center;
 }
 
 #general input, #general select, #general textarea {
@@ -183,18 +279,8 @@ input::-webkit-input-placeholder, input, select, textarea {
     height: 60px;
 }
 
-input:focus, select:focus, textarea:focus {
-    outline: none !important;
-    border-bottom: 2px solid #666791;
-    transition: all 0.2s ease-in-out;
-}
-
 #general input:focus, #general select:focus, #general textarea:focus {
     border: 2px solid #666791 !important;
-}
-
-textarea::-webkit-input-placeholder {
-    color: #B8B9D5;
 }
 
 #general select {
@@ -203,22 +289,6 @@ textarea::-webkit-input-placeholder {
 
 #general input::-webkit-input-placeholder {
     color: #B8B9D5;
-}
-
-input, select {
-    background-color: #373853;
-    border: none;
-    border-bottom: 2px solid #373853;
-    color: #FAF5FA;
-}
-
-select {
-    color: #666791;
-    -moz-appearance: none;
-}
-
-input::-webkit-input-placeholder {
-    color: #666791;
 }
 
 #general input[name="reportName"] {
@@ -246,53 +316,139 @@ input::-webkit-input-placeholder {
     transition: all 0.2s ease-in-out;
 }
 
-.section h2 {
-    padding: 30px 0 0 20px;
-}
-
 #general h2 {
     padding: 0;
 }
 
-table {
-    border-collapse: collapse;
-    width: 100%;
-    table-layout: fixed;
-}
+/* PERSONAL SECTION
+ * ======
+ */
 
-thead tr {
-    height: 40px;
-    background-color: #48496C;
-}
-
-thead tr th:first-of-type {
-    padding-left: 20px;
-}
-
-tbody tr td:first-child {
-    padding-left: 20px;
-}
-
-#personal th, #personal td input {
+/*
+#personal th {
     min-width: calc(100%/6);
 }
+*/
 
-#vehicles th, #vehicles td {
+/* Year Acq. */
+
+#personal th:first-of-type {
+    width: 10%;
+}
+
+/* Item Description */
+
+#personal th:nth-of-type(2) {
+    width: 25%;
+}
+
+/* Group */
+
+#personal th:nth-of-type(3) {
+    width: 15%;
+}
+
+/* Status */
+
+#personal th:nth-of-type(4) {
+    width: 10%;
+}
+
+/* Amount Changed */
+
+#personal th:nth-of-type(5) {
+    width: 15%;
+}
+
+/* Cost */
+
+#personal th:nth-of-type(6) {
+    width: 15%;
+}
+
+/* VEHICLES SECTION
+ * ======
+ */
+
+/*#vehicles th, #vehicles td {
     width: calc(100%/9);
+}*/
+
+/* Year Acq. */
+
+#vehicles th:first-of-type {
+    width: 10%;
 }
 
-.addRow {
-    height: 40px;
-    border-top: 1px solid #666791;
-    padding: 10px;
+/* Model Year */
+
+#vehicles th:nth-of-type(2) {
+    width: 5%;
 }
 
-button {
-    background-color: #666791;
-    border: none;
-    padding: 10px;
-    color: #FAF5FA;
+/* Make */
+
+#vehicles th:nth-of-type(3) {
+    width: 10%;
 }
+
+/* Model */
+
+#vehicles th:nth-of-type(4) {
+    width: 10%;
+}
+
+/* Body/Size */
+
+#vehicles th:nth-of-type(5) {
+    width: 10%;
+}
+
+/* Title # */
+
+#vehicles th:nth-of-type(6) {
+    width: 15%;
+}
+
+/* Vehicle ID # */
+
+#vehicles th:nth-of-type(7) {
+    width: 20%;
+}
+
+/* Group # */
+
+#vehicles th:nth-of-type(8) {
+    width: 10%;
+}
+
+/* Cost */
+
+#vehicles th:nth-of-type(9) {
+    width: 10%;
+}
+
+/* OTHER & SUPPLIES SECTION
+ * ======
+ */
+
+#other-supplies th:first-of-type {
+    width: 10%;
+}
+
+/* Model Year */
+
+#other-supplies th:nth-of-type(2) {
+    width: 60%;
+}
+
+#other-supplies th:nth-of-type(3) {
+    width: 10%;
+}
+
+/* AFFIRMATION SECTION
+ * ======
+ */
 
 #affirmation input {
     margin-left: 40px;
@@ -300,4 +456,8 @@ button {
 
 #affirmation button {
     margin: 20px 0 0 20px;
+}
+
+#affirmation input:nth-of-type(1) {
+    width: 40%;
 }
