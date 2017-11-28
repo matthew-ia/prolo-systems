@@ -55,8 +55,5 @@ $("#share form").append('<input type="text" placeholder="description" id="rdescr
 $("#share form").append('<input type="text" placeholder="tags" id="tags" name="routetags"/>');
 $("#share form").append('<br><input type="submit" id="savebutton" value="">');*/
 
-
-
-
 /* DATE PICKER */
 $('[data-toggle="datepicker"]').datepicker();

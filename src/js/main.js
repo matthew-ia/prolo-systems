@@ -12,7 +12,22 @@
 // function restore(oldObject, newObject) {...}
 //
 // Think about whether or not we need these exact parameters, this is just what
-// I'm thinking at the moment. 
+// I'm thinking at the moment.
+
+/* GLOBALS, GETTER, SETTER */
+// We're gonna need these to keep track of what the current report is
+// in order to save inputs to the correct report
+
+var REPORT = undefined;
+
+function setReport(report) {
+    REPORT = report;
+}
+
+function getReport() {
+    return REPORT;
+}
+
 
 // Creating Report
 console.log("Creating report...\n");
@@ -59,7 +74,7 @@ console.log("Printing restored contents...\n");
 // TODO: Can we reference a key less verbosely than this without changing the object?
 // That would be helpful when we're setting these values from user input,
 // but isn't necessarily important here
-for (i = 0; i < newReport.general.items.length; i++) {
+/*for (i = 0; i < newReport.general.items.length; i++) {
     console.log(newReport.general.items[i].reportName + " " +
                 newReport.general.items[i].logNumber + " " +
                 newReport.general.items[i].date + " " +
@@ -71,4 +86,6 @@ for (i = 0; i < newReport.general.items.length; i++) {
                 newReport.general.items[i].businessCategory + " " +
                 newReport.general.items[i].businessType +
                 "\n");
-}
+}*/
+
+setReport(newReport);
