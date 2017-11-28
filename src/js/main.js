@@ -49,6 +49,8 @@ var oldReport = JSON.parse(JSONstring);
 var newReport = new Report();
 newReport.initReport();
 newReport.general.items = oldReport.general.items;
+newReport.personal.items = oldReport.personal.items;
+console.log(newReport.personal.items);
 // initialize other section's items
 // ...
 
