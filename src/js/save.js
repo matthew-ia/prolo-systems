@@ -66,7 +66,6 @@ $('#personal input, #personal select').blur(function() {
     }
 });
 
-
 // TODO: Fix bug, still doesn't work
 $('.datepicker-panel').on('hide.datepicker', function () {
     console.log("Datepicker hide");
