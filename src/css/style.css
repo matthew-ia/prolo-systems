@@ -131,6 +131,7 @@ h2 {
     margin: 10% auto;
     background-color: #373853;
     border-radius: 5px;
+    overflow: auto;
 }
 
 .section h2 {
@@ -148,6 +149,10 @@ h2 {
     /*border-top: 1px solid #666791;*/
     padding: 10px;
     text-align: center;
+}
+
+.sub-section:first-of-type {
+    clear: left;
 }
 
 button {
@@ -337,7 +342,8 @@ tbody tr td:first-child {
 }
 
 #general h2 {
-    padding: 0;
+    padding: 30px 0 0 20px;
+    margin: 0;
 }
 
 /* PERSONAL SECTION
@@ -486,6 +492,10 @@ tbody tr td:first-child {
     margin: 0 20px 30px 20px;
 }
 
-#affirmation h2, #affirmation td:first-of-type {
-    /*padding-left: 0;*/
+#affirmation td:first-of-type {
+    padding-left: 0;
+}
+
+#affirmation {
+    padding-bottom: 20px;
 }

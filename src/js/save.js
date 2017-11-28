@@ -6,12 +6,6 @@
 //            contactName contactPhoneNumber contactAddress businessCategory
 //            businessType
 
- report.general.items[0].reportName = $('[name="reportName"]').text();
-
- function saveInput(report, sectionId, dataName, data) {
-     report.general.items[0].reportName = $('[name="reportName"]').text();
- }
-
 $('#general input, #general select, #general textarea').blur(function() {
     switch($(this).attr('name')) {
         case 'reportName':
