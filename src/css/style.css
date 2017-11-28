@@ -246,10 +246,6 @@ tbody tr td:first-child {
     margin-bottom: 0;
 }
 
-#general, #affirmation {
-    padding: 25px;
-}
-
 #general .sub-section {
     float: left;
     padding: 5px 14px;
@@ -484,4 +480,12 @@ tbody tr td:first-child {
 
 #affirmation input:nth-of-type(1) {
     width: 40%;
+}
+
+#affirmation form {
+    margin: 0 20px 30px 20px;
+}
+
+#affirmation h2, #affirmation td:first-of-type {
+    /*padding-left: 0;*/
 }
