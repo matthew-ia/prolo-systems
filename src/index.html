@@ -68,7 +68,8 @@ Authors: Matthew Alicea, Braxton Coats, Maximilian Finnican,
 
     <!-- GENERAL -->
     <div class="section" id="general">
-      <!--<form>
+      <div class="section-container">
+        <!--<form>
         <input type="text" name="reportName" placeholder="Report Name">
         <div id="general-info" class="sub-section">
           <h2>General Info</h2>
@@ -107,14 +108,15 @@ Authors: Matthew Alicea, Braxton Coats, Maximilian Finnican,
 
         </div>
       </form>-->
+      </div>
     </div>
 
 
     <!--Each section will be on different page or view of the form, to break the sections up -->
     <!-- PERSONAL PROPERTY -->
-    <div class="section">
+    <div class="section" id="personal">
       <h2>Personal Property</h2>
-      <form id="personal">
+      <form>
         <table>
           <thead>
             <tr>
@@ -127,7 +129,7 @@ Authors: Matthew Alicea, Braxton Coats, Maximilian Finnican,
             </tr>
           </thead>
           <tbody>
-            <tr>
+            <tr id="1-0">
               <td><input type="text" name="yearAcquired" placeholder="2017"></td>
               <td><input type="text" name="itemDescription" placeholder="Item A"></td>
               <td>
@@ -154,7 +156,7 @@ Authors: Matthew Alicea, Braxton Coats, Maximilian Finnican,
               <td><input type="text" name="amtChanged" placeholder="-"></td>
               <td><input type="text" name="cost" placeholder="$0"></td>
             </tr>
-            <tr>
+            <tr id="1-1">
               <!-- We will generate more table rows based on saved data, or when user adds a new row of inputs -->
             </tr>
           </tbody>
@@ -166,9 +168,9 @@ Authors: Matthew Alicea, Braxton Coats, Maximilian Finnican,
     </div>
 
     <!-- VEHICLES -->
-    <div class="section">
+    <div class="section" id="vehicles">
       <h2>Vehicles</h2>
-      <form id="vehicles">
+      <form>
         <table>
           <thead>
             <tr>
@@ -212,9 +214,9 @@ Authors: Matthew Alicea, Braxton Coats, Maximilian Finnican,
     </div>
 
     <!-- OTHER & SUPPLIES -->
-    <div class="section">
+    <div class="section" id="other-supplies">
       <h2>Other &amp; Supplies</h2>
-      <form id="other-supplies">
+      <form>
         <table>
           <thead>
             <tr>
@@ -240,18 +242,19 @@ Authors: Matthew Alicea, Braxton Coats, Maximilian Finnican,
 
     <!-- AFFIRMATION -->
     <div class="section" id="affirmation">
-      <h2>Affirmation</h2>
-      <form>
-        <table>
-          <tr>
+      <div class="section-container">
+        <h2>Affirmation</h2>
+        <form>
+          <table>
+            <tr>
             <td><label>Signature<input type="text" name="signature" placeholder="Your Name"></label></td>
           </tr>
-        </table>
-      </form>
-      <button>Submit</button>
-      <!-- We need to think about how the affirmation will look/work more so -->
+          </table>
+        </form>
+        <button>Submit</button>
+        <!-- We need to think about how the affirmation will look/work more so -->
+      </div>
     </div>
-
   </div>
   <!-- END content-container -->
   <script src="js/report.js"></script>

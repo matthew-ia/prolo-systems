@@ -56,7 +56,7 @@
          this.yearAcquired = yearAcquired;
          this.itemDescription = itemDescription;
          this.group = group;
-         this.statusP = statusP;
+         this.status = status;
          this.amtChanged = amtChanged;
          this.cost = cost;
      }

@@ -54,7 +54,7 @@ store(report);
 
 console.log("Restoring report...\n");
 // function restore(clickedReportFromList)
-/*For getItem(****) <- the parameter needs to be 
+/*For getItem(****) <- the parameter needs to be
  * the report selected from the report list.*/
 var JSONstring = localStorage.getItem('Report1');
 var oldReport = JSON.parse(JSONstring);
@@ -99,12 +99,9 @@ console.log("Printing restored contents...\n");
                 newReport.general.items[i].businessCategory + " " +
                 newReport.general.items[i].businessType +
                 "\n");
-<<<<<<< HEAD
 }
 
 console.log(newReport);
-=======
 }*/
 
 setReport(newReport);
->>>>>>> 9493b76cd6b9e08db168f08586f37a5e45bd27a4
