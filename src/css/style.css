@@ -6,6 +6,16 @@ html, body, ul, img {
     color: #FAF5FA;
 }
 
+body {
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    background-color: #595A6F;
+}
+
+textarea, input, select {
+    font-family: inherit;
+}
+
 a {
     color: #B8B9D5;
     text-decoration: none;
@@ -16,12 +26,6 @@ a {
 
 a:hover {
     color: #FAF5FA;
-}
-
-body {
-    font-family: Roboto, Helvetica, Arial, sans-serif;
-    font-size: 16px;
-    background-color: #595A6F;
 }
 
 h2 {
@@ -95,6 +99,28 @@ h2 {
     padding: 0;
 }
 
+/* SIDEBAR
+* ======
+*/
+
+#sidebar {
+    position: fixed;
+    top: 120;
+    right: 0;
+    padding-right: 20px;
+}
+
+#sidebar ul {
+    font-size: 14px;
+    list-style: none;
+    color: #FAF5FA;
+    text-align: right;
+}
+
+#sidebar ul li {
+    padding-bottom: 5px;
+}
+
 /* SECTION CLASSES
 * ======
 */
@@ -141,15 +167,16 @@ input:focus, select:focus, textarea:focus {
     transition: all 0.2s ease-in-out;
 }
 
-textarea::-webkit-input-placeholder {
-    color: #B8B9D5;
-}
-
 input, select {
     background-color: #373853;
     border: none;
     border-bottom: 2px solid #373853;
-    color: #B8B9D5;
+    width: 80%;
+    color: #FAF5FA;
+}
+
+textarea {
+    color: #FAF5FA;
 }
 
 select {
@@ -162,19 +189,16 @@ select {
 }
 
 input::-webkit-input-placeholder {
-    color: #666791;
+    /*color: #666791;*/
+    color: #B8B9D5;
 }
 
-textarea {
-    color: #FAF5FA;
+textarea::-webkit-input-placeholder {
+    color: #B8B9D5;
 }
 
 input::-webkit-input-placeholder, input, select, textarea {
     font-size: 0.8rem;
-}
-
-input, select {
-    width: 80%;
 }
 
 /* TABLE

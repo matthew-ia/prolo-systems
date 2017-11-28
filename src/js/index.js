@@ -30,21 +30,23 @@ function generalTable() {
 
   //creates select-container class
   $('#classification').append('<div class="select-container"></div>');
-  $('.select-container').append('<select name="businessCategory">' +
+  $('.select-container:first-of-type').append('<select name="businessType">' +
                                 '<option value="" disabled selected>Business Type</option>' +
-                                '<option value="1">Category 1</option>' +
-                                '<option value="2">Category 2</option>' +
-                                '<option value="3">Category 3</option>' +
-                                '</select>');
-
-  //creates select-container section of general table
-  $('#classification').append('<div class="select-container"></div>');
-  $('.select-container').append('<select name="businessType">' +
-                                '<option value="" disabled selected>Business Category</option>' +
                                 '<option value="1">Type 1</option>' +
                                 '<option value="2">Type 2</option>' +
                                 '<option value="3">Type 3</option>' +
                                 '</select>');
+                                console.log("business type made");
+
+  //creates select-container section of general table
+  $('#classification').append('<div class="select-container"></div>');
+  $('.select-container:nth-of-type(2)').append('<select name="businessCategory">' +
+                                '<option value="" disabled selected>Business Category</option>' +
+                                '<option value="1">Category 1</option>' +
+                                '<option value="2">Category 2</option>' +
+                                '<option value="3">Category 3</option>' +
+                                '</select>');
+                                console.log("business category made");
 }
 
 $("#content-container").append(generalTable());
@@ -55,8 +57,15 @@ $("#share form").append('<input type="text" placeholder="description" id="rdescr
 $("#share form").append('<input type="text" placeholder="tags" id="tags" name="routetags"/>');
 $("#share form").append('<br><input type="submit" id="savebutton" value="">');*/
 
-
-
-
 /* DATE PICKER */
 $('[data-toggle="datepicker"]').datepicker();
+
+/* SIDEBAR JUMP MENU */
+var offset = -160;
+var scrollTime = 500;
+
+$('a[href^="#"]').click(function() {
+    $("html, body").animate({
+        scrollTop: $( $(this).attr("href") ).offset().top + offset
+    }, scrollTime);
+});
