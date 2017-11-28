@@ -9,7 +9,7 @@
 $('#general input, #general select, #general textarea').blur(function() {
     switch($(this).attr('name')) {
         case 'reportName':
-            REPORT.reportName = $(this).val();
+            $(this).val() = REPORT.reportName;
             REPORT.general.items[0].reportName = REPORT.reportName;
             break;
         case 'logNumber':
