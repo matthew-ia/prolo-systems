@@ -6,16 +6,10 @@
 //            contactName contactPhoneNumber contactAddress businessCategory
 //            businessType
 
- report.general.items[0].reportName = $('[name="reportName"]').text();
-
- function saveInput(report, sectionId, dataName, data) {
-     report.general.items[0].reportName = $('[name="reportName"]').text();
- }
-
 $('#general input, #general select, #general textarea').blur(function() {
     switch($(this).attr('name')) {
         case 'reportName':
-            REPORT.reportName = $(this).val();
+            $(this).val() = REPORT.reportName;
             REPORT.general.items[0].reportName = REPORT.reportName;
             break;
         case 'logNumber':
@@ -53,11 +47,24 @@ $('#general input, #general select, #general textarea').blur(function() {
 //yearAcquired, itemDescription, group, statusP,
 //            amtChanged, cost
 $('#personal input, #personal select').blur(function() {
+    let parents = $(this).parents();
+    var rowId = undefined;
+    for (i = 0; i < parents.length; i++) {
+        if($(parents[i]).is('tr')) {
+            rowId = $(parents[i]).attr('id');
+            rowId = rowId.split("-").pop();
+            console.log(rowId);
+        }
+    }
+    if (rowId == undefined) {console.log("Invalid rowId...exiting."); return;}
     switch($(this).attr('name')) {
         case 'yearAcquired':
+            console.log(REPORT.personal);
             REPORT.personal.items[0].yearAcquired = $(this).val();
+            console.log($(this).val());
             break;
-        case 'logNumber':
+    }
+});
 
 
 // TODO: Fix bug, still doesn't work

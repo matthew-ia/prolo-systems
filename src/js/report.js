@@ -56,7 +56,7 @@
          this.yearAcquired = yearAcquired;
          this.itemDescription = itemDescription;
          this.group = group;
-         this.statusP = statusP;
+         this.status = status;
          this.amtChanged = amtChanged;
          this.cost = cost;
      }
@@ -67,7 +67,7 @@
          if(this.items.length === 0)
          {
              /* if array is empty, create first item */
-             items[0] = new this.Item(yearAcquired, itemDescription, group, changeStatus,
+             this.items[0] = new this.Item(yearAcquired, itemDescription, group, changeStatus,
                  amtChanged, cost);
          }
          else
