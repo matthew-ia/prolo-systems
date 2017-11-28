@@ -60,12 +60,11 @@ $('#personal input, #personal select').blur(function() {
     switch($(this).attr('name')) {
         case 'yearAcquired':
             console.log(REPORT.personal);
-            REPORT.personal.items[0].yearAcquired = $(this).val();
+            REPORT.personal.items[rowId].yearAcquired = $(this).val();
             console.log($(this).val());
             break;
     }
 });
-
 
 // TODO: Fix bug, still doesn't work
 $('.datepicker-panel').on('hide.datepicker', function () {

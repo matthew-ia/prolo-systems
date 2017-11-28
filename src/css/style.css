@@ -152,7 +152,7 @@ h2 {
 }
 
 .sub-section:first-of-type {
-    clear: left;
+    margin: 0 0 20px 30px;
 }
 
 button {
@@ -247,6 +247,10 @@ tbody tr td:first-child {
     display: block;
 }
 
+#general input[name="reportName"] {
+    margin: 30px 0 0 20px;
+}
+
 #general h2 {
     padding-left: 0;
     margin-left: 0;
@@ -258,8 +262,8 @@ tbody tr td:first-child {
     width: 30%;
 }
 
-#general .sub-section:first-of-type {
-    padding-left: 0px;
+#general .sub-section:first-of-type h2 {
+    margin-bottom: 0;
 }
 
 #general input, #general select, #general textarea {
