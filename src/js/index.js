@@ -59,3 +59,13 @@ $("#share form").append('<br><input type="submit" id="savebutton" value="">');*/
 
 /* DATE PICKER */
 $('[data-toggle="datepicker"]').datepicker();
+
+/* SIDEBAR JUMP MENU */
+var offset = -160;
+var scrollTime = 500;
+
+$('a[href^="#"]').click(function() {
+    $("html, body").animate({
+        scrollTop: $( $(this).attr("href") ).offset().top + offset
+    }, scrollTime);
+});
