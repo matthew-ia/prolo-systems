@@ -50,12 +50,6 @@ function generalTable() {
 }
 
 $("#content-container").append(generalTable());
-/*$("#share").append('<form action="sharer.php" method="POST">');
-$("#share form").append('<div class="appm">Save this</div>');
-$("#share form").append('<input type="text" placeholder="Name" name="routename" id="rname"/>');
-$("#share form").append('<input type="text" placeholder="description" id="rdescription" name="routedescription" class="address"/>');
-$("#share form").append('<input type="text" placeholder="tags" id="tags" name="routetags"/>');
-$("#share form").append('<br><input type="submit" id="savebutton" value="">');*/
 
 /* DATE PICKER */
 $('[data-toggle="datepicker"]').datepicker();
