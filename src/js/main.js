@@ -17,7 +17,7 @@
 /* GLOBALS, GETTER, SETTER */
 // We're gonna need these to keep track of what the current report is
 // in order to save inputs to the correct report
-
+var REPORTLIST = [];
 var REPORT = undefined;
 
 function setReport(report) {
@@ -26,6 +26,11 @@ function setReport(report) {
 
 function getReport() {
     return REPORT;
+}
+
+function addReport(name, id) {
+  var report = new Report(name, id);
+  REPORTLIST.push(report);
 }
 
 
@@ -103,5 +108,21 @@ console.log("Printing restored contents...\n");
 
 console.log(newReport);
 }*/
+
+
+//test Reports
+addReport('test1', 12);
+addReport('test2', 13);
+addReport('test3', 14);
+//displays reports
+
+for(var i = 0; i < REPORTLIST.length; i++)
+{
+    var nameListItem = "<li>";
+    nameListItem += REPORTLIST[i].reportName + "</li>";
+    $('#reportList ul').append('<li>' +
+                    REPORTLIST[i].reportName +
+                    '</li>');
+}
 
 setReport(newReport);

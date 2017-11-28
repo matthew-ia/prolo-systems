@@ -1,0 +1,86 @@
+
+<!--
+Team: The Boys that are Back in Town (BoBaT)
+
+Authors: Matthew Alicea, Braxton Coats, Maximilian Finnican,
+& Guillaume Gutkin Nicolas
+-->
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ProLo Systems</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <!-- Datepicker JQuery plugin -->
+  <link href="plugins/datepicker/datepicker.css" rel="stylesheet">
+  <script src="plugins/datepicker/datepicker.min.js"></script>
+
+  <!-- Main Styles -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <!-- NAVBAR MENU -->
+  <div id="navbar">
+    <div id="brand">
+      <img src="images/prolo-logo.png">
+    </div>
+    <nav>
+      <ul id="nav-menu">
+        <li><a href="">Reports</a></li>
+        <li><a href="">New Report</a></li>
+      </ul>
+    </nav>
+    <!-- ACCOUNT CLUSTER
+    <div id="account-cluster">
+      <ul id="account">
+        <li id="user-photo">User</li>
+        <li class="dropdown-arrow">arrow</li>
+        <li id="user-name">User Name</li>
+      </ul>
+    </div>
+    -->
+  </div>
+  <div id="sidebar">
+    <ul>
+      <li><a href="#general">General</a></li>
+      <li><a href="#personal">Personal</a></li>
+      <li><a href="#vehicles">Vehicles</a></li>
+      <li><a href="#other-supplies">Other & Supplies</a></li>
+      <li><a href="#affirmation">Affirmation</a></li>
+      <li><a href="#">Back to top</a></li>
+    </ul>
+  </div>
+
+
+  <div id="content-container">
+    <!-- NOTE: we will dynamically populate inside of this container
+         instead of having multiple pages for the report sections. Also could
+         use this same method to dynamically show the overview/review.
+
+         Essentially we want the section div to be saved as an object that we
+         can add or remove from the DOM, like the heat index table workouts -->
+
+    <!-- GENERAL -->
+    <div class="section" id="reportList">
+      <h2>Report List</h2>
+      <ul>
+
+      </ul>
+    </div>
+
+  </div>
+  <!-- END content-container -->
+  <script src="js/report.js"></script>
+  <script src="js/index.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/save.js"></script>
+</body>
+
+</html>
