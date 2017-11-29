@@ -6,14 +6,14 @@ First, some updates:
 
 
 
-###addReport()
+### addReport()
 
 ~~This just needs create a new report object, and add it to REPORTLIST~~
 *Pretty sure this is done.*
 
 
 
-###addRow()
+### addRow()
 
 This needs to work similarly to the way addItem works, but for the front end. It needs to create a new table row, and populate it with the correct data cells.  `addRow()` will need to be called when:
 
@@ -23,7 +23,7 @@ This needs to work similarly to the way addItem works, but for the front end. It
 
 
 
-###click listener for load(...)
+### click listener for load(...)
 
 The report list items (see below) need to have a click listener to fire `load(...)`
 
