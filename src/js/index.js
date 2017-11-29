@@ -63,7 +63,7 @@ function personalPropertyTable() {
                               '<th>Cost</th>' +
                               '</tr>');
   $('#personal table').append('<tbody></tbody>');
-  $('#personal tbody').append('<tr>' +
+  $('#personal tbody').append('<tr id="1-0">' +
                               '<td><input type="text" name="yearAcquired" placeholder="2017"></td>' +
                               '<td><input type="text" name="itemDescription" placeholder="Item A"></td>' +
                               '<td>' +
@@ -112,7 +112,7 @@ function vehiclesTable() {
                               '<th>Cost</th>' +
                               '</tr>');
   $('#vehicles table').append('<tbody></tbody>');
-  $('#vehicles tbody').append('<tr>' +
+  $('#vehicles tbody').append('<tr id="2-0">' +
                               '<td><input type="text" name="yearAcquired" placeholder="2017"></td>' +
                               '<td><input type="text" name="modelYear" placeholder="2000"></td>' +
                               '<td><input type="text" name="make" placeholder="Make name"></td>' +
@@ -146,7 +146,7 @@ function otherSuppliesTable(){
                                     '<th>Cost</th>' +
                                     '</tr>');
   $('#other-supplies table').append('<tbody></tbody>');
-  $('#other-supplies tbody').append('<tr>' +
+  $('#other-supplies tbody').append('<tr id="3-0">' +
                                     '<td><input type="text" name="yearAcquired" placeholder="2017"></td>' +
                                     '<td><input type="text" name="itemDescription" placeholder="Items A"></td>' +
                                     '<td><input type="text" name="cost" placeholder="$0"></td>' +

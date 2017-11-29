@@ -85,30 +85,32 @@
      this.items = [];
 
      // Each section defines its own Item type.
-     this.Item = function(yearAcquired, modelYear, make, bodySize, titleNum,
-                 vehicle, group)
+     this.Item = function(yearAcquired, modelYear, make, model, bodySize, titleNum,
+        vehicleId, group, cost)
      {
          this.yearAcquired = yearAcquired;
          this.modelYear = modelYear;
          this.make = make;
+         this.make = model;
          this.bodySize = bodySize;
          this.titleNum = titleNum;
-         this.vehicle = vehicle;
+         this.vehicleId = vehicleId;
          this.group = group;
+         this.cost = cost;
      }
 
-     this.addItems = function(yearAcquired, modelYear, make, bodySize, titleNum,
-                 vehicle, group)
+     this.addItem = function(yearAcquired, modelYear, make, model, bodySize, titleNum,
+        vehicleId, group, cost)
      {
          if(this.items.length === 0)
          {
-             items[0] = new this.Item(yearAcquired, modelYear, make, bodySize, titleNum,
-                 vehicle, group);
+             this.items[0] = new this.Item(yearAcquired, modelYear, make, model, bodySize, titleNum,
+                vehicleId, group, cost);
          }
          else
          {
-             let item = new this.Item(yearAcquired, modelYear, make, bodySize, titleNum,
-                 vehicle, group);
+             let item = new this.Item(yearAcquired, modelYear, make, model, bodySize, titleNum,
+                vehicleId, group, cost);
              this.items.push(item);
          }
      }
@@ -130,7 +132,7 @@
      {
          if(this.items.length === 0)
          {
-             items[0] = new this.Item(yearAcquired, itemDescription, cost);
+             this.items[0] = new this.Item(yearAcquired, itemDescription, cost);
          }
          else
          {

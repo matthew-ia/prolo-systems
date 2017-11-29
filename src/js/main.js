@@ -65,6 +65,7 @@ var JSONstring = localStorage.getItem('Report1');
 var oldReport = JSON.parse(JSONstring);
 var newReport = new Report();
 newReport.initReport();
+console.log(newReport);
 newReport.general.items = oldReport.general.items;
 newReport.personal.items = oldReport.personal.items;
 // initialize other section's items
@@ -84,7 +85,7 @@ newReport.personal.items = oldReport.personal.items;
 newReport.general.addItem("My Report 2", 2, "02/02/2017", "Jimmy John", "ABC Street",
     "Nancy John", "555-555-4567", "XYZ Drive", 2, 3);
 
-console.log("Printing restored contents...\n");
+//console.log("Printing restored contents...\n");
 
 // This is just for testing, we want to print all the data member values
 // from both the Item we restored, and the new one we added
@@ -126,3 +127,9 @@ for(var i = 0; i < REPORTLIST.length; i++)
 }
 
 setReport(newReport);
+
+// If a new report is made, initialize 1 item for each Section
+REPORT.personal.addItem();
+REPORT.vehicle.addItem(undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined);
+REPORT.other.addItem(undefined, undefined, undefined);
+REPORT.affirmation.addItem(undefined);
