@@ -5,13 +5,9 @@ First, some updates:
   - this needs to also load in reports from localStorage (or maybe we just store the entire array, and then restore it, *then* restore each report object)
 
 
-### addReport()
-
-~~This just needs create a new report object, and add it to REPORTLIST~~
-*Pretty sure this is done.*
 
 
-### addRow()
+###addRow()
 
 This needs to work similarly to the way addItem works, but for the front end. It needs to create a new table row, and populate it with the correct data cells.  `addRow()` will need to be called when:
 
@@ -20,8 +16,9 @@ This needs to work similarly to the way addItem works, but for the front end. It
   - that means load needs to work dynamically for all rows of each section (excluding General and Affirmation; these sections are single row)
 
 
-### click listener for load(...)
 
+
+###click listener for load(...)
 
 The report list items (see below) need to have a click listener to fire `load(...)`
 
@@ -59,6 +56,14 @@ We need the ability to also create a new report from an old one. This functional
 
 
 
+### save()
+
+[DONE] ~~Needs to save each user input (and select, textarea) to the current report object.~~
+
+Need to also make sure the group select value is being handled properly. They have values 0-n, not the text that appears for user. Should work, but need to make sure.
+
+
+
 ### removeReport()
 
 Not priority, but should have implement it if we have time. Can just have a delete button on the Reports page.
@@ -71,15 +76,13 @@ So when you select a date via the datepicker, it will only be saved on the secon
 
 
 
+### Affirmation Section
+
+I don't think Affirmation has all the things it needs. We need to look at the original document Russell posted.
+
+
+
 ### addReport()
 
-~~This just needs create a new report object, and add it to REPORTLIST~~
+[DONE] ~~This just needs create a new report object, and add it to REPORTLIST~~
 *Pretty sure this is done.*
-
-
-
-### save()
-
-~~Needs to save each user input (and select, textarea) to the current report object.~~
-
-*Done.*

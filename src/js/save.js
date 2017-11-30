@@ -2,10 +2,13 @@
  * Handles saving input to the report object
  */
 
-//reportName logNumber date ownerName businessAddress
-//            contactName contactPhoneNumber contactAddress businessCategory
-//            businessType
+/* jQuery Action Listeners
+ * All input/select/textarea fields are handled by an ActionListener
+ * that updates the report object data members on blur
+ */
 
+
+// General section
 $('#general input, #general select, #general textarea').blur(function() {
     switch($(this).attr('name')) {
         case 'reportName':
@@ -44,8 +47,7 @@ $('#general input, #general select, #general textarea').blur(function() {
     }
 });
 
-//yearAcquired, itemDescription, group, status,
-//            amtChanged, cost
+// Personal Property section
 $('#personal input, #personal select').blur(function() {
     let parents = $(this).parents();
     var rowId = undefined;
@@ -79,6 +81,7 @@ $('#personal input, #personal select').blur(function() {
     }
 });
 
+// Vehicles section
 $('#vehicles input, #vehicles select').blur(function() {
     let parents = $(this).parents();
     var rowId = undefined;
@@ -121,6 +124,7 @@ $('#vehicles input, #vehicles select').blur(function() {
     }
 });
 
+// Other & Supplies section
 $('#other-supplies input, #other-supplies select').blur(function() {
     let parents = $(this).parents();
     var rowId = undefined;
@@ -145,7 +149,7 @@ $('#other-supplies input, #other-supplies select').blur(function() {
     }
 });
 
-$('#other-supplies input, #other-supplies select').blur(function() {
+$('#affirmation input, #affirmation select').blur(function() {
     switch($(this).attr('name')) {
         case 'signature':
             REPORT.other.items[0].signature = $(this).val();
@@ -153,7 +157,41 @@ $('#other-supplies input, #other-supplies select').blur(function() {
     }
 });
 
-// Need to do a preliminary save of items that may have valid defaults (status),
+
+function manualSave() {
+    // Save all inputs/selects/textareas
+
+    // General
+    REPORT.general.items[0].reportName = $('#general [name="signature"]').val();
+    REPORT.general.items[0].logNumber = $('#general [name="logNumber"]').val();
+    REPORT.general.items[0].ownerName = $('#general [name="ownerName"]').val();
+    REPORT.general.items[0].businessAddress = $('#general [name="ownerName"]').val();
+    REPORT.general.items[0].contactName = $('#general [name="contactName"]').val();
+    REPORT.general.items[0].contactName = $('#general [name="contactName"]').val();
+    REPORT.general.items[0].contactName = $('#general [name="contactName"]').val();
+    
+    //...
+
+    // Personal Property
+    // NOTE: Gonna have to do some row iteration to get all inputs for all rows (aka Items)
+    // ...
+
+    // Vehicles
+    // NOTE: Gonna have to do some row iteration to get all inputs for all rows (aka Items)
+    // ...
+
+    // Other & supplies
+    // NOTE: Gonna have to do some row iteration to get all inputs for all rows (aka Items)
+    // ...
+
+    // Affirmation
+    REPORT.other.items[0].signature = $('[name="signature"]').val();
+}
+
+// TODO: ActionListener for a save button
+
+
+// TODO: Need to do a preliminary save of items that may have valid defaults (status),
 // or change them to have invalid defaults
 
 
