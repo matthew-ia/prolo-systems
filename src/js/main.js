@@ -126,10 +126,5 @@ for(var i = 0; i < REPORTLIST.length; i++)
                     '</li>');
 }
 
+// TODO: delete; this is just for testing
 setReport(newReport);
-
-// If a new report is made, initialize 1 item for each Section
-REPORT.personal.addItem();
-REPORT.vehicle.addItem(undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined);
-REPORT.other.addItem(undefined, undefined, undefined);
-REPORT.affirmation.addItem(undefined);

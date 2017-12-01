@@ -48,7 +48,7 @@ So the tricky thing here is the fact that we need all the code in `index.js` to 
 
 We need the `status` (in Personal Property) to change to "prior" if we're loading from a previously created report, to make a new one. This could be handled with a `changeStatus` function, and a second parameter for load, such as: `load(reportName, isNew)` where `isNew` is a boolean set to true if we're creating a new report *from* an old one, and false if we're just loading to view an old one.
 
-
+All input values are initializing their respective data members to blanks or undefined. This should be fixed by properly loading in data. 
 
 ### Create new from old on Reports page
 

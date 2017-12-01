@@ -159,7 +159,11 @@ $('#affirmation input, #affirmation select').blur(function() {
 
 
 function manualSave() {
+
     // Save all inputs/selects/textareas
+
+    // For the sections with multiple items
+    var rowIdLast = 0;
 
     // General
     REPORT.general.items[0].reportName = $('#general [name="signature"]').val();
@@ -167,22 +171,48 @@ function manualSave() {
     REPORT.general.items[0].ownerName = $('#general [name="ownerName"]').val();
     REPORT.general.items[0].businessAddress = $('#general [name="ownerName"]').val();
     REPORT.general.items[0].contactName = $('#general [name="contactName"]').val();
-    REPORT.general.items[0].contactName = $('#general [name="contactName"]').val();
-    REPORT.general.items[0].contactName = $('#general [name="contactName"]').val();
-    
+    REPORT.general.items[0].contactPhoneNumber = $('#general [name="contactPhoneNumber"]').val();
+    REPORT.general.items[0].contactAddress = $('#general [name="contactAddress"]').val();
+    REPORT.general.items[0].businessType = $('#general [name="businessType"]').val();
+    REPORT.general.items[0].businessCategory = $('#general [name="businessCategory"]').val();
+
     //...
 
     // Personal Property
-    // NOTE: Gonna have to do some row iteration to get all inputs for all rows (aka Items)
-    // ...
+    rowIdLast = $('#personal tr').last().attr('id');
+    rowIdLast = rowIdLast.split("-").pop();
+    for (i = 0; i <= rowIdLast; i++) {
+        REPORT.personal.items[i].yearAcquired = $('#personal [name="yearAcquired"]').val();
+        REPORT.personal.items[i].itemDescription = $('#personal [name="itemDescription"]').val();
+        REPORT.personal.items[i].group = $('#personal [name="group"]').val();
+        REPORT.personal.items[i].status = $('#personal [name="status"]').val();
+        REPORT.personal.items[i].amtChanged = $('#personal [name="amtChanged"]').val();
+        REPORT.personal.items[i].cost = $('#personal [name="cost"]').val();
+    }
 
     // Vehicles
-    // NOTE: Gonna have to do some row iteration to get all inputs for all rows (aka Items)
-    // ...
+    rowIdLast = $('#vehicles tr').last().attr('id');
+    rowIdLast = rowIdLast.split("-").pop();
+    for (i = 0; i <= rowIdLast; i++) {
+        REPORT.vehicle.items[i].yearAcquired = $('#vehicles [name="yearAcquired"]').val();
+        REPORT.vehicle.items[i].modelYear = $('#vehicles [name="modelYear"]').val();
+        REPORT.vehicle.items[i].make = $('#vehicles [name="make"]').val();
+        REPORT.vehicle.items[i].model = $('#vehicles [name="model"]').val();
+        REPORT.vehicle.items[i].bodySize = $('#vehicles [name="bodySize"]').val();
+        REPORT.vehicle.items[i].titleNum = $('#vehicles [name="titleNum"]').val();
+        REPORT.vehicle.items[i].vehicleId = $('#vehicles [name="vehicleId"]').val();
+        REPORT.vehicle.items[i].group = $('#vehicles [name="group"]').val();
+        REPORT.vehicle.items[i].cost = $('#vehicles [name="cost"]').val();
+    }
 
     // Other & supplies
-    // NOTE: Gonna have to do some row iteration to get all inputs for all rows (aka Items)
-    // ...
+    rowIdLast = $('#other-supplies tr').last().attr('id');
+    rowIdLast = rowIdLast.split("-").pop();
+    for (i = 0; i <= rowIdLast; i++) {
+        REPORT.other.items[i].yearAcquired = $('#other-supplies [name="yearAcquired"]').val();
+        REPORT.other.items[i].itemDescription = $('#other-supplies [name="itemDescription"]').val();
+        REPORT.other.items[i].cost = $('#other-supplies [name="cost"]').val();
+    }
 
     // Affirmation
     REPORT.other.items[0].signature = $('[name="signature"]').val();

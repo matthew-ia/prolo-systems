@@ -174,10 +174,22 @@
      // Initialize Report object with an array of section objects
      this.initReport = function()
      {
+         // Initialize all sections with respective object constructors
          this.general = new GeneralSection();
          this.personal = new PersonalSection();
          this.vehicle = new VehicleSection();
          this.other = new OtherSection();
          this.affirmation = new AffirmationSection();
+
+         // Initialize all sections to have one Item
+         this.general.addItem();
+         this.personal.addItem();
+         this.vehicle.addItem();
+         this.other.addItem();
+         this.affirmation.addItem();
+
+         // Transfer reportName and id down to general section
+         this.general.items[0].reportName = this.reportName;
+         this.general.items[0].logNumber = this.id;
      }
  }
