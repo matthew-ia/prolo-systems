@@ -20,111 +20,86 @@
 var REPORTLIST = [];
 var REPORT = undefined;
 
+// Function to set a report to a report list object
 function setReport(report) {
     REPORT = report;
 }
 
+// Function to retrieve a past report
 function getReport() {
     return REPORT;
 }
 
+// Function to add a report to the reportlist array
 function addReport(name, id) {
-  var report = new Report(name, id);
-  REPORTLIST.push(report);
+    var report = new Report(name, id);
+    report.initReport();
+    REPORTLIST.push(report);
 }
 
-
-// Creating Report
-console.log("Creating report...\n");
-var report = new Report("My Report");
-report.initReport();
-
-// This would be created from user input,
-// but for this test I'm manually creating it here
-report.general.addItem("My Report 1", 1, "01/01/2017", "Jane Doe", "123 Street",
-    "John Doe", "555-555-1234", "456 Drive", 1, 2);
-report.personal.addItem("Year Acq", "Item Description", "Group", "Status", "Amt. Changed",
-    "Cost");
-var i = 0;
-function store(currentObject)
-{
-    var reportName = "Report" + i;
-    console.log("Storing " + i + "th Report...\n");
-    localStorage.setItem(reportName, JSON.stringify(currentObject));
-    i++;
-}
-// Storing Report in localStorage
-console.log("Storing report...\n");
-store(report);
-
-console.log("Restoring report...\n");
-// function restore(clickedReportFromList)
-/*For getItem(****) <- the parameter needs to be
- * the report selected from the report list.*/
-var JSONstring = localStorage.getItem('Report1');
-var oldReport = JSON.parse(JSONstring);
-var newReport = new Report();
-newReport.initReport();
-console.log(newReport);
-newReport.general.items = oldReport.general.items;
-newReport.personal.items = oldReport.personal.items;
-// initialize other section's items
-// ...
-
-// If you try the following code, you'll see in the console that addItem() doesn't exist
-// in the context of the OLD object (that had its data members restored via string):
-
-// oldReport.general.addItems("My Report 2", 2, "02/02/2017", "Jimmy John", "ABC Street",
-//      "Nancy John", "555-555-4567", "XYZ Drive", 2, 3);
-
-
-// Next we ddd new Item to general section of NEW object
-// We see that the addItem() function and Item() constructor is intact
-// because we created a new object instance of a report.
-
-newReport.general.addItem("My Report 2", 2, "02/02/2017", "Jimmy John", "ABC Street",
-    "Nancy John", "555-555-4567", "XYZ Drive", 2, 3);
-
-//console.log("Printing restored contents...\n");
-
-// This is just for testing, we want to print all the data member values
-// from both the Item we restored, and the new one we added
-
-// TODO: Can we reference a key less verbosely than this without changing the object?
-// That would be helpful when we're setting these values from user input,
-// but isn't necessarily important here
-/*for (i = 0; i < newReport.general.items.length; i++) {
-    console.log(newReport.general.items[i].reportName + " " +
-                newReport.general.items[i].logNumber + " " +
-                newReport.general.items[i].date + " " +
-                newReport.general.items[i].ownerName + " " +
-                newReport.general.items[i].businessAddress + " " +
-                newReport.general.items[i].contactName + " " +
-                newReport.general.items[i].contactPhoneNumber + " " +
-                newReport.general.items[i].contactAddress + " " +
-                newReport.general.items[i].businessCategory + " " +
-                newReport.general.items[i].businessType +
-                "\n");
-}
-
-console.log(newReport);
+//TODO: come back to possibly implement a remove row function
+/* Function to remove a row from a report
+function removeRow(name, id) {
 }*/
 
-
-//test Reports
-addReport('test1', 12);
-addReport('test2', 13);
-addReport('test3', 14);
-//displays reports
-
-for(var i = 0; i < REPORTLIST.length; i++)
-{
-    var nameListItem = "<li>";
-    nameListItem += REPORTLIST[i].reportName + "</li>";
-    $('#reportList ul').append('<li>' +
-                    REPORTLIST[i].reportName +
-                    '</li>');
+function store() {
+    localStorage.setItem("reportList", JSON.stringify(REPORTLIST));
+    console.log("Stored report list...\n");
 }
 
-// TODO: delete; this is just for testing
-setReport(newReport);
+// Function to restore a report to its blank form
+function restore() {
+    var JSONString = localStorage.getItem("reportList");
+    var reportListTemp = JSON.parse(JSONString)
+    var oldReportObj = undefined;
+    var newReportObj = undefined;
+    for (i = 0; i < reportListTemp.length; i++) {
+        oldReportObj= reportListTemp[i];
+        newReportObj = new Report();
+        newReportObj.general.items = oldReportObj.general.items;
+        newReportObj.personal.items = oldReportObj.personal.items;
+        newReportObj.vehicle.items = oldReportObj.vehicle.items;
+        newReportObj.other.items = oldReportObj.other.items;
+        newReportObj.affirmation.items = oldReportObj.affirmation.items;
+        REPORTLIST[i] = newReportObj;
+    }
+    console.log("Restored report list...\n");
+}
+
+addReport("test");
+setReport(REPORTLIST[0]);
+
+$('#report-list-page').click(function() {
+    $('#sidebar').hide();
+    $('#general').hide();
+    $('#personal').hide();
+    $('#vehicles').hide();
+    $('#other-supplies').hide();
+    $('#affirmation').hide();
+    displayReports();
+    $('#report-list').show();
+    console.log(REPORT);
+    
+});
+
+$('#report-page').click(function() {
+    $('#report-list').hide();
+    $('#sidebar').show();
+    $('#general').show();
+    $('#personal').show();
+    $('#vehicles').show();
+    $('#other-supplies').show();
+    $('#affirmation').show();
+    console.log(REPORT);
+});
+
+$(document).ready(function() {
+    generateReportList();
+    generateReportView();
+    $('#sidebar').hide();
+    $('#general').hide();
+    $('#personal').hide();
+    $('#vehicles').hide();
+    $('#other-supplies').hide();
+    $('#affirmation').hide();
+});

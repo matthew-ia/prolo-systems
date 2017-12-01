@@ -2,6 +2,14 @@
 * Handles the creation of HTML elements, and managing them in the DOM
 */
 
+function generateContainers() {
+    $('#content-container').append('<div class="section" id="general"></div>');
+    $('#content-container').append('<div class="section" id="personal"></div>');
+    $('#content-container').append('<div class="section" id="vehicles"></div>');
+    $('#content-container').append('<div class="section" id="other-supplies"></div>');
+    $('#content-container').append('<div class="section" id="affirmation"></div>');
+}
+
 /* Function to create tables for each section */
 function generalTable() {
   //form element
@@ -95,7 +103,8 @@ function personalPropertyTable() {
 
 }
 
-function vehiclesTable() {
+function vehiclesTable()
+{
   $('#vehicles').append('<h2>Vehicles</h2>');
   $('#vehicles').append('<form></form>');
   $('#vehicles form').append('<table></table>');
@@ -164,13 +173,35 @@ function affirmationTable(){
                                 '</tr>');
   $('#affirmation').append('<button>Submit</button>');
 }
+// Ima use the restroom.. (max) up
+function generateReportList() {
+    $('#content-container').append('<div class="section" id="report-list"></div>');
+    $('#report-list').append('<h2>Report List</h2>');
+    $('#report-list').append('<table></table>');
+    displayReports();
+}
 
-generalTable();
-personalPropertyTable();
-vehiclesTable();
-otherSuppliesTable();
-affirmationTable();
+function generateSidebar() {
+    $('#content-container').append('<div id="sidebar"></div>');
+    $('#sidebar').append('<ul></ul>');
+    $('#sidebar ul').append('<li><a href="#general">General</a></li>');
+    $('#sidebar ul').append('<li><a href="#personal">Personal</a></li>');
+    $('#sidebar ul').append('<li><a href="#vehicles">Vehicles</a></li>');
+    $('#sidebar ul').append('<li><a href="#other-supplies">Other & Supplies</a></li>');
+    $('#sidebar ul').append('<li><a href="#affirmation">Affirmation</a></li>');
+    $('#sidebar ul').append('<li><a href="#">Back to top</a></li>');
 
+}
+
+function generateReportView() {
+    generateSidebar();
+    generateContainers();
+    generalTable();
+    personalPropertyTable();
+    vehiclesTable();
+    otherSuppliesTable();
+    affirmationTable();
+}
 
 /* DATE PICKER */
 $('[data-toggle="datepicker"]').datepicker();

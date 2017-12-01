@@ -239,6 +239,20 @@ tbody tr td:first-child {
     padding-left: 20px;
 }
 
+/* REPORT LIST SECTION
+ * ======
+ */
+
+#report-list tr {
+    height: 55px;
+    color: #B8B9D5;
+    border-top: 1px solid #48496C;
+}
+
+#report-list td {
+    padding-left: 20px;
+}
+
 /* GENEAL SECTION
  * ======
  */

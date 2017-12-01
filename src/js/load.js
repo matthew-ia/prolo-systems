@@ -1,13 +1,74 @@
 
 function load(reportName)
 {
+    // Generate report in view
+    generateReportView();
+
+    // Set current report
     for(i = 0; i < reportList.length; i++)
     {
         if(reportList[i].reportName === reportName)
         {
-            REPORT = reportList[i];
+            setReport(reportList[i]);
         }
     }
+
+    // Save all inputs/selects/textareas
+
+    // For the sections with multiple items
+    var rowIdLast = 0;
+
+    // General
+    $('#general [name="signature"]').val(REPORT.general.items[0].reportName);
+    $('#general [name="logNumber"]').val(REPORT.general.items[0].reportName);
+    $('#general [name="ownerName"]').val(REPORT.general.items[0].ownerName);
+    $('#general [name="ownerName"]').val(REPORT.general.items[0].businessAddress);
+    $('#general [name="contactName"]').val(REPORT.general.items[0].contactName);
+    $('#general [name="contactPhoneNumber"]').val(REPORT.general.items[0].contactPhoneNumber);
+    $('#general [name="contactAddress"]').val(REPORT.general.items[0].contactAddress);
+    $('#general [name="businessType"]').val(REPORT.general.items[0].businessType);
+    $('#general [name="businessCategory"]').val(REPORT.general.items[0].businessCategory);
+
+    // Personal Property
+    rowIdLast = $('#personal tr').last().attr('id');
+    rowIdLast = rowIdLast.split("-").pop();
+    for (i = 0; i <= rowIdLast; i++) {
+        $('#personal [name="yearAcquired"]').val(REPORT.personal.items[i].yearAcquired);
+        $('#personal [name="itemDescription"]').val(REPORT.personal.items[i].itemDescription);
+        $('#personal [name="group"]').val(REPORT.personal.items[i].group);
+        $('#personal [name="status"]').val(REPORT.personal.items[i].status);
+        $('#personal [name="amtChanged"]').val(REPORT.personal.items[i].amtChanged);
+        $('#personal [name="cost"]').val(REPORT.personal.items[i].cost);
+    }
+
+    // Vehicles
+    rowIdLast = $('#vehicles tr').last().attr('id');
+    rowIdLast = rowIdLast.split("-").pop();
+    for (i = 0; i <= rowIdLast; i++) {
+        $('#vehicles [name="yearAcquired"]').val(REPORT.vehicle.items[i].yearAcquired);
+        $('#vehicles [name="modelYear"]').val(REPORT.vehicle.items[i].modelYear);
+        $('#vehicles [name="make"]').val(REPORT.vehicle.items[i].make);
+        $('#vehicles [name="model"]').val(REPORT.vehicle.items[i].model);
+        $('#vehicles [name="bodySize"]').val(REPORT.vehicle.items[i].bodySize);
+        $('#vehicles [name="titleNum"]').val(REPORT.vehicle.items[i].titleNum);
+        $('#vehicles [name="vehicleId"]').val(REPORT.vehicle.items[i].vehicleId);
+        $('#vehicles [name="group"]').val(REPORT.vehicle.items[i].group);
+        $('#vehicles [name="cost"]').val(REPORT.vehicle.items[i].cost);
+    }
+
+    // Other & supplies
+    rowIdLast = $('#other-supplies tr').last().attr('id');
+    rowIdLast = rowIdLast.split("-").pop();
+    for (i = 0; i <= rowIdLast; i++) {
+        $('#other-supplies [name="yearAcquired"]').val(REPORT.other.items[i].yearAcquired);
+        $('#other-supplies [name="itemDescription"]').val(REPORT.other.items[i].itemDescription);
+        $('#other-supplies [name="cost"]').val(REPORT.other.items[i].cost);
+    }
+
+    // Affirmation
+    $('[name="signature"]').val(REPORT.other.items[0].signature);
+
+    /**
     $('#general input, #general select, #general textarea').blur(function()
         {
         switch($(this).attr('name'))
@@ -37,7 +98,7 @@ function load(reportName)
         }
     });
 
-    /* Person Section Loader */
+
     $('#personal input, #personal select').blur(function() {
         let parents = $(this).parents();
         var rowId = undefined;
@@ -73,7 +134,7 @@ function load(reportName)
         }
     });
 
-    /* Vehicles Section Loader */
+
     $('#vehicle input, #vehicle select').blur(function() {
         let parents = $(this).parents();
         var rowId = undefined;
@@ -113,8 +174,6 @@ function load(reportName)
         }
     });
 
-
-    /* Other & Supplies Section Loader */
     $('#other input, #other select').blur(function() {
         let parents = $(this).parents();
         var rowId = undefined;
@@ -151,4 +210,5 @@ function load(reportName)
             break;
         }
     });
+    */
 }

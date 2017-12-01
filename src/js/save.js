@@ -14,6 +14,7 @@ $('#general input, #general select, #general textarea').blur(function() {
         case 'reportName':
             $(this).val() = REPORT.reportName;
             REPORT.general.items[0].reportName = REPORT.reportName;
+            console.log(REPORT.reportName + " " + REPORT.general.items[0].reportName);
             break;
         case 'logNumber':
             REPORT.id = $(this).val();
@@ -175,8 +176,6 @@ function manualSave() {
     REPORT.general.items[0].contactAddress = $('#general [name="contactAddress"]').val();
     REPORT.general.items[0].businessType = $('#general [name="businessType"]').val();
     REPORT.general.items[0].businessCategory = $('#general [name="businessCategory"]').val();
-
-    //...
 
     // Personal Property
     rowIdLast = $('#personal tr').last().attr('id');

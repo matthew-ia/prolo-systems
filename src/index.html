@@ -1,4 +1,3 @@
-
 <!--
 Team: The Boys that are Back in Town (BoBaT)
 
@@ -25,7 +24,7 @@ Authors: Matthew Alicea, Braxton Coats, Maximilian Finnican,
   <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
+<body id="top">
   <!-- NAVBAR MENU -->
   <div id="navbar">
     <div id="brand">
@@ -33,8 +32,8 @@ Authors: Matthew Alicea, Braxton Coats, Maximilian Finnican,
     </div>
     <nav>
       <ul id="nav-menu">
-        <li><a href="">Reports</a></li>
-        <li><a href="">New Report</a></li>
+        <li id="report-list-page"><a href="#top">Reports</a></li>
+        <li id="report-page"><a href="#top">New Report</a></li>
       </ul>
     </nav>
     <!-- ACCOUNT CLUSTER
@@ -47,39 +46,17 @@ Authors: Matthew Alicea, Braxton Coats, Maximilian Finnican,
     </div>
     -->
   </div>
-  <div id="sidebar">
-    <ul>
-      <li><a href="#general">General</a></li>
-      <li><a href="#personal">Personal</a></li>
-      <li><a href="#vehicles">Vehicles</a></li>
-      <li><a href="#other-supplies">Other & Supplies</a></li>
-      <li><a href="#affirmation">Affirmation</a></li>
-      <li><a href="#">Back to top</a></li>
-    </ul>
-  </div>
-
 
   <div id="content-container">
-    <!-- NOTE: we will dynamically populate inside of this container
-         instead of having multiple pages for the report sections. Also could
-         use this same method to dynamically show the overview/review.
 
-         Essentially we want the section div to be saved as an object that we
-         can add or remove from the DOM, like the heat index table workouts -->
-
-    <!-- GENERAL -->
-    <div class="section" id="reportList">
-      <h2>Report List</h2>
-      <ul>
-
-      </ul>
-    </div>
 
   </div>
   <!-- END content-container -->
   <script src="js/report.js"></script>
   <script src="js/index.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/reportlist.js"></script>
+  <script src="js/load.js"></script>
   <script src="js/save.js"></script>
 </body>
 
