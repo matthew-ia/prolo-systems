@@ -79,7 +79,6 @@ $('#report-list-page').click(function() {
     displayReports();
     $('#report-list').show();
     console.log(REPORT);
-    
 });
 
 $('#report-page').click(function() {
@@ -90,6 +89,8 @@ $('#report-page').click(function() {
     $('#vehicles').show();
     $('#other-supplies').show();
     $('#affirmation').show();
+    setAutoSave();
+    console.log($('#general input, #general select, #general textarea')[0]);
     console.log(REPORT);
 });
 
