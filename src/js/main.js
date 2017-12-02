@@ -35,6 +35,7 @@ function addReport(name, id) {
     var report = new Report(name, id);
     report.initReport();
     REPORTLIST.push(report);
+    REPORT = REPORTLIST[REPORTLIST.length - 1];
 }
 
 //TODO: come back to possibly implement a remove row function
@@ -81,7 +82,7 @@ $('#report-list-page').click(function() {
     console.log(REPORT);
 });
 
-$('#report-page').click(function() {
+$('#new-report-page').click(function() {
     $('#report-list').hide();
     $('#sidebar').show();
     $('#general').show();
@@ -90,7 +91,7 @@ $('#report-page').click(function() {
     $('#other-supplies').show();
     $('#affirmation').show();
     setAutoSave();
-    console.log($('#general input, #general select, #general textarea')[0]);
+    addReport();
     console.log(REPORT);
 });
 
