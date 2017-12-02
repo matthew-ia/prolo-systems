@@ -44,7 +44,6 @@ function generalTable() {
                                 '<option value="2">Type 2</option>' +
                                 '<option value="3">Type 3</option>' +
                                 '</select>');
-                                console.log("business type made");
 
   //creates select-container section of general table
   $('#classification').append('<div class="select-container"></div>');
@@ -54,7 +53,6 @@ function generalTable() {
                                 '<option value="2">Category 2</option>' +
                                 '<option value="3">Category 3</option>' +
                                 '</select>');
-                                console.log("business category made");
 }
 
 function personalPropertyTable() {
@@ -203,6 +201,52 @@ function generateReportView() {
     affirmationTable();
 }
 
+function showReportList(show) {
+    if (show) $('#report-list').show();
+    else $('#report-list').hide();
+}
+
+function showReport(show) {
+    if (show) {
+        $('#sidebar').show();
+        $('#general').show();
+        $('#personal').show();
+        $('#vehicles').show();
+        $('#other-supplies').show();
+        $('#affirmation').show();
+    } else {
+        $('#sidebar').hide();
+        $('#general').hide();
+        $('#personal').hide();
+        $('#vehicles').hide();
+        $('#other-supplies').hide();
+        $('#affirmation').hide();
+    }
+}
+
+$('#report-list-page').click(function() {
+    showReport(false);
+    displayReports();
+    showReportList(true);
+});
+
+$('#new-report-page').click(function() {
+    showReportList(false);
+    showReport(false);
+    showReport(true);
+    console.log(REPORT);
+    setAutoSave();
+    addReport();
+    load(REPORT.reportName);
+});
+
+$(document).ready(function() {
+    generateReportList();
+    generateReportView();
+    showReport(false);
+});
+
+
 /* DATE PICKER */
 $('[data-toggle="datepicker"]').datepicker();
 
@@ -210,7 +254,8 @@ $('[data-toggle="datepicker"]').datepicker();
 var offset = -160;
 var scrollTime = 500;
 
-$('a[href^="#"]').click(function() {
+$('a[href^="#*"]').click(function() {
+    if ($(this).attr('id') === '#') break; // if href="#" break, otherwise jump
     $("html, body").animate({
         scrollTop: $( $(this).attr("href") ).offset().top + offset
     }, scrollTime);

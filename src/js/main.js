@@ -31,11 +31,13 @@ function getReport() {
 }
 
 // Function to add a report to the reportlist array
-function addReport(name, id) {
-    var report = new Report(name, id);
+function addReport(name) {
+    var report;
+    if (name !== undefined) report = new Report(name);
+    else report = new Report("");
     report.initReport();
     REPORTLIST.push(report);
-    REPORT = REPORTLIST[REPORTLIST.length - 1];
+    setReport(REPORTLIST[REPORTLIST.length - 1]);
 }
 
 //TODO: come back to possibly implement a remove row function
@@ -69,39 +71,3 @@ function restore() {
 
 addReport("test");
 setReport(REPORTLIST[0]);
-
-$('#report-list-page').click(function() {
-    $('#sidebar').hide();
-    $('#general').hide();
-    $('#personal').hide();
-    $('#vehicles').hide();
-    $('#other-supplies').hide();
-    $('#affirmation').hide();
-    displayReports();
-    $('#report-list').show();
-    console.log(REPORT);
-});
-
-$('#new-report-page').click(function() {
-    $('#report-list').hide();
-    $('#sidebar').show();
-    $('#general').show();
-    $('#personal').show();
-    $('#vehicles').show();
-    $('#other-supplies').show();
-    $('#affirmation').show();
-    setAutoSave();
-    addReport();
-    console.log(REPORT);
-});
-
-$(document).ready(function() {
-    generateReportList();
-    generateReportView();
-    $('#sidebar').hide();
-    $('#general').hide();
-    $('#personal').hide();
-    $('#vehicles').hide();
-    $('#other-supplies').hide();
-    $('#affirmation').hide();
-});

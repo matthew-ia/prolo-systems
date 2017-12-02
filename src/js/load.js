@@ -1,15 +1,19 @@
 
 function load(reportName)
 {
-    // Generate report in view
-    generateReportView();
 
     // Set current report
-    for(i = 0; i < reportList.length; i++)
+    for(i = 0; i < REPORTLIST.length; i++)
     {
-        if(reportList[i].reportName === reportName)
+        if(REPORTLIST[i].reportName === reportName)
         {
-            setReport(reportList[i]);
+            setReport(REPORTLIST[i]);
+            console.log("Loading... " + REPORTLIST[i].reportName);
+            console.log(REPORTLIST[i]);
+        }
+
+        else if (REPORTLIST[i].reportName === undefined) {
+            setReport(REPORTLIST[REPORTLIST.length - 1]);
         }
     }
 
@@ -19,10 +23,10 @@ function load(reportName)
     var rowIdLast = 0;
 
     // General
-    $('#general [name="signature"]').val(REPORT.general.items[0].reportName);
-    $('#general [name="logNumber"]').val(REPORT.general.items[0].reportName);
+    $('#general [name="reportName"]').val(REPORT.general.items[0].reportName);
+    $('#general [name="logNumber"]').val(REPORT.general.items[0].logNumber);
     $('#general [name="ownerName"]').val(REPORT.general.items[0].ownerName);
-    $('#general [name="ownerName"]').val(REPORT.general.items[0].businessAddress);
+    $('#general [name="businessAddress"]').val(REPORT.general.items[0].businessAddress);
     $('#general [name="contactName"]').val(REPORT.general.items[0].contactName);
     $('#general [name="contactPhoneNumber"]').val(REPORT.general.items[0].contactPhoneNumber);
     $('#general [name="contactAddress"]').val(REPORT.general.items[0].contactAddress);
