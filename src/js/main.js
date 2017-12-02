@@ -40,34 +40,13 @@ function addReport(name) {
     setReport(REPORTLIST[REPORTLIST.length - 1]);
 }
 
-//TODO: come back to possibly implement a remove row function
+//TODO: Implement a remove row function
 /* Function to remove a row from a report
 function removeRow(name, id) {
 }*/
 
-function store() {
-    localStorage.setItem("reportList", JSON.stringify(REPORTLIST));
-    console.log("Stored report list...\n");
-}
+//TODO: Implement a remove report function
 
-// Function to restore a report to its blank form
-function restore() {
-    var JSONString = localStorage.getItem("reportList");
-    var reportListTemp = JSON.parse(JSONString)
-    var oldReportObj = undefined;
-    var newReportObj = undefined;
-    for (i = 0; i < reportListTemp.length; i++) {
-        oldReportObj= reportListTemp[i];
-        newReportObj = new Report();
-        newReportObj.general.items = oldReportObj.general.items;
-        newReportObj.personal.items = oldReportObj.personal.items;
-        newReportObj.vehicle.items = oldReportObj.vehicle.items;
-        newReportObj.other.items = oldReportObj.other.items;
-        newReportObj.affirmation.items = oldReportObj.affirmation.items;
-        REPORTLIST[i] = newReportObj;
-    }
-    console.log("Restored report list...\n");
-}
-
-addReport("test");
-setReport(REPORTLIST[0]);
+//TODO: FOR TESTING ONLY; REMOVE THIS!
+//addReport("test");
+//setReport(REPORTLIST[0]);

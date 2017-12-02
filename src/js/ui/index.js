@@ -232,7 +232,6 @@ $('#report-list-page').click(function() {
 
 $('#new-report-page').click(function() {
     showReportList(false);
-    showReport(false);
     showReport(true);
     console.log(REPORT);
     setAutoSave();
