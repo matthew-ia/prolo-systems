@@ -11,7 +11,7 @@ function load(reportName)
             console.log("Loading... " + REPORTLIST[i].reportName);
         }
 
-        else if (REPORTLIST[i].reportName === undefined) {
+        else {
             setReport(REPORTLIST[REPORTLIST.length - 1]);
         }
     }

@@ -6,7 +6,20 @@ $('#report-list-page').click(function() {
             $('#general [name="reportName"]').val() === "") {
                 showPopup();
                 isSafe = false;
+                return;
         }
+
+        // Error checking for same name
+        // In order to work, needs a second identifier for Reports
+        // aka implementing report IDs
+        /* else {
+            for (i = 0; i < REPORTLIST.length; i++) {
+                if (REPORT.reportName === REPORTLIST[i].reportName) {
+                    showPopup(someIdToIndicateDifferentPopup);
+                    isSafe = false;
+                }
+            }
+        } */
     }
 
     if (isSafe) {

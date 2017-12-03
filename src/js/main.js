@@ -31,13 +31,28 @@ function getReport() {
 }
 
 // Function to add a report to the reportlist array
-function addReport(name) {
+function addReport(isCopy) {
     var report;
-    if (name !== undefined) report = new Report(name);
-    else report = new Report("");
+    if (!isCopy) report = new Report("");
+    else {
+        var newReport;
+        report = copyReport(newReport, REPORT);
+        console.log("new new");
+    }
     report.initReport();
     REPORTLIST.push(report);
     setReport(REPORTLIST[REPORTLIST.length - 1]);
+}
+
+function copyReport(newReport, oldReport) {
+    newReport = new Report();
+    newReport.initReport();
+    newReport.general.items = oldReport.general.items;
+    newReport.personal.items = oldReport.personal.items;
+    newReport.vehicle.items = oldReport.vehicle.items;
+    newReport.other.items = oldReport.other.items;
+    newReport.affirmation.items = oldReport.affirmation.items;
+    return newReport;
 }
 
 //TODO: Implement a remove row function
