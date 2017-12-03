@@ -27,5 +27,5 @@ function generatePopup() {
 }
 
 function showPopup() {
-    $('#popup').slideToggle("slow").delay(2000).slideToggle("slow");
+    $('#popup').slideToggle(250).delay(2000).slideToggle(400);
 }

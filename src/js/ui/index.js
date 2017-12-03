@@ -174,7 +174,7 @@ function affirmationTable(){
 // Ima use the restroom.. (max) up
 function generateReportList() {
     $('#content-container').append('<div class="section" id="report-list"></div>');
-    $('#report-list').append('<h2>Report List</h2>');
+    $('#report-list').append('<h2>Your Reports</h2>');
     $('#report-list').append('<table></table>');
     displayReports();
 }

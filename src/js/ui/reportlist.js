@@ -19,8 +19,8 @@ function displayReports() {
     // Attach listners
 
     $('#report-list tr:first-of-type').hover(
-        function() {$('a').css("color", "#FAF5FA");},
-        function() {$('a').css("color", "#B8B9D5");}
+        function() {$('#report-list a').css("color", "#FAF5FA");},
+        function() {$('#report-list a').css("color", "#B8B9D5");}
     );
 
     $('#report-list td:first-of-type').click(function() {

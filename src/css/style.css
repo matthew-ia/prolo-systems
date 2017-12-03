@@ -113,8 +113,15 @@ h2 {
 #sidebar ul {
     font-size: 14px;
     list-style: none;
-    color: #FAF5FA;
     text-align: right;
+}
+
+#sidebar a:hover {
+    color: #FAF5FA;
+}
+
+#sidebar ul li:last-of-type a {
+    color: #FAF5FA;
 }
 
 #sidebar ul li {
@@ -537,6 +544,7 @@ tbody tr td:first-child {
     text-align: center;
     padding: 10px;
     color: #FFD41F;
-    width: 40%;
     margin: auto;
+    font-weight: 700;
+    font-size: 0.85rem;
 }
