@@ -47,6 +47,7 @@ function addReport(isCopy) {
 function copyReport(newReport, oldReport) {
     newReport = new Report();
     newReport.initReport();
+    newReport.reportName = oldReport.reportName + " copy";
     newReport.general.items = oldReport.general.items;
     newReport.personal.items = oldReport.personal.items;
     newReport.vehicle.items = oldReport.vehicle.items;
