@@ -224,38 +224,9 @@ function showReport(show) {
     }
 }
 
-$('#report-list-page').click(function() {
-    showReport(false);
-    displayReports();
-    showReportList(true);
-});
-
-$('#new-report-page').click(function() {
-    showReportList(false);
-    showReport(true);
-    console.log(REPORT);
-    setAutoSave();
-    addReport();
-    load(REPORT.reportName);
-});
-
 $(document).ready(function() {
     generateReportList();
     generateReportView();
+    generatePopup();
     showReport(false);
-});
-
-
-/* DATE PICKER */
-$('[data-toggle="datepicker"]').datepicker();
-
-/* SIDEBAR JUMP MENU */
-var offset = -160;
-var scrollTime = 500;
-
-$('a[href^="#*"]').click(function() {
-    if ($(this).attr('id') === '#') break; // if href="#" break, otherwise jump
-    $("html, body").animate({
-        scrollTop: $( $(this).attr("href") ).offset().top + offset
-    }, scrollTime);
 });

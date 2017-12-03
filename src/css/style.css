@@ -247,6 +247,12 @@ tbody tr td:first-child {
     height: 55px;
     color: #B8B9D5;
     border-top: 1px solid #48496C;
+    transition: 0.2s ease-in-out;
+}
+
+#report-list tr:hover {
+    background-color: #666791;
+    cursor: pointer;
 }
 
 #report-list td {
@@ -512,4 +518,25 @@ tbody tr td:first-child {
 
 #affirmation {
     padding-bottom: 20px;
+}
+
+/* Popup
+ * ======
+ */
+
+#popup {
+    position: fixed;
+    top: 90px;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    background-color: #48496C;
+}
+
+#popup p {
+    text-align: center;
+    padding: 10px;
+    color: #FFD41F;
+    width: 40%;
+    margin: auto;
 }

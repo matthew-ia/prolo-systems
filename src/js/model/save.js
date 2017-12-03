@@ -7,7 +7,7 @@
  * that updates the report object data members on blur
  */
 
-function setAutoSave() {
+function enableAutoSave() {
     // General section
     $('#general input, #general select, #general textarea').blur(function() {
         switch($(this).attr('name')) {
