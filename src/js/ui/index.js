@@ -13,7 +13,7 @@ function generateContainers() {
 /* Function to create tables for each section */
 function generalTable() {
   //form element
-  $('#general').append('<form></form>');
+  $('#general').append('<form id="generalForm"></form>');
   $('#general form').append('<input type="text" name="reportName" placeholder="Report Name">');
 
   //creates General info section of general table
@@ -57,7 +57,7 @@ function generalTable() {
 
 function personalPropertyTable() {
   $('#personal').append('<h2>Personal Property</h2>');
-  $('#personal').append('<form></form>');
+  $('#personal').append('<form id="personalPropertyForm"></form>');
   $('#personal form').append('<table></table>')
   $('#personal table').append('<thead></thead>');
   $('#personal thead').append('<tr>' +
@@ -104,7 +104,7 @@ function personalPropertyTable() {
 function vehiclesTable()
 {
   $('#vehicles').append('<h2>Vehicles</h2>');
-  $('#vehicles').append('<form></form>');
+  $('#vehicles').append('<form id="vehiclesForm"></form>');
   $('#vehicles form').append('<table></table>');
   $('#vehicles table').append('<thead></thead>');
   $('#vehicles thead').append('<tr>' +
@@ -144,7 +144,7 @@ function vehiclesTable()
 
 function otherSuppliesTable(){
   $('#other-supplies').append('<h2>Other &amp; Supplies</h2>');
-  $('#other-supplies').append('<form></form>');
+  $('#other-supplies').append('<form id="otherSuppliesForm"></form>');
   $('#other-supplies form').append('<table></table>');
   $('#other-supplies table').append('<thead></thead>');
   $('#other-supplies thead').append('<tr>' +
@@ -164,12 +164,12 @@ function otherSuppliesTable(){
 
 function affirmationTable(){
   $('#affirmation').append('<h2>Affirmation</h2>');
-  $('#affirmation').append('<form></form>');
+  $('#affirmation').append('<form id="affirmationForm"></form>');
   $('#affirmation form').append('<table></table>');
   $('#affirmation table').append('<tr>' +
                                 '<td><label>Signature<input type="text" name="signature" placeholder="Your Name"></label></td>' +
                                 '</tr>');
-  $('#affirmation').append('<button>Submit</button>');
+  $('#affirmation').append('<button id="subBut">Submit</button>');
 }
 // Ima use the restroom.. (max) up
 function generateReportList() {
