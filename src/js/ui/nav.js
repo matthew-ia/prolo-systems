@@ -24,8 +24,8 @@ $('#report-list-page').click(function() {
 
     if (isSafe) {
         showReport(false);
-        displayReports();
         showReportList(true);
+        displayReports();
     }
 });
 
@@ -33,6 +33,7 @@ $('#new-report-page').click(function() {
     showReportList(false);
     showReport(true);
     enableAutoSave();
+    enableSubmitButton();
     enableDatepicker();
     enableSmoothScrollJump();
     addReport();

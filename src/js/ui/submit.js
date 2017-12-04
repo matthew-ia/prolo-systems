@@ -1,4 +1,5 @@
-$('#subBut').click(function() {
+function enableSubmitButton() {
+  $('#subBut').click(function() {
   var isSafe = true;
   if ($('#general').css("display") !== "none") {
     if ($('#general [name="reportName"]').val() === undefined ||
@@ -12,11 +13,9 @@ $('#subBut').click(function() {
   if (isSafe) {
     manualSave();
     showReport(false);
-    displayReports();
     showReportList(true);
-    window.location="https://www.google.com/";
+    displayReports();
 
-    document.write("You will be redirected to main page in 10 sec.");
-    setTimeout('Redirect()', 10000);
   }
 });
+}

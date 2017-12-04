@@ -42,6 +42,7 @@ function displayReports() {
             showReport(true);
             load(reportName);
             enableAutoSave();
+            enableSubmitButton();
             enableDatepicker();
             enableSmoothScrollJump();
         } else {
@@ -50,6 +51,7 @@ function displayReports() {
             showReport(true);
             load(REPORT.reportName);
             enableAutoSave();
+            enableSubmitButton();
             enableDatepicker();
             enableSmoothScrollJump();
         }

@@ -167,8 +167,10 @@ function manualSave() {
     // For the sections with multiple items
     var rowIdLast = 0;
 
+    REPORT.reportName = $('#general [name="reportName"]').val();
+
     // General
-    REPORT.general.items[0].reportName = $('#general [name="signature"]').val();
+    REPORT.general.items[0].reportName = $('#general [name="reportName"]').val();
     REPORT.general.items[0].logNumber = $('#general [name="logNumber"]').val();
     REPORT.general.items[0].ownerName = $('#general [name="ownerName"]').val();
     REPORT.general.items[0].businessAddress = $('#general [name="ownerName"]').val();
