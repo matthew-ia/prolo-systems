@@ -48,7 +48,7 @@ function addReport(isCopy) {
 function copyReport(newReport, oldReport) {
     newReport = new Report();
     newReport.initReport();
-    
+
     newReport.general.items = oldReport.general.items;
     newReport.personal.items = oldReport.personal.items;
     newReport.vehicle.items = oldReport.vehicle.items;
@@ -63,7 +63,7 @@ function copyReport(newReport, oldReport) {
 }
 
 //TODO: Implement a remove report function
-function deleteReport() {
+function deleteReport(reportName) {
     for (i = 0; i < REPORTLIST.length; i++) {
         //if (REPORTLIST[i] ===)
     }

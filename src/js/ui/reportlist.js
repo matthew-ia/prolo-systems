@@ -14,7 +14,7 @@ function displayReports() {
     else {
         for (var i = 0; i < REPORTLIST.length; i++) {
             $('#report-list table').append('<tr><td><a href="#">' +
-                            REPORTLIST[i].general.items[0].reportName +
+                            REPORTLIST[i].reportName +
                         '</a></td>' +
                         '<td><button id="copyReport">' +
                             '<img src="images/copy.png">' +
@@ -35,7 +35,7 @@ function displayReports() {
         function() {$('#report-list a').css("color", "#B8B9D5");}
     );
 
-    $('#report-list td:first-of-type').click(function() {
+    $('#report-list tr td:first-child').click(function() {
         if (REPORTLIST.length > 0) {
             var reportName = $(this).text();
             showReportList(false);
@@ -66,9 +66,9 @@ function displayReports() {
     });
 
     $('#report-list #deleteReport').click(function() {
-        console.log($(this).parents().find('td').prev().find('a').text() + "\n");
-        deleteReport();
-        displayReports();
+        var reportName = $(this).parents('td').prev().prev().text();
+        deleteReport(reportName);
+
     });
 
     $('#report-list #copyReport').hover(
