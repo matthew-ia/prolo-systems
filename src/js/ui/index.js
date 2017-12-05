@@ -88,7 +88,8 @@ function personalPropertyTable() {
                             '</td>' +
                             '<td>' +
                               '<select name="status">' +
-                                '<option value="0" selected>Prior</option>' +
+                                '<option value="" disabled selected>Select Status</option>' +
+                                '<option value="0">Prior</option>' +
                                 '<option value="1">Addition</option>' +
                                 '<option value="2">Deletion</option>' +
                               '</select>' +

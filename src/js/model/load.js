@@ -1,7 +1,6 @@
 
-function load(reportName)
+function load(reportName, isCopy)
 {
-
     // Set current report
     for(i = 0; i < REPORTLIST.length; i++)
     {
@@ -14,6 +13,10 @@ function load(reportName)
         else {
             setReport(REPORTLIST[REPORTLIST.length - 1]);
         }
+    }
+
+    if (isCopy) {
+        loadCopy();
     }
 
     // Save all inputs/selects/textareas
@@ -42,6 +45,9 @@ function load(reportName)
         $('#personal [name="status"]').val(REPORT.personal.items[i].status);
         $('#personal [name="amtChanged"]').val(REPORT.personal.items[i].amtChanged);
         $('#personal [name="cost"]').val(REPORT.personal.items[i].cost);
+        if (isCopy) {
+
+        }
     }
 
     // Vehicles
@@ -70,4 +76,30 @@ function load(reportName)
 
     // Affirmation
     $('[name="signature"]').val(REPORT.other.items[0].signature);
+}
+
+function updateState() {
+    // 0 = Prior
+    // 1 = Addition
+    // 2 = Deletion
+
+    // Set status to prior
+    var oldStatus = $('#personal [name="status"]').val();
+    REPORT.personal.items[i].status = 0;
+    $('#personal [name="status"]').val(REPORT.personal.items[i].status);
+
+    // Update Cost
+    // TODO: flip this so it uses object data members instead of DOM elements
+    // to do make changes. Should change model, then send changes to view.
+    var newCost = 0;
+    var amtChanged = $('#personal [name="amtChanged"]').val();
+    if (oldStatus === 2) amtChanged *= -1; // make it negative
+
+    newCost = $('#personal [name="cost"]').val()
+            + $('#personal [name="amtChanged"]').val();
+    $('#personal [name="cost"]').val(newCost)
+    $('#personal [name="amtChanged"]').val(0);
+
+    $('#personal [name="amtChanged"]').val(REPORT.personal.items[i].amtChanged);
+    $('#personal [name="cost"]').val(REPORT.personal.items[i].cost);
 }
