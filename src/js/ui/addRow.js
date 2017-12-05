@@ -4,6 +4,7 @@ function enableAddRow() {
     // Attach listener to buttons once report is loaded
     $('.addRow button').unbind("click").click(function (){
         addRow(true, $(this));
+        enableAutoSave();
     });
 }
 
@@ -12,7 +13,6 @@ function addRow(isReportLoaded, sectionElem) {
     var rowId = $('#' + sectionId).find('tbody tr:last-of-type').attr('id');
     rowId = rowId.split("-").pop();
     var newId = parseInt(rowId) + 1;
-    //TODO: this next line is bugged, it gets ALL the rows and puts them in the table.
     var rowData = $('#' + sectionId + ' table tr').last().html();
     $('#' + sectionId + ' table').append('<tr id="1-' + newId + '">'+ rowData + '</tr>');
     console.log("addRow called (" + sectionId + ", " + newId + ")");

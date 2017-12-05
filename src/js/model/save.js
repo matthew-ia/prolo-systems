@@ -7,6 +7,11 @@
  * that updates the report object data members on blur
  */
 
+ // Total costs
+ PERSONAL_COST = 0;
+ VEHICLES_COST = 0;
+ OTHER_COST = 0;
+
 function enableAutoSave() {
     // General section
     $('#general input, #general select, #general textarea').blur(function() {
@@ -50,77 +55,105 @@ function enableAutoSave() {
 
     // Personal Property section
     $('#personal input, #personal select').blur(function() {
+        var cost = 0;
+        var amtChanged = 0;
+        //var isCostChanged = false;
+        //var isAmtChanged = false;
+
         let parents = $(this).parents();
-        var rowId = undefined;
+        var rowIdSelected = undefined;
+        var rowIdLast;
+        var rowId;
         for (i = 0; i < parents.length; i++) {
             if($(parents[i]).is('tr')) {
-                rowId = $(parents[i]).attr('id');
-                rowId = rowId.split("-").pop();
-                console.log(rowId);
+                rowIdSelected = $(parents[i]).attr('id');
+                rowIdLast = rowIdSelected.split("-").pop();
             }
         }
-        if (rowId === undefined) {console.log("Invalid rowId...exiting."); return;}
+        //if (rowId === undefined) {console.log("Invalid rowId...exiting."); return;}
+        rowId = '#' + rowIdSelected;
+        console.log("I'm in boi" + rowId);
+        console.log('this is: ');
+        console.log($(this).val());
         switch($(this).attr('name')) {
             case 'yearAcquired':
-                REPORT.personal.items[rowId].yearAcquired = parseInt($(this).val());
+                REPORT.personal.items[rowIdLast].yearAcquired = parseInt($(rowId + ' [name="yearAcquired"]').val());
                 break;
             case 'itemDescription':
-                REPORT.personal.items[rowId].itemDescription = $(this).val();
+                REPORT.personal.items[rowIdLast].itemDescription = $(rowId + ' [name="itemDescription"]').val();
                 break;
             case 'group':
-                REPORT.personal.items[rowId].group = $(this).val();
+                REPORT.personal.items[rowIdLast].group = $(rowId + ' [name="group"]').val();
                 break;
             case 'status':
-                REPORT.personal.items[rowId].status = $(this).val();
+                REPORT.personal.items[rowIdLast].status = $(rowId + ' [name="status"]').val();
                 break;
             case 'amtChanged':
-                REPORT.personal.items[rowId].amtChanged = parseInt($(this).val());
+                if (parseInt($(rowId + ' [name="amtChanged"]').val()) !==
+                    REPORT.personal.items[rowIdLast].amtChanged) {
+                        amtChanged = REPORT.personal.items[rowIdLast].amtChanged;
+                }
+                REPORT.personal.items[rowIdLast].amtChanged = parseInt($(rowId + ' [name="amtChanged"]').val());
+                //isAmtChanged = true;
                 break;
             case 'cost':
-                REPORT.personal.items[rowId].cost = parseInt($(this).val());
+                console.log("cost is: " + PERSONAL_COST);
+                if (parseInt($(rowId + ' [name="cost"]').val()) !==
+                    REPORT.personal.items[rowIdLast].amtChanged) {
+                        cost = REPORT.personal.items[rowIdLast].cost;
+                }
+                REPORT.personal.items[rowIdLast].cost = parseInt($(rowId + ' [name="cost"]').val());
+                //isCostChanged = true;w
                 break;
         }
+
+        var status = $('#personal [name="status"]').val();
+        changeCost("personal", cost, amtChanged, status);
+        console.log("total cost: " + PERSONAL_COST);
+
     });
 
     // Vehicles section
     $('#vehicles input, #vehicles select').blur(function() {
         let parents = $(this).parents();
-        var rowId = undefined;
+        var rowIdSelected = undefined;
+        var rowIdLast;
+        var rowId;
         for (i = 0; i < parents.length; i++) {
             if($(parents[i]).is('tr')) {
-                rowId = $(parents[i]).attr('id');
-                rowId = rowId.split("-").pop();
-                console.log(rowId);
+                rowIdSelected = $(parents[i]).attr('id');
+                rowIdLast = rowIdSelected.split("-").pop();
             }
         }
-        if (rowId === undefined) {console.log("Invalid rowId...exiting."); return;}
+        rowId = '#' + rowIdSelected;
+
         switch($(this).attr('name')) {
             case 'yearAcquired':
-                REPORT.vehicle.items[rowId].yearAcquired = $(this).val();
+                REPORT.vehicle.items[rowIdLast].yearAcquired = parseInt($(rowId + ' [name="yearAcquired"]').val());
                 break;
             case 'modelYear':
-                REPORT.vehicle.items[rowId].modelYear = $(this).val();
+                REPORT.vehicle.items[rowIdLast].modelYear = $(rowId + ' [name="modelYear"]').val();
                 break;
             case 'make':
-                REPORT.vehicle.items[rowId].make = $(this).val();
+                REPORT.vehicle.items[rowIdLast].make = $(rowId + ' [name="make"]').val();
                 break;
             case 'model':
-                REPORT.vehicle.items[rowId].model = $(this).val();
+                REPORT.vehicle.items[rowIdLast].model = $(rowId + ' [name="model"]').val();
                 break;
             case 'bodySize':
-                REPORT.vehicle.items[rowId].bodySize = $(this).val();
+                REPORT.vehicle.items[rowIdLast].bodySize = $(rowId + ' [name="bodySize"]').val();
                 break;
             case 'titleNum':
-                REPORT.vehicle.items[rowId].titleNum = $(this).val();
+                REPORT.vehicle.items[rowIdLast].titleNum = $(rowId + ' [name="titleNum"]').val();
                 break;
             case 'vehicleId':
-                REPORT.vehicle.items[rowId].vehicleId = $(this).val();
+                REPORT.vehicle.items[rowIdLast].vehicleId = $(rowId + ' [name="vehicleId"]').val();
                 break;
             case 'group':
-                REPORT.vehicle.items[rowId].group = $(this).val();
+                REPORT.vehicle.items[rowIdLast].group = $(rowId + ' [name="group"]').val();
                 break;
             case 'cost':
-                REPORT.vehicle.items[rowId].cost = parseInt($(this).val());
+                REPORT.vehicle.items[rowIdLast].cost = parseInt($(rowId + ' [name="yearAcquired"]').val());
                 break;
         }
     });
@@ -128,24 +161,26 @@ function enableAutoSave() {
     // Other & Supplies section
     $('#other-supplies input, #other-supplies select').blur(function() {
         let parents = $(this).parents();
-        var rowId = undefined;
+        var rowIdSelected = undefined;
+        var rowIdLast;
+        var rowId;
         for (i = 0; i < parents.length; i++) {
             if($(parents[i]).is('tr')) {
-                rowId = $(parents[i]).attr('id');
-                rowId = rowId.split("-").pop();
-                console.log(rowId);
+                rowIdSelected = $(parents[i]).attr('id');
+                rowIdLast = rowIdSelected.split("-").pop();
             }
         }
-        if (rowId === undefined) {console.log("Invalid rowId...exiting."); return;}
+        rowId = '#' + rowIdSelected;
+
         switch($(this).attr('name')) {
             case 'yearAcquired':
-                REPORT.other.items[rowId].yearAcquired = $(this).val();
+                REPORT.other.items[rowIdLast].yearAcquired = $(rowId + ' [name="yearAcquired"]').val();
                 break;
             case 'itemDescription':
-                REPORT.other.items[rowId].itemDescription = $(this).val();
+                REPORT.other.items[rowIdLast].itemDescription = $(rowId + ' [name="itemDescription"]').val();
                 break;
             case 'cost':
-                REPORT.other.items[rowId].cost = parseInt($(this).val());
+                REPORT.other.items[rowIdLast].cost = parseInt($(rowId + ' [name="yearAcquired"]').val());
                 break;
         }
     });
@@ -159,10 +194,8 @@ function enableAutoSave() {
     });
 }
 
-
+// Save all inputs/selects/textareas
 function manualSave() {
-
-    // Save all inputs/selects/textareas
 
     // For the sections with multiple items
     var rowIdLast = 0;
@@ -181,39 +214,45 @@ function manualSave() {
     REPORT.general.items[0].businessCategory = $('#general [name="businessCategory"]').val();
 
     // Personal Property
-    rowIdLast = $('#personal tr').last().attr('id');
-    rowIdLast = rowIdLast.split("-").pop();
+    var rowIdSelected = $('#personal tr').last().attr('id');
+    var rowIdFirst= rowIdSelected.charAt(0);
+    var rowIdLast = rowIdSelected.split("-").pop();
     for (i = 0; i <= rowIdLast; i++) {
-        REPORT.personal.items[i].yearAcquired = $('#personal [name="yearAcquired"]').val();
-        REPORT.personal.items[i].itemDescription = $('#personal [name="itemDescription"]').val();
-        REPORT.personal.items[i].group = $('#personal [name="group"]').val();
-        REPORT.personal.items[i].status = $('#personal [name="status"]').val();
-        REPORT.personal.items[i].amtChanged = $('#personal [name="amtChanged"]').val();
-        REPORT.personal.items[i].cost = $('#personal [name="cost"]').val();
+        var rowId = rowIdFirst + "-" + i;
+        REPORT.personal.items[i].yearAcquired = $('#personal #' + rowId + ' [name="yearAcquired"]').val();
+        REPORT.personal.items[i].itemDescription = $('#personal #' + rowId + ' [name="itemDescription"]').val();
+        REPORT.personal.items[i].group = $('#personal #' + rowId + ' [name="group"]').val();
+        REPORT.personal.items[i].status = $('#personal #' + rowId + ' [name="status"]').val();
+        REPORT.personal.items[i].amtChanged = $('#personal #' + rowId + ' [name="amtChanged"]').val();
+        REPORT.personal.items[i].cost = $('#personal #' + rowId + ' [name="cost"]').val();
     }
 
     // Vehicles
-    rowIdLast = $('#vehicles tr').last().attr('id');
-    rowIdLast = rowIdLast.split("-").pop();
+    rowIdSelected = $('#vehicles tr').last().attr('id');
+    rowIdFirst= rowIdSelected.charAt(0);
+    rowIdLast = rowIdSelected.split("-").pop();
     for (i = 0; i <= rowIdLast; i++) {
-        REPORT.vehicle.items[i].yearAcquired = $('#vehicles [name="yearAcquired"]').val();
-        REPORT.vehicle.items[i].modelYear = $('#vehicles [name="modelYear"]').val();
-        REPORT.vehicle.items[i].make = $('#vehicles [name="make"]').val();
-        REPORT.vehicle.items[i].model = $('#vehicles [name="model"]').val();
-        REPORT.vehicle.items[i].bodySize = $('#vehicles [name="bodySize"]').val();
-        REPORT.vehicle.items[i].titleNum = $('#vehicles [name="titleNum"]').val();
-        REPORT.vehicle.items[i].vehicleId = $('#vehicles [name="vehicleId"]').val();
-        REPORT.vehicle.items[i].group = $('#vehicles [name="group"]').val();
-        REPORT.vehicle.items[i].cost = $('#vehicles [name="cost"]').val();
+        var rowId = rowIdFirst + "-" + i;
+        REPORT.vehicle.items[i].yearAcquired = $('#vehicles #' + rowId + ' [name="yearAcquired"]').val();
+        REPORT.vehicle.items[i].modelYear = $('#vehicles #' + rowId + ' [name="modelYear"]').val();
+        REPORT.vehicle.items[i].make = $('#vehicles #' + rowId + ' [name="make"]').val();
+        REPORT.vehicle.items[i].model = $('#vehicles #' + rowId + ' [name="model"]').val();
+        REPORT.vehicle.items[i].bodySize = $('#vehicles #' + rowId + ' [name="bodySize"]').val();
+        REPORT.vehicle.items[i].titleNum = $('#vehicles #' + rowId + ' [name="titleNum"]').val();
+        REPORT.vehicle.items[i].vehicleId = $('#vehicles #' + rowId + ' [name="vehicleId"]').val();
+        REPORT.vehicle.items[i].group = $('#vehicles #' + rowId + ' [name="group"]').val();
+        REPORT.vehicle.items[i].cost = $('#vehicles #' + rowId + ' [name="cost"]').val();
     }
 
     // Other & supplies
-    rowIdLast = $('#other-supplies tr').last().attr('id');
-    rowIdLast = rowIdLast.split("-").pop();
+    rowIdSelected = $('#other-supplies tr').last().attr('id');
+    rowIdFirst= rowIdSelected.charAt(0);
+    rowIdLast = rowIdSelected.split("-").pop();
     for (i = 0; i <= rowIdLast; i++) {
-        REPORT.other.items[i].yearAcquired = $('#other-supplies [name="yearAcquired"]').val();
-        REPORT.other.items[i].itemDescription = $('#other-supplies [name="itemDescription"]').val();
-        REPORT.other.items[i].cost = $('#other-supplies [name="cost"]').val();
+        var rowId = rowIdFirst + "-" + i;
+        REPORT.other.items[i].yearAcquired = $('#other-supplies #' + rowId + ' [name="yearAcquired"]').val();
+        REPORT.other.items[i].itemDescription = $('#other-supplies #' + rowId + ' [name="itemDescription"]').val();
+        REPORT.other.items[i].cost = $('#other-supplies #' + rowId + ' [name="cost"]').val();
     }
 
     // Affirmation

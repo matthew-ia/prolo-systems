@@ -58,27 +58,33 @@ function load(reportName, isCopy)
     }
 
     // Vehicles
-    rowIdLast = $('#vehicles tr').last().attr('id');
-    rowIdLast = rowIdLast.split("-").pop();
+    rowIdSelected = $('#vehicles tr').last().attr('id');
+    rowIdFirst= rowIdSelected.charAt(0);
+    rowIdLast = rowIdSelected.split("-").pop();
     for (i = 0; i <= rowIdLast; i++) {
-        $('#vehicles [name="yearAcquired"]').val(REPORT.vehicle.items[i].yearAcquired);
-        $('#vehicles [name="modelYear"]').val(REPORT.vehicle.items[i].modelYear);
-        $('#vehicles [name="make"]').val(REPORT.vehicle.items[i].make);
-        $('#vehicles [name="model"]').val(REPORT.vehicle.items[i].model);
-        $('#vehicles [name="bodySize"]').val(REPORT.vehicle.items[i].bodySize);
-        $('#vehicles [name="titleNum"]').val(REPORT.vehicle.items[i].titleNum);
-        $('#vehicles [name="vehicleId"]').val(REPORT.vehicle.items[i].vehicleId);
-        $('#vehicles [name="group"]').val(REPORT.vehicle.items[i].group);
-        $('#vehicles [name="cost"]').val(REPORT.vehicle.items[i].cost);
+        var rowId = rowIdFirst + "-" + i;
+        console.log("on iteration " + i);
+        $('#vehicles #' + rowId + ' [name="yearAcquired"]').val(REPORT.vehicle.items[i].yearAcquired);
+        $('#vehicles #' + rowId + ' [name="modelYear"]').val(REPORT.vehicle.items[i].modelYear);
+        $('#vehicles #' + rowId + ' [name="make"]').val(REPORT.vehicle.items[i].make);
+        $('#vehicles #' + rowId + ' [name="model"]').val(REPORT.vehicle.items[i].model);
+        $('#vehicles #' + rowId + ' [name="bodySize"]').val(REPORT.vehicle.items[i].bodySize);
+        $('#vehicles #' + rowId + ' [name="titleNum"]').val(REPORT.vehicle.items[i].titleNum);
+        $('#vehicles #' + rowId + ' [name="vehicleId"]').val(REPORT.vehicle.items[i].vehicleId);
+        $('#vehicles #' + rowId + ' [name="group"]').val(REPORT.vehicle.items[i].group);
+        $('#vehicles #' + rowId + ' [name="cost"]').val(REPORT.vehicle.items[i].cost);
     }
 
     // Other & supplies
-    rowIdLast = $('#other-supplies tr').last().attr('id');
-    rowIdLast = rowIdLast.split("-").pop();
+    rowIdSelected = $('#other-supplies tr').last().attr('id');
+    rowIdFirst= rowIdSelected.charAt(0);
+    rowIdLast = rowIdSelected.split("-").pop();
     for (i = 0; i <= rowIdLast; i++) {
-        $('#other-supplies [name="yearAcquired"]').val(REPORT.other.items[i].yearAcquired);
-        $('#other-supplies [name="itemDescription"]').val(REPORT.other.items[i].itemDescription);
-        $('#other-supplies [name="cost"]').val(REPORT.other.items[i].cost);
+        var rowId = rowIdFirst + "-" + i;
+        console.log("on iteration " + i);
+        $('#other-supplies #' + rowId + ' [name="yearAcquired"]').val(REPORT.other.items[i].yearAcquired);
+        $('#other-supplies #' + rowId + ' [name="itemDescription"]').val(REPORT.other.items[i].itemDescription);
+        $('#other-supplies #' + rowId + ' [name="cost"]').val(REPORT.other.items[i].cost);
     }
 
     // Affirmation

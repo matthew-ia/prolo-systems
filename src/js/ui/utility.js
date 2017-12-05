@@ -69,3 +69,20 @@ function checkError() {
     if (numInstances > 1) return DUPLICATE;
     else return OK;
 }
+
+function changeCost(sectionId, cost, amtChanged, status) {
+    if (status === 2) amtChanged *= -1; // if deletion make it negative
+    if (status !== 0) cost += amtChanged; // if not prior
+
+    switch (sectionId) {
+        case "personal":
+            PERSONAL_COST += cost;
+            break;
+        case "vehicles":
+            VEHICLES_COST += cost;
+            break;
+        case "other-supplies":
+            OTHER_COST += cost;
+            break;
+    }
+}
