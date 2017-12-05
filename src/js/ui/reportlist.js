@@ -59,13 +59,16 @@ function displayReports() {
     });
 
     $('#report-list #copyReport').click(function() {
+        console.log("Old REPORT is: ");
+        console.log(REPORT);
+        var reportName = $(this).parents('td').prev().text();
+        console.log("reportName: " + reportName);
+        setReport(getReport(reportName));
         addReport(true);
+        console.log("New REPORT is: ");
+        console.log(REPORT);
         showReportList(false);
         showReport(true);
-        console.log("Already set REPORT to: ");
-        console.log(REPORT);
-        console.log("Old report is: ");
-        console.log(REPORTLIST[0]);
         load(REPORT.reportName, true);
     });
 

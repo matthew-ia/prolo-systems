@@ -20,14 +20,29 @@
 var REPORTLIST = [];
 var REPORT = undefined;
 
+// Errors for reporting
+var OK = 0;
+var DUPLICATE = 1;
+var EMPTYNAME = 2;
+var REPORTSTATUS = OK;
+
 // Function to set a report to a report list object
 function setReport(report) {
     REPORT = report;
 }
 
 // Function to retrieve a past report
-function getReport() {
-    return REPORT;
+function getReport(reportName) {
+    var reportIndex = -1;
+    for (i = 0; i < REPORTLIST.length; i++) {
+        if (REPORTLIST[i].reportName === reportName) {
+            // Shift report list to overwrite report to delete
+            reportIndex = i;
+            break;
+        }
+    }
+    if (reportIndex === -1) alert("Tried using getReport() without a parameter");
+    return REPORTLIST[reportIndex];
 }
 
 // Function to add a report to the reportlist array
@@ -49,7 +64,7 @@ function copyReport(oldReport) {
     var copy = JSON.parse(JSON.stringify(oldReport));
     var newReport = new Report();
     newReport.initReport();
-    
+
     newReport.general.items = copy.general.items;
     newReport.personal.items = copy.personal.items;
     newReport.vehicle.items = copy.vehicle.items;
@@ -73,6 +88,7 @@ function deleteReport(reportName) {
         }
     }
 }
+
 
 //TODO: Implement a remove row function
 /* Function to remove a row from a report

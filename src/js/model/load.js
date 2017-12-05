@@ -8,13 +8,12 @@ function load(reportName, isCopy)
         if(REPORTLIST[i].reportName === reportName)
         {
             reportIndex = i;
-            console.log("Reportname got got: " + i);
             break;
         }
     }
 
     //if (reportIndex !== -1) {
-    //if (reportIndex === -1) reportIndex = REPORTLIST.length - 1;
+    if (reportIndex === -1) reportIndex = REPORTLIST.length - 1;
     setReport(REPORTLIST[reportIndex]);
     console.log("Loading... " + REPORTLIST[reportIndex].reportName + " from " + reportName);
     console.log(REPORT);
@@ -23,11 +22,7 @@ function load(reportName, isCopy)
     //    console.log("Loadingb... " + REPORT.reportName + " from " + reportName);
     //}
 
-
-
-
-
-    // Save all inputs/selects/textareas
+    // Load all inputs/selects/textareas
 
     // For the sections with multiple items
     var rowIdLast = 0;
