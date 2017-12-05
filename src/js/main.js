@@ -36,26 +36,27 @@ function addReport(isCopy) {
     report = new Report("");
     report.initReport();
     if (isCopy) {
-        var newReport;
-        report = copyReport(newReport, REPORT);
+        report = copyReport(REPORT);
         console.log("create new from old");
+        console.log(report);
     }
 
     REPORTLIST.push(report);
     setReport(REPORTLIST[REPORTLIST.length - 1]);
 }
 
-function copyReport(newReport, oldReport) {
-    newReport = new Report();
+function copyReport(oldReport) {
+    var copy = JSON.parse(JSON.stringify(oldReport));
+    var newReport = new Report();
     newReport.initReport();
+    
+    newReport.general.items = copy.general.items;
+    newReport.personal.items = copy.personal.items;
+    newReport.vehicle.items = copy.vehicle.items;
+    newReport.other.items = copy.other.items;
+    newReport.affirmation.items = copy.affirmation.items;
 
-    newReport.general.items = oldReport.general.items;
-    newReport.personal.items = oldReport.personal.items;
-    newReport.vehicle.items = oldReport.vehicle.items;
-    newReport.other.items = oldReport.other.items;
-    newReport.affirmation.items = oldReport.affirmation.items;
-
-    var name = oldReport.reportName + " copy";
+    var name = copy.reportName + " copy";
     newReport.reportName = name;
     newReport.general.items[0].reportName = name;
 

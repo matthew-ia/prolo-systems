@@ -2,20 +2,30 @@
 function load(reportName, isCopy)
 {
     // Set current report
+    var reportIndex = -1;
     for(i = 0; i < REPORTLIST.length; i++)
     {
         if(REPORTLIST[i].reportName === reportName)
         {
-            setReport(REPORTLIST[i]);
-            console.log("Loadinga... " + REPORTLIST[i].reportName + " from " + reportName);
-            console.log(REPORT);
-        }
-
-        else {
-            setReport(REPORTLIST[REPORTLIST.length - 1]);
-            console.log("Loadingb... " + REPORT.reportName + " from " + reportName);
+            reportIndex = i;
+            console.log("Reportname got got: " + i);
+            break;
         }
     }
+
+    //if (reportIndex !== -1) {
+    //if (reportIndex === -1) reportIndex = REPORTLIST.length - 1;
+    setReport(REPORTLIST[reportIndex]);
+    console.log("Loading... " + REPORTLIST[reportIndex].reportName + " from " + reportName);
+    console.log(REPORT);
+    //} else {
+    //    setReport(REPORTLIST[REPORTLIST.length - 1]);
+    //    console.log("Loadingb... " + REPORT.reportName + " from " + reportName);
+    //}
+
+
+
+
 
     // Save all inputs/selects/textareas
 
@@ -45,7 +55,6 @@ function load(reportName, isCopy)
         $('#personal [name="status"]').val(REPORT.personal.items[i].status);
         $('#personal [name="amtChanged"]').val(REPORT.personal.items[i].amtChanged);
         $('#personal [name="cost"]').val(REPORT.personal.items[i].cost);
-
     }
 
     // Vehicles
@@ -77,6 +86,7 @@ function load(reportName, isCopy)
 }
 
 function updateState(rowIndex) {
+
     // 0 = Prior
     // 1 = Addition
     // 2 = Deletion
@@ -90,7 +100,10 @@ function updateState(rowIndex) {
     var amtChanged = REPORT.personal.items[rowIndex].amtChanged;
     if (oldStatus === 2) amtChanged *= -1; // make it negative
     newCost = oldCost + amtChanged;
-    console.log("newCost: " + newCost + " : " + oldCost);
+    //console.log("newCost: " + newCost + " : " + oldCost);
     REPORT.personal.items[rowIndex].cost = newCost;
     REPORT.personal.items[rowIndex].amtChanged = "";
+    console.log("Update called on ");
+    console.log(REPORT);
+
 }
