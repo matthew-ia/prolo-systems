@@ -8,22 +8,21 @@ function load(reportName, isCopy)
         {
             setReport(REPORTLIST[i]);
             console.log("Loading... " + REPORTLIST[i].reportName);
+            break;
         }
 
         else {
             setReport(REPORTLIST[REPORTLIST.length - 1]);
+            console.log("Loading2... " + REPORT.reportName);
+            break;
         }
-    }
-
-    if (isCopy) {
-        loadCopy();
     }
 
     // Save all inputs/selects/textareas
 
     // For the sections with multiple items
     var rowIdLast = 0;
-
+    console.log(REPORT);
     // General
     $('#general [name="reportName"]').val(REPORT.general.items[0].reportName);
     $('#general [name="logNumber"]').val(REPORT.general.items[0].logNumber);
@@ -39,15 +38,14 @@ function load(reportName, isCopy)
     rowIdLast = $('#personal tr').last().attr('id');
     rowIdLast = rowIdLast.split("-").pop();
     for (i = 0; i <= rowIdLast; i++) {
+        if (isCopy) updateState(i);
         $('#personal [name="yearAcquired"]').val(REPORT.personal.items[i].yearAcquired);
         $('#personal [name="itemDescription"]').val(REPORT.personal.items[i].itemDescription);
         $('#personal [name="group"]').val(REPORT.personal.items[i].group);
         $('#personal [name="status"]').val(REPORT.personal.items[i].status);
         $('#personal [name="amtChanged"]').val(REPORT.personal.items[i].amtChanged);
         $('#personal [name="cost"]').val(REPORT.personal.items[i].cost);
-        if (isCopy) {
 
-        }
     }
 
     // Vehicles
@@ -78,28 +76,24 @@ function load(reportName, isCopy)
     $('[name="signature"]').val(REPORT.other.items[0].signature);
 }
 
-function updateState() {
+function updateState(rowIndex) {
     // 0 = Prior
     // 1 = Addition
     // 2 = Deletion
-
+    console.log(REPORTLIST[0]);
+    console.log(REPORTLIST[1]);
     // Set status to prior
     var oldStatus = $('#personal [name="status"]').val();
     REPORT.personal.items[i].status = 0;
-    $('#personal [name="status"]').val(REPORT.personal.items[i].status);
+    //$('#personal [name="status"]').val(REPORT.personal.items[rowIndex].status);
 
-    // Update Cost
-    // TODO: flip this so it uses object data members instead of DOM elements
-    // to do make changes. Should change model, then send changes to view.
+    //Update Cost
     var newCost = 0;
-    var amtChanged = $('#personal [name="amtChanged"]').val();
+    var oldCost = REPORT.personal.items[rowIndex].cost;
+    var amtChanged = REPORT.personal.items[rowIndex].amtChanged;
     if (oldStatus === 2) amtChanged *= -1; // make it negative
-
-    newCost = $('#personal [name="cost"]').val()
-            + $('#personal [name="amtChanged"]').val();
-    $('#personal [name="cost"]').val(newCost)
-    $('#personal [name="amtChanged"]').val(0);
-
-    $('#personal [name="amtChanged"]').val(REPORT.personal.items[i].amtChanged);
-    $('#personal [name="cost"]').val(REPORT.personal.items[i].cost);
+    newCost = oldCost + amtChanged;
+    console.log("newCost: " + newCost + " : " + oldCost);
+    REPORT.personal.items[rowIndex].cost = newCost;
+    REPORT.personal.items[rowIndex].amtChanged = "";
 }

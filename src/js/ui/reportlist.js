@@ -62,7 +62,7 @@ function displayReports() {
         showReportList(false);
         showReport(true);
         addReport(true);
-        load(REPORTLIST[REPORTLIST.length - 1].reportName + " copy")
+        load(REPORTLIST[REPORTLIST.length - 1].reportName, true);
     });
 
     $('#report-list #deleteReport').click(function() {

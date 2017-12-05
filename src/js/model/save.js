@@ -62,7 +62,7 @@ function enableAutoSave() {
         if (rowId === undefined) {console.log("Invalid rowId...exiting."); return;}
         switch($(this).attr('name')) {
             case 'yearAcquired':
-                REPORT.personal.items[rowId].yearAcquired = $(this).val();
+                REPORT.personal.items[rowId].yearAcquired = parseInt($(this).val());
                 break;
             case 'itemDescription':
                 REPORT.personal.items[rowId].itemDescription = $(this).val();
@@ -74,10 +74,10 @@ function enableAutoSave() {
                 REPORT.personal.items[rowId].status = $(this).val();
                 break;
             case 'amtChanged':
-                REPORT.personal.items[rowId].amtChanged = $(this).val();
+                REPORT.personal.items[rowId].amtChanged = parseInt($(this).val());
                 break;
             case 'cost':
-                REPORT.personal.items[rowId].cost = $(this).val();
+                REPORT.personal.items[rowId].cost = parseInt($(this).val());
                 break;
         }
     });
@@ -120,7 +120,7 @@ function enableAutoSave() {
                 REPORT.vehicle.items[rowId].group = $(this).val();
                 break;
             case 'cost':
-                REPORT.vehicle.items[rowId].cost = $(this).val();
+                REPORT.vehicle.items[rowId].cost = parseInt($(this).val());
                 break;
         }
     });
@@ -145,7 +145,7 @@ function enableAutoSave() {
                 REPORT.other.items[rowId].itemDescription = $(this).val();
                 break;
             case 'cost':
-                REPORT.other.items[rowId].cost = $(this).val();
+                REPORT.other.items[rowId].cost = parseInt($(this).val());
                 break;
         }
     });

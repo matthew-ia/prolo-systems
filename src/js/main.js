@@ -33,26 +33,34 @@ function getReport() {
 // Function to add a report to the reportlist array
 function addReport(isCopy) {
     var report;
-    if (!isCopy) report = new Report("");
-    else {
+    report = new Report("");
+    report.initReport();
+    if (isCopy) {
         var newReport;
         report = copyReport(newReport, REPORT);
-        console.log("new new");
+        console.log("create new from old");
     }
-    report.initReport();
+
     REPORTLIST.push(report);
     setReport(REPORTLIST[REPORTLIST.length - 1]);
 }
 
 function copyReport(newReport, oldReport) {
     newReport = new Report();
+
     newReport.initReport();
-    newReport.reportName = oldReport.reportName + " copy";
     newReport.general.items = oldReport.general.items;
     newReport.personal.items = oldReport.personal.items;
     newReport.vehicle.items = oldReport.vehicle.items;
     newReport.other.items = oldReport.other.items;
     newReport.affirmation.items = oldReport.affirmation.items;
+
+    var name = oldReport.reportName + " copy";
+    newReport.reportName = name;
+    newReport.general.items[0].reportName = name;
+    console.log(newReport.personal.items);
+    console.log("newReport: ");
+    console.log(newReport);
     return newReport;
 }
 
