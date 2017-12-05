@@ -7,7 +7,7 @@ function enableAddRow() {
     });
 }
 
-function addRow(sectionElem) {
+function addRow(isReportLoaded, sectionElem) {
     var sectionId = sectionElem.parents('.section').attr('id');
     var rowId = $('#' + sectionId).find('tbody tr:last-of-type').attr('id');
     rowId = rowId.charAt(2);
