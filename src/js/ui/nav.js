@@ -25,6 +25,7 @@ $('#new-report-page').click(function() {
         showReportList(false);
         showReport(true);
         enableAutoSave();
+        enableAddRow();
         enableSubmitButton();
         enableDatepicker();
         enableSmoothScrollJump();

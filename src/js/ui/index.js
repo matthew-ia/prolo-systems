@@ -98,7 +98,7 @@ function personalPropertyTable() {
                             '<td><input type="text" name="cost" placeholder="$0"></td>' +
                           '</tr>');
   $('#personal form').append('<div class="addRow"></div>');
-  $('#personal .addRow').append('<button>Add Row</button>');
+  $('#personal .addRow').append('<button type="button">Add Row</button>');
 
 }
 
@@ -140,7 +140,7 @@ function vehiclesTable()
                               '</tr>');
 
   $('#vehicles form').append('<div class="addRow"></div>');
-  $('#vehicles .addRow').append('<button>Add Row</button>');
+  $('#vehicles .addRow').append('<button type="button">Add Row</button>');
 }
 
 function otherSuppliesTable(){
@@ -160,7 +160,7 @@ function otherSuppliesTable(){
                                     '<td><input type="text" name="cost" placeholder="$0"></td>' +
                                     '</tr>');
   $('#other-supplies form').append('<div class="addRow"></div>');
-  $('#other-supplies .addRow').append('<button>Add Row</button>');
+  $('#other-supplies .addRow').append('<button type="button">Add Row</button>');
 }
 
 function affirmationTable(){
