@@ -1,3 +1,47 @@
+### UPDATE: 12/5
+
+
+
+- ~~finish addRow~~
+- use addRow in load
+- *save.js* selectors need to be refreshed to select new rows created by addRow
+- make store/restore functions store all reports in the report list
+- wire up store/restore to fire onload/onclose (not sure if onclose or something like it exists)
+- make sure affirmation section is correct
+- sum totals for each section (append a counter in the top right of each section or something; this will work dynamically with the autoSave we already have implemented)
+- add “Schedule” names in headers, make headers a bit bigger
+  - Change to be "Schedule-X Section-Name", span the section name in a brighter color
+- add Schedule C section...
+  - "Property in Your Possession on Jan 1 but Owned by Others"
+  - need to make changes to:
+    - index.js – view creation
+    - report.js – object that holds data
+    - storage.js – stores/restores data into object
+    - save.js – auto-save and manulSave() needs to select and save these data members
+    - load.js – load these data members
+- change vehicle section name to "Vehicles & Equipment"; all data members are the same for equipment items, so we'll just keep storing all rows in that section in `report.vehicle`
+
+
+
+To reiterate my original thinking for the organization of sections:
+
+- personal =  SCHEDULE A
+- vehicles (& equipment) = SCHEDULE B (exlcuding other & supplies)
+- other = SCHEDULE B (only other & supplies)
+  - only because it has different fields than vehicles & equip.
+- owned by others (now) = SCHEDULE C
+- affirmation
+
+
+
+---
+
+---
+
+---
+
+
+
 First, some updates:
 
 - `REPORT` is a global variable that holds a reference to the *current* report (the one being viewed). This is in main.js
