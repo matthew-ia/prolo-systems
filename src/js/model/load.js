@@ -40,16 +40,20 @@ function load(reportName, isCopy)
     $('#general [name="businessCategory"]').val(REPORT.general.items[0].businessCategory);
 
     // Personal Property
-    rowIdLast = $('#personal tr').last().attr('id');
-    rowIdLast = rowIdLast.split("-").pop();
+    var rowIdSelected = $('#personal tr').last().attr('id');
+    var rowIdFirst= rowIdSelected.charAt(0);
+    var rowIdLast = rowIdSelected.split("-").pop();
     for (i = 0; i <= rowIdLast; i++) {
+        var rowId = rowIdFirst + "-" + i;
         if (isCopy) updateState(i);
-        $('#personal [name="yearAcquired"]').val(REPORT.personal.items[i].yearAcquired);
-        $('#personal [name="itemDescription"]').val(REPORT.personal.items[i].itemDescription);
-        $('#personal [name="group"]').val(REPORT.personal.items[i].group);
-        $('#personal [name="status"]').val(REPORT.personal.items[i].status);
-        $('#personal [name="amtChanged"]').val(REPORT.personal.items[i].amtChanged);
-        $('#personal [name="cost"]').val(REPORT.personal.items[i].cost);
+        console.log("on iteration " + i);
+        $('#personal #' + rowId + ' [name="yearAcquired"]').val(REPORT.personal.items[i].yearAcquired);
+        $('#personal #' + rowId + ' [name="itemDescription"]').val(REPORT.personal.items[i].itemDescription);
+        $('#personal #' + rowId + ' [name="group"]').val(REPORT.personal.items[i].group);
+        $('#personal #' + rowId + ' [name="status"]').val(REPORT.personal.items[i].status);
+        $('#personal #' + rowId + ' [name="amtChanged"]').val(REPORT.personal.items[i].amtChanged);
+        $('#personal #' + rowId + ' [name="cost"]').val(REPORT.personal.items[i].cost);
+        console.log("Current row id: " + rowId);
     }
 
     // Vehicles

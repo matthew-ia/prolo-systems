@@ -1,21 +1,20 @@
 function enableSubmitButton() {
-  $('#subBut').click(function() {
-  var isSafe = true;
-  if ($('#general').css("display") !== "none") {
-    if ($('#general [name="reportName"]').val() === undefined ||
-    $('#general [name="reportName"]').val() === "") {
-      showPopup();
-      isSafe = false;
-      return;
-    }
-  }
+    $('#subBut').click(function() {
+        var errorStatus = checkError();
 
-  if (isSafe) {
+        if (errorStatus !== OK) {
+          console.log("NOT OK: " + errorStatus);
+          showPopup(errorStatus);
+          //else if (errorStatus === DUPLICATE) console.log("NOT OK: " + errorStatus);
+        } else if (errorStatus === OK) {
+          submit();
+        }
+    });
+}
+
+function submit() {
     manualSave();
     showReport(false);
     showReportList(true);
     displayReports();
-
-  }
-});
 }
