@@ -38,9 +38,10 @@ function displayReports() {
     $('#report-list tr td:first-child').click(function() {
         if (REPORTLIST.length > 0) {
             var reportName = $(this).text();
+            console.log("I'm about to load " + reportName);
             showReportList(false);
             showReport(true);
-            load(reportName);
+            load(reportName, false);
             enableAutoSave();
             enableSubmitButton();
             enableDatepicker();
@@ -49,26 +50,28 @@ function displayReports() {
             addReport(false);
             showReportList(false);
             showReport(true);
-            load(REPORT.reportName);
+            load(REPORT.reportName, false);
             enableAutoSave();
             enableSubmitButton();
             enableDatepicker();
             enableSmoothScrollJump();
         }
-
+        console.log("row click listener");
     });
 
     $('#report-list #copyReport').click(function() {
+        addReport(true);
         showReportList(false);
         showReport(true);
-        addReport(true);
         load(REPORTLIST[REPORTLIST.length - 1].reportName, true);
     });
 
     $('#report-list #deleteReport').click(function() {
         var reportName = $(this).parents('td').prev().prev().text();
         deleteReport(reportName);
-
+        $(this).parents('tr').remove();
+        displayReports();
+        return;
     });
 
     $('#report-list #copyReport').hover(
@@ -88,4 +91,55 @@ function displayReports() {
             $(this).find('img').attr('src', 'images/delete.png');
         }
     );
+}
+
+function updateList() {
+    $('#report-list table').html("");
+    if (REPORTLIST.length === 0 || REPORTLIST[0] === undefined) {
+        $('#report-list table').append('<tr id="defaultReportRow"><td>' +
+                        '<a href="#">' +
+                            'Create a new report' +
+                        '</a>' +
+                        '</td>' +
+                        '</tr>');
+    }
+    else {
+        for (var i = 0; i < REPORTLIST.length; i++) {
+            $('#report-list table').append('<tr><td><a href="#">' +
+                            REPORTLIST[i].reportName +
+                        '</a></td>' +
+                        '<td><button id="copyReport">' +
+                            '<img src="images/copy.png">' +
+                            '<br>Copy' +
+                        '</button></td>' +
+                        '<td><button id="deleteReport">' +
+                            '<img src="images/delete.png">' +
+                            '<br>Delete' +
+                        '</button></td>' +
+                        '</td></tr>');
+        }
+    }
+
+    $('#report-list tr td:first-child').click(function() {
+        if (REPORTLIST.length > 0) {
+            var reportName = $(this).text();
+            showReportList(false);
+            showReport(true);
+            load(reportName);
+            enableAutoSave();
+            enableSubmitButton();
+            enableDatepicker();
+            enableSmoothScrollJump();
+        } else {
+            addReport(false);
+            showReportList(false);
+            showReport(true);
+            load(REPORT.reportName);
+            enableAutoSave();
+            enableSubmitButton();
+            enableDatepicker();
+            enableSmoothScrollJump();
+        }
+        console.log("row click listener");
+    });
 }

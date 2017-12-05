@@ -65,7 +65,11 @@ function copyReport(newReport, oldReport) {
 //TODO: Implement a remove report function
 function deleteReport(reportName) {
     for (i = 0; i < REPORTLIST.length; i++) {
-        //if (REPORTLIST[i] ===)
+        if (REPORTLIST[i].reportName === reportName) {
+            // Shift report list to overwrite report to delete
+            REPORTLIST.splice(i, 1);
+            break;
+        }
     }
 }
 

@@ -7,14 +7,13 @@ function load(reportName, isCopy)
         if(REPORTLIST[i].reportName === reportName)
         {
             setReport(REPORTLIST[i]);
-            console.log("Loading... " + REPORTLIST[i].reportName);
-            break;
+            console.log("Loadinga... " + REPORTLIST[i].reportName + " from " + reportName);
+            console.log(REPORT);
         }
 
         else {
             setReport(REPORTLIST[REPORTLIST.length - 1]);
-            console.log("Loading... " + REPORT.reportName);
-            break;
+            console.log("Loadingb... " + REPORT.reportName + " from " + reportName);
         }
     }
 
@@ -24,6 +23,7 @@ function load(reportName, isCopy)
     var rowIdLast = 0;
 
     // General
+    //REPORT.general.items[0].reportName = REPORT.reportName;
     $('#general [name="reportName"]').val(REPORT.general.items[0].reportName);
     $('#general [name="logNumber"]').val(REPORT.general.items[0].logNumber);
     $('#general [name="ownerName"]').val(REPORT.general.items[0].ownerName);
