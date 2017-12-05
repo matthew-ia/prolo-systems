@@ -66,7 +66,9 @@ function displayReports() {
     });
 
     $('#report-list #deleteReport').click(function() {
-        // code to remove a report form REPORTLIST
+        console.log($(this).parents().find('td').prev().find('a').text() + "\n");
+        deleteReport();
+        displayReports();
     });
 
     $('#report-list #copyReport').hover(

@@ -13,7 +13,7 @@ function load(reportName, isCopy)
 
         else {
             setReport(REPORTLIST[REPORTLIST.length - 1]);
-            console.log("Loading2... " + REPORT.reportName);
+            console.log("Loading... " + REPORT.reportName);
             break;
         }
     }
@@ -22,7 +22,7 @@ function load(reportName, isCopy)
 
     // For the sections with multiple items
     var rowIdLast = 0;
-    console.log(REPORT);
+
     // General
     $('#general [name="reportName"]').val(REPORT.general.items[0].reportName);
     $('#general [name="logNumber"]').val(REPORT.general.items[0].logNumber);
@@ -80,12 +80,9 @@ function updateState(rowIndex) {
     // 0 = Prior
     // 1 = Addition
     // 2 = Deletion
-    console.log(REPORTLIST[0]);
-    console.log(REPORTLIST[1]);
     // Set status to prior
     var oldStatus = $('#personal [name="status"]').val();
     REPORT.personal.items[i].status = 0;
-    //$('#personal [name="status"]').val(REPORT.personal.items[rowIndex].status);
 
     //Update Cost
     var newCost = 0;

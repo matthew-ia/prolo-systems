@@ -47,8 +47,8 @@ function addReport(isCopy) {
 
 function copyReport(newReport, oldReport) {
     newReport = new Report();
-
     newReport.initReport();
+    
     newReport.general.items = oldReport.general.items;
     newReport.personal.items = oldReport.personal.items;
     newReport.vehicle.items = oldReport.vehicle.items;
@@ -58,10 +58,15 @@ function copyReport(newReport, oldReport) {
     var name = oldReport.reportName + " copy";
     newReport.reportName = name;
     newReport.general.items[0].reportName = name;
-    console.log(newReport.personal.items);
-    console.log("newReport: ");
-    console.log(newReport);
+
     return newReport;
+}
+
+//TODO: Implement a remove report function
+function deleteReport() {
+    for (i = 0; i < REPORTLIST.length; i++) {
+        //if (REPORTLIST[i] ===)
+    }
 }
 
 //TODO: Implement a remove row function
@@ -69,7 +74,7 @@ function copyReport(newReport, oldReport) {
 function removeRow(name, id) {
 }*/
 
-//TODO: Implement a remove report function
+
 
 //TODO: FOR TESTING ONLY; REMOVE THIS!
 //addReport("test");
