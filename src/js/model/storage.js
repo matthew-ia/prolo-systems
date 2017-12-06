@@ -17,6 +17,7 @@ function restore() {
         newReportObj.personal.items = oldReportObj.personal.items;
         newReportObj.vehicle.items = oldReportObj.vehicle.items;
         newReportObj.other.items = oldReportObj.other.items;
+        newReportObj.sectionc.items = oldReportObj.sectionc.items;
         newReportObj.affirmation.items = oldReportObj.affirmation.items;
         REPORTLIST[i] = newReportObj;
     }
