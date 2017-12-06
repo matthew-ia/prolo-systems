@@ -165,6 +165,37 @@
      }
  }
 
+
+/* Section C Prop in your Possesion on Jan 1.... */
+ function SectionC()
+ {
+     this.items = [];
+
+     this.Item = function(nameOwner, description, leaseNumber, monthlyPay, costNew, startEndDates)
+     {
+         this.nameOwner = nameOwner;
+         this.description = description;
+         this.leaseNumber = leaseNumner;
+         this.monthlyPay = monthlyPay;
+         this.costNew = costNew;
+         this.startEndDates = startEndDates;
+     }
+
+     this.addItem = function(nameOwner, description, leaseNumber, monthlyPay, costNew, startEndDates)
+     {
+         if(this.items.length == 0)
+         {
+             this.items[0] = new this.Item(nameOwner, description, leaseNumber, monthlyPay, costNew, startEndDates);
+         }
+         else
+         {
+             let item = new this.Item(nameOwner, description, leaseNumber, monthlyPay, costNew, startEndDates);
+             this.items.push(item);
+         }
+     }
+
+ }
+
  // Declare/Define Report object and its variales, methods.
  function Report(name, id)
  {
