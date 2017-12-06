@@ -7,6 +7,7 @@ function generateContainers() {
     $('#content-container').append('<div class="section" id="personal"></div>');
     $('#content-container').append('<div class="section" id="vehicles"></div>');
     $('#content-container').append('<div class="section" id="other-supplies"></div>');
+    $('#content-container').append('<div class="section" id="sectionC"></div>');
     $('#content-container').append('<div class="section" id="affirmation"></div>');
 }
 
@@ -172,7 +173,34 @@ function affirmationTable(){
                                 '</tr>');
   $('#affirmation').append('<button id="subBut">Submit</button>');
 }
-// Ima use the restroom.. (max) up
+
+/* 12/6 edited */
+function sectionCTable(){
+  $('#sectionC').append('<h2>Schedule C</h2>');
+  $('#sectionC').append('<form id="sectionCForm"></form>');
+  $('#sectionC form').append('<table></table>');
+  $('#sectionC table').append('<thead></thead>');
+  $('#sectionC thead').append('<tr>' +
+                                    '<th>Name and Address of the Owner</th>' +
+                                    '<th>Description of the Property</th>' +
+                                    '<th>Lease &#35 or Account &#35</th>' +
+                                    '<th>Monthly Payment</th>' +
+                                    '<th>Cost New (Quoted)</th>' +
+                                    '<th>Start $amp; End Lease Dates</th>' +
+                                    '</tr>');
+  $('#sectionC table').append('<tbody></tbody>');
+  $('#sectionC tbody').append('<tr id="4-0">' +
+                                    '<td><input type="text" name="nameAndAddress" placeholder="Name and Address"></td>' +
+                                    '<td><input type="text" name="description" placeholder="Description"></td>' +
+                                    '<td><input type="text" name="leaseNumber" placeholder="Lease &#35"></td>' +
+                                    '<td><input type="text" name="monthlyPay" placeholder="Monthly Pay"></td>' +
+                                    '<td><input type="text" name="costNew" placeholder="Quoted New Cost"></td>' +
+                                    '<td><input type="text" name="startEndDates" placeholder="Start &amp; End Dates"></td>' +
+                                    '</tr>');
+  $('#sectionC form').append('<div class="addRow"></div>');
+  $('#sectionC .addRow').append('<button type="button">Add Row</button>');
+}
+
 function generateReportList() {
     $('#content-container').append('<div class="section" id="report-list"></div>');
     $('#report-list').append('<h2>Your Reports</h2>');
@@ -199,6 +227,7 @@ function generateReportView() {
     personalPropertyTable();
     vehiclesTable();
     otherSuppliesTable();
+    sectionCTable();
     affirmationTable();
 }
 
@@ -214,6 +243,7 @@ function showReport(show) {
         $('#personal').show();
         $('#vehicles').show();
         $('#other-supplies').show();
+        $('#sectionC').show()
         $('#affirmation').show();
     } else {
         $('#sidebar').hide();
@@ -221,6 +251,7 @@ function showReport(show) {
         $('#personal').hide();
         $('#vehicles').hide();
         $('#other-supplies').hide();
+        $('#sectionC').hide()
         $('#affirmation').hide();
     }
 }
