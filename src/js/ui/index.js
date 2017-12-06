@@ -190,7 +190,7 @@ function sectionCTable(){
                                     '</tr>');
   $('#sectionC table').append('<tbody></tbody>');
   $('#sectionC tbody').append('<tr id="4-0">' +
-                                    '<td><input type="text" name="nameAndAddress" placeholder="Name and Address"></td>' +
+                                    '<td><input type="text" name="nameOwner" placeholder="Name and Address"></td>' +
                                     '<td><input type="text" name="description" placeholder="Description"></td>' +
                                     '<td><input type="text" name="leaseNumber" placeholder="Lease &#35"></td>' +
                                     '<td><input type="text" name="monthlyPay" placeholder="Monthly Pay"></td>' +
