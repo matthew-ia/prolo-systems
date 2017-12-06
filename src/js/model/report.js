@@ -211,6 +211,7 @@
          this.vehicle = new VehicleSection();
          this.other = new OtherSection();
          this.affirmation = new AffirmationSection();
+         this.sectionc = new SectionC();
 
          // Initialize all sections to have one Item
          this.general.addItem();
@@ -218,6 +219,7 @@
          this.vehicle.addItem();
          this.other.addItem();
          this.affirmation.addItem();
+         this.sectionc.addItem();
 
          // Transfer reportName and id down to general section
          this.general.items[0].reportName = this.reportName;
