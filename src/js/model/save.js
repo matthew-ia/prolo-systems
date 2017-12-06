@@ -57,8 +57,8 @@ function enableAutoSave() {
     $('#personal input, #personal select').blur(function() {
         var cost = 0;
         var amtChanged = 0;
-        //var isCostChanged = false;
-        //var isAmtChanged = false;
+        var isCostChanged = false;
+        var isAmtChanged = false;
 
         let parents = $(this).parents();
         var rowIdSelected = undefined;
@@ -89,21 +89,54 @@ function enableAutoSave() {
                 REPORT.personal.items[rowIdLast].status = $(rowId + ' [name="status"]').val();
                 break;
             case 'amtChanged':
+
+                //TODO: Fix this stuff
+                //TODO: Use a sums[] array for each section to hold row sums
+                //      when a total needs to be updated, just sum the values in
+                //      that array
+
                 if (parseInt($(rowId + ' [name="amtChanged"]').val()) !==
                     REPORT.personal.items[rowIdLast].amtChanged) {
-                        amtChanged = REPORT.personal.items[rowIdLast].amtChanged;
+                        isAmtChanged = true;
+                        let oldAmt = REPORT.personal.items[rowIdLast].amtChanged;
+                        let newAmt = parseInt($(rowId + ' [name="amtChanged"]').val());
+                        if (oldAmt !== undefined && oldAmt > 0) {
+                            amtChanged = oldAmt - newAmt;
+                            if (amtChanged > 0) {
+                                // treat it like a deletion because
+                                // the old amt is larger than the new amt
+                                // so we have to reduce the amt the cost is
+                                // being changed by
+                                changeCost("personal", cost, amtChanged, 2);
+                            } else if (amtChanged < 0) {
+                                // treat it like a addition because
+                                // the new amt is larger than the old amt
+                                // so we need to increase thte amt the cost
+                                // is being changed by
+                                changeCost("personal", cost, amtChanged, 1);
+                            }
+                        } else if (oldAmt === undefined) {
+                            amtChanged = newAmt;
+
+                        }
+                        REPORT.personal.items[rowIdLast].amtChanged = parseInt($(rowId + ' [name="amtChanged"]').val());
                 }
-                REPORT.personal.items[rowIdLast].amtChanged = parseInt($(rowId + ' [name="amtChanged"]').val());
-                //isAmtChanged = true;
                 break;
             case 'cost':
                 console.log("cost is: " + PERSONAL_COST);
                 if (parseInt($(rowId + ' [name="cost"]').val()) !==
                     REPORT.personal.items[rowIdLast].amtChanged) {
+                        let oldCost = REPORT.personal.items[rowIdLast].cost;
+                        let newCost = parseInt($(rowId + ' [name="amtChanged"]').val());
+                        if (oldCost !== undefined && oldAmt > 0) {
+
+
+
                         cost = REPORT.personal.items[rowIdLast].cost;
+                        isCostChanged = true;
                 }
                 REPORT.personal.items[rowIdLast].cost = parseInt($(rowId + ' [name="cost"]').val());
-                //isCostChanged = true;w
+
                 break;
         }
 
@@ -257,22 +290,16 @@ function manualSave() {
 
     // Affirmation
     REPORT.other.items[0].signature = $('[name="signature"]').val();
+
+
+    // TODO: Fix bug, still doesn't work
+    $('.datepicker-panel').on('hide.datepicker', function () {
+        console.log("Datepicker hide");
+    });
+
+    $('.datepicker-dropdown').blur(function() {
+        console.log("Ayo datepicker onblur fired!");
+        console.log($(this).val());
+
+    });
 }
-
-// TODO: ActionListener for a save button
-
-
-// TODO: Need to do a preliminary save of items that may have valid defaults (status),
-// or change them to have invalid defaults
-
-
-// TODO: Fix bug, still doesn't work
-$('.datepicker-panel').on('hide.datepicker', function () {
-    console.log("Datepicker hide");
-});
-
-$('.datepicker-dropdown').blur(function() {
-    console.log("Ayo datepicker onblur fired!");
-    console.log($(this).val());
-
-});

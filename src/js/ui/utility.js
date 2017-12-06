@@ -71,6 +71,10 @@ function checkError() {
 }
 
 function changeCost(sectionId, cost, amtChanged, status) {
+
+    // 0 = Prior
+    // 1 = Addition
+    // 2 = Deletion
     if (status === 2) amtChanged *= -1; // if deletion make it negative
     if (status !== 0) cost += amtChanged; // if not prior
 
