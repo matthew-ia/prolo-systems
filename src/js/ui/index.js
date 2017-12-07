@@ -181,12 +181,12 @@ function sectionCTable(){
   $('#sectionC form').append('<table></table>');
   $('#sectionC table').append('<thead></thead>');
   $('#sectionC thead').append('<tr>' +
-                                    '<th>Name and Address of the Owner</th>' +
+                                    '<th>Name & Address of Owner</th>' +
                                     '<th>Description of the Property</th>' +
-                                    '<th>Lease &#35 or Account &#35</th>' +
+                                    '<th>Lease&#35 or Account&#35</th>' +
                                     '<th>Monthly Payment</th>' +
                                     '<th>Cost New (Quoted)</th>' +
-                                    '<th>Start $amp; End Lease Dates</th>' +
+                                    '<th>Start &amp; End Lease Dates</th>' +
                                     '</tr>');
   $('#sectionC table').append('<tbody></tbody>');
   $('#sectionC tbody').append('<tr id="4-0">' +
@@ -194,7 +194,7 @@ function sectionCTable(){
                                     '<td><input type="text" name="description" placeholder="Description"></td>' +
                                     '<td><input type="text" name="leaseNumber" placeholder="Lease &#35"></td>' +
                                     '<td><input type="text" name="monthlyPay" placeholder="Monthly Pay"></td>' +
-                                    '<td><input type="text" name="costNew" placeholder="Quoted New Cost"></td>' +
+                                    '<td><input type="text" name="costNew" placeholder="Cost New"></td>' +
                                     '<td><input type="text" name="startEndDates" placeholder="Start &amp; End Dates"></td>' +
                                     '</tr>');
   $('#sectionC form').append('<div class="addRow"></div>');
