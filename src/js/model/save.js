@@ -143,7 +143,7 @@ function enableAutoSave() {
         var status = $('#personal [name="status"]').val();
         changeCost("personal", cost, amtChanged, status);
         console.log("total cost: " + PERSONAL_COST);
-
+        }
     });
 
     // Vehicles section
@@ -225,6 +225,21 @@ function enableAutoSave() {
                 break;
         }
     });
+
+
+    // TODO: Fix bug, still doesn't work
+    /*
+    $('.datepicker-panel').on('hide.datepicker', function () {
+        console.log("Datepicker hide");
+    });
+
+    $('.datepicker-dropdown').blur(function() {
+        console.log("Datepicker onblur fired!");
+        console.log($(this).val());
+
+    });
+    */
+
 }
 
 // Save all inputs/selects/textareas
@@ -290,16 +305,4 @@ function manualSave() {
 
     // Affirmation
     REPORT.other.items[0].signature = $('[name="signature"]').val();
-
-
-    // TODO: Fix bug, still doesn't work
-    $('.datepicker-panel').on('hide.datepicker', function () {
-        console.log("Datepicker hide");
-    });
-
-    $('.datepicker-dropdown').blur(function() {
-        console.log("Ayo datepicker onblur fired!");
-        console.log($(this).val());
-
-    });
 }

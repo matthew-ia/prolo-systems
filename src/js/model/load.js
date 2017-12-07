@@ -53,8 +53,8 @@ function load(reportName, isCopy)
         $('#personal #' + rowId + ' [name="status"]').val(REPORT.personal.items[i].status);
         $('#personal #' + rowId + ' [name="amtChanged"]').val(REPORT.personal.items[i].amtChanged);
         $('#personal #' + rowId + ' [name="cost"]').val(REPORT.personal.items[i].cost);
-        console.log("Current row id: " + rowId);
-        console.log("=== itemDesc: " + REPORT.personal.items[i].itemDescription);
+        //console.log("Current row id: " + rowId);
+        //console.log("=== itemDesc: " + REPORT.personal.items[i].itemDescription);
     }
 
     // Vehicles
