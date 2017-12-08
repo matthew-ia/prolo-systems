@@ -38,7 +38,6 @@ function displayReports() {
     $('#report-list tr td:first-child').click(function() {
         if (REPORTLIST.length > 0) {
             var reportName = $(this).text();
-            console.log("I'm about to load " + reportName);
             showReportList(false);
             showReport(true);
             load(reportName, false);
@@ -61,14 +60,9 @@ function displayReports() {
     });
 
     $('#report-list #copyReport').click(function() {
-        console.log("Old REPORT is: ");
-        console.log(REPORT);
         var reportName = $(this).parents('td').prev().text();
-        console.log("reportName: " + reportName);
         setReport(getReport(reportName));
         addReport(true);
-        console.log("New REPORT is: ");
-        console.log(REPORT);
         showReportList(false);
         showReport(true);
         load(REPORT.reportName, true);

@@ -41,18 +41,24 @@ function generalTable() {
   $('#classification').append('<div class="select-container"></div>');
   $('.select-container:first-of-type').append('<select name="businessType">' +
                                 '<option value="" disabled selected>Business Type</option>' +
-                                '<option value="1">Type 1</option>' +
-                                '<option value="2">Type 2</option>' +
-                                '<option value="3">Type 3</option>' +
+                                '<option value="0">Corporation</option>' +
+                                '<option value="1">Sole Proprietorship</option>' +
+                                '<option value="2">Partnership</option>' +
+                                '<option value="3">Unincorporated Association</option>' +
+                                '<option value="4">Other</option>' +
                                 '</select>');
 
   //creates select-container section of general table
   $('#classification').append('<div class="select-container"></div>');
   $('.select-container:nth-of-type(2)').append('<select name="businessCategory">' +
                                 '<option value="" disabled selected>Business Category</option>' +
-                                '<option value="1">Category 1</option>' +
-                                '<option value="2">Category 2</option>' +
-                                '<option value="3">Category 3</option>' +
+                                '<option value="0">Retail</option>' +
+                                '<option value="1">Wholesale</option>' +
+                                '<option value="2">Manufacturing</option>' +
+                                '<option value="3">Service</option>' +
+                                '<option value="4">Leasing/Rental</option>' +
+                                '<option value="5">Farming</option>' +
+                                '<option value="6">Other</option>' +
                                 '</select>');
 }
 
@@ -216,7 +222,7 @@ function generateSidebar() {
     $('#sidebar ul').append('<li><a href="#vehicles">Vehicles</a></li>');
     $('#sidebar ul').append('<li><a href="#other-supplies">Other & Supplies</a></li>');
     $('#sidebar ul').append('<li><a href="#affirmation">Affirmation</a></li>');
-    $('#sidebar ul').append('<li><a href="#">Back to top</a></li>');
+    $('#sidebar ul').append('<li><a href="#general">Back to top</a></li>');
 
 }
 
@@ -261,4 +267,14 @@ $(document).ready(function() {
     generateReportView();
     generatePopup();
     showReport(false);
+    if (localStorage.getItem("reportList") != undefined ||
+        localStorage.getItem("reportList") != "") {
+            restore();
+        }
+    showReportList(true);
+    displayReports();
+});
+
+$(window).bind("beforeunload", function() {
+    store();
 });
