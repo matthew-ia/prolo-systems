@@ -87,6 +87,22 @@ function load(reportName, isCopy)
         $('#other-supplies #' + rowId + ' [name="cost"]').val(REPORT.other.items[i].cost);
     }
 
+
+    // Section C
+    rowIdSelected = $('#sectionC tr').last().attr('id');
+    rowIdFirst= rowIdSelected.charAt(0);
+    rowIdLast = rowIdSelected.split("-").pop();
+    for (i = 0; i <= rowIdLast; i++) {
+        var rowId = rowIdFirst + "-" + i;
+        console.log("on iteration " + i);
+        $('#sectionC #' + rowId + ' [name="nameOwner"]').val(REPORT.sectionc.items[i].nameOwner);
+        $('#sectionC #' + rowId + ' [name="description"]').val(REPORT.sectionc.items[i].description);
+        $('#sectionC #' + rowId + ' [name="leaseNumber"]').val(REPORT.sectionc.items[i].leaseNumber);
+        $('#sectionC #' + rowId + ' [name="monthlyPay"]').val(REPORT.sectionc.items[i].monthlyPay);
+        $('#sectionC #' + rowId + ' [name="costNew"]').val(REPORT.sectionc.items[i].costNew);
+        $('#sectionC #' + rowId + ' [name="startEndDates"]').val(REPORT.sectionc.items[i].startEndDates);
+    }
+
     // Affirmation
     $('[name="signature"]').val(REPORT.other.items[0].signature);
 }
