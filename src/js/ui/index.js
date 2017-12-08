@@ -111,7 +111,7 @@ function personalPropertyTable() {
 
 function vehiclesTable()
 {
-  $('#vehicles').append('<h2>Vehicles</h2>');
+  $('#vehicles').append('<h2>Vehicles &amp; Equipment</h2>');
   $('#vehicles').append('<form id="vehiclesForm"></form>');
   $('#vehicles form').append('<table></table>');
   $('#vehicles table').append('<thead></thead>');
