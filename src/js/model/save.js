@@ -225,7 +225,7 @@ function enableAutoSave() {
     });
 
     // Schedule C section
-    $('#sectionc input, #sectionc select').blur(function() {
+    $('#sectionC input, #sectionC select').blur(function() {
             let parents = $(this).parents();
             var rowIdSelected = undefined;
             var rowIdLast;
@@ -335,6 +335,21 @@ function manualSave() {
         REPORT.other.items[i].yearAcquired = $('#other-supplies #' + rowId + ' [name="yearAcquired"]').val();
         REPORT.other.items[i].itemDescription = $('#other-supplies #' + rowId + ' [name="itemDescription"]').val();
         REPORT.other.items[i].cost = parseInt($('#other-supplies #' + rowId + ' [name="cost"]').val());
+    }
+
+
+    // Section C 
+    rowIdSelected = $('#sectionC tr').last().attr('id');
+    rowIdFirst= rowIdSelected.charAt(0);
+    rowIdLast = rowIdSelected.split("-").pop();
+    for (i = 0; i <= rowIdLast; i++) {
+        var rowId = rowIdFirst + "-" + i;
+        REPORT.sectionc.items[i].nameOwner = $('#sectionC #' + rowId + ' [name="nameOwner"]').val();
+        REPORT.sectionc.items[i].description = $('#sectionC #' + rowId + ' [name="description"]').val();
+        REPORT.sectionc.items[i].leaseNumber = $('#sectionC #' + rowId + ' [name="leaseNumber"]').val();
+        REPORT.sectionc.items[i].monthlyPay = parseInt($('#sectionC #' + rowId + ' [name="monthlyPay"]').val());
+        REPORT.sectionc.items[i].costNew = parseInt($('#sectionC #' + rowId + ' [name="costNew"]').val());
+        REPORT.sectionc.items[i].startEndDates = $('#sectionC #' + rowId + ' [name="startEndDates"]').val();
     }
 
     // Affirmation
