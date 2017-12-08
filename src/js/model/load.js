@@ -95,6 +95,7 @@ function load(reportName, isCopy)
     for (i = 0; i <= rowIdLast; i++) {
         var rowId = rowIdFirst + "-" + i;
         console.log("on iteration " + i);
+        console.log("nameOwner: " + REPORT.sectionc.items[i].nameOwner);
         $('#sectionC #' + rowId + ' [name="nameOwner"]').val(REPORT.sectionc.items[i].nameOwner);
         $('#sectionC #' + rowId + ' [name="description"]').val(REPORT.sectionc.items[i].description);
         $('#sectionC #' + rowId + ' [name="leaseNumber"]').val(REPORT.sectionc.items[i].leaseNumber);

@@ -70,6 +70,7 @@ function copyReport(oldReport) {
     newReport.vehicle.items = copy.vehicle.items;
     newReport.other.items = copy.other.items;
     newReport.affirmation.items = copy.affirmation.items;
+    newReport.sectionc.items = copy.sectionc.items;
 
     var name = copy.reportName + " copy";
     newReport.reportName = name;

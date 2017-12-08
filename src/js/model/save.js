@@ -231,32 +231,32 @@ function enableAutoSave() {
             var rowIdLast;
             var rowId;
             for (i = 0; i < parents.length; i++) {
-            if($(parents[i]).is('tr')) {
-            rowIdSelected = $(parents[i]).attr('id');
-            rowIdLast = rowIdSelected.split("-").pop();
-            }
+                if($(parents[i]).is('tr')) {
+                    rowIdSelected = $(parents[i]).attr('id');
+                    rowIdLast = rowIdSelected.split("-").pop();
+                }
             }
             rowId = '#' + rowIdSelected;
 
             switch($(this).attr('name')) {
-            case 'nameOwner':
-            REPORT.sectionc.items[rowIdLast].nameOwner = $(rowId + ' [name="nameOwner"]').val();
-            break;
-            case 'description':
-            REPORT.sectionc.items[rowIdLast].description = $(rowId + ' [name="description"]').val();
-            break;
-            case 'leaseNumber':
-            REPORT.sectionc.items[rowIdLast].leaseNumber = parseInt($(rowId + ' [name="leaseNumber"]').val());
-            break;
-            case 'monthlyPay':
-            REPORT.sectionc.items[rowIdLast].monthlyPay = parseInt($(rowId + ' [name="monthlyPay"]').val());
-            break;
-            case 'costNew':
-            REPORT.sectionc.items[rowIdLast].costNew = parseInt($(rowId + ' [name="costNew"]').val());
-            break;
-            case 'startEndDates':
-            REPORT.sectionc.items[rowIdLast].startEndDates = parseInt($(rowId + ' [name="startEndDates"]').val());
-            break;
+                case 'nameOwner':
+                    REPORT.sectionc.items[rowIdLast].nameOwner = $(rowId + ' [name="nameOwner"]').val();
+                    break;
+                case 'description':
+                    REPORT.sectionc.items[rowIdLast].description = $(rowId + ' [name="description"]').val();
+                    break;
+                case 'leaseNumber':
+                    REPORT.sectionc.items[rowIdLast].leaseNumber = parseInt($(rowId + ' [name="leaseNumber"]').val());
+                    break;
+                case 'monthlyPay':
+                    REPORT.sectionc.items[rowIdLast].monthlyPay = parseInt($(rowId + ' [name="monthlyPay"]').val());
+                    break;
+                case 'costNew':
+                    REPORT.sectionc.items[rowIdLast].costNew = parseInt($(rowId + ' [name="costNew"]').val());
+                    break;
+                case 'startEndDates':
+                    REPORT.sectionc.items[rowIdLast].startEndDates = parseInt($(rowId + ' [name="startEndDates"]').val());
+                    break;
             }
     });
 
@@ -309,7 +309,7 @@ function manualSave() {
         REPORT.personal.items[i].cost = parseInt($('#personal #' + rowId + ' [name="cost"]').val());
     }
 
-    // Vehicles
+    // Vehicles & Equipment
     rowIdSelected = $('#vehicles tr').last().attr('id');
     rowIdFirst= rowIdSelected.charAt(0);
     rowIdLast = rowIdSelected.split("-").pop();
@@ -338,7 +338,7 @@ function manualSave() {
     }
 
 
-    // Section C 
+    // Section C
     rowIdSelected = $('#sectionC tr').last().attr('id');
     rowIdFirst= rowIdSelected.charAt(0);
     rowIdLast = rowIdSelected.split("-").pop();
