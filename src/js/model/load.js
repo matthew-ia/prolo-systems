@@ -15,8 +15,8 @@ function load(reportName, isCopy)
     //if (reportIndex !== -1) {
     if (reportIndex === -1) reportIndex = REPORTLIST.length - 1;
     setReport(REPORTLIST[reportIndex]);
-    console.log("Loading... " + REPORTLIST[reportIndex].reportName + " from " + reportName);
-    console.log(REPORT);
+    console.log("Loading... " + REPORTLIST[reportIndex].reportName);
+    //console.log(REPORT);
     //} else {
     //    setReport(REPORTLIST[REPORTLIST.length - 1]);
     //    console.log("Loadingb... " + REPORT.reportName + " from " + reportName);
@@ -46,15 +46,15 @@ function load(reportName, isCopy)
     for (i = 0; i <= rowIdLast; i++) {
         var rowId = rowIdFirst + "-" + i;
         if (isCopy) updateState(i);
-        console.log("on iteration " + i);
+        //console.log("on iteration " + i);
         $('#personal #' + rowId + ' [name="yearAcquired"]').val(REPORT.personal.items[i].yearAcquired);
         $('#personal #' + rowId + ' [name="itemDescription"]').val(REPORT.personal.items[i].itemDescription);
         $('#personal #' + rowId + ' [name="group"]').val(REPORT.personal.items[i].group);
         $('#personal #' + rowId + ' [name="status"]').val(REPORT.personal.items[i].status);
         $('#personal #' + rowId + ' [name="amtChanged"]').val(REPORT.personal.items[i].amtChanged);
         $('#personal #' + rowId + ' [name="cost"]').val(REPORT.personal.items[i].cost);
-        console.log("Current row id: " + rowId);
-        console.log("=== itemDesc: " + REPORT.personal.items[i].itemDescription);
+        //console.log("Current row id: " + rowId);
+        //console.log("=== itemDesc: " + REPORT.personal.items[i].itemDescription);
     }
 
     // Vehicles
@@ -63,7 +63,7 @@ function load(reportName, isCopy)
     rowIdLast = rowIdSelected.split("-").pop();
     for (i = 0; i <= rowIdLast; i++) {
         var rowId = rowIdFirst + "-" + i;
-        console.log("on iteration " + i);
+        //console.log("on iteration " + i);
         $('#vehicles #' + rowId + ' [name="yearAcquired"]').val(REPORT.vehicle.items[i].yearAcquired);
         $('#vehicles #' + rowId + ' [name="modelYear"]').val(REPORT.vehicle.items[i].modelYear);
         $('#vehicles #' + rowId + ' [name="make"]').val(REPORT.vehicle.items[i].make);
@@ -81,7 +81,7 @@ function load(reportName, isCopy)
     rowIdLast = rowIdSelected.split("-").pop();
     for (i = 0; i <= rowIdLast; i++) {
         var rowId = rowIdFirst + "-" + i;
-        console.log("on iteration " + i);
+        //console.log("on iteration " + i);
         $('#other-supplies #' + rowId + ' [name="yearAcquired"]').val(REPORT.other.items[i].yearAcquired);
         $('#other-supplies #' + rowId + ' [name="itemDescription"]').val(REPORT.other.items[i].itemDescription);
         $('#other-supplies #' + rowId + ' [name="cost"]').val(REPORT.other.items[i].cost);
@@ -115,17 +115,19 @@ function updateState(rowIndex) {
     // Set status to prior
     var oldStatus = $('#personal [name="status"]').val();
     REPORT.personal.items[i].status = 0;
-
+    console.log("old status: " + oldStatus);
     //Update Cost
     var newCost = 0;
     var oldCost = REPORT.personal.items[rowIndex].cost;
     var amtChanged = REPORT.personal.items[rowIndex].amtChanged;
-    if (oldStatus === 2) amtChanged *= -1; // make it negative
-    newCost = oldCost + amtChanged;
+    if (oldStatus == 2) amtChanged *= -1; // make it negative
+
+    if (oldStatus == 0 || oldStatus == null) newCost = oldCost;
+    else newCost = oldCost + amtChanged;
     //console.log("newCost: " + newCost + " : " + oldCost);
     REPORT.personal.items[rowIndex].cost = newCost;
     REPORT.personal.items[rowIndex].amtChanged = "";
-    console.log("Update called on ");
-    console.log(REPORT);
+    //console.log("Update called on ");
+    //console.log(REPORT);
 
 }

@@ -175,7 +175,7 @@
      {
          this.nameOwner = nameOwner;
          this.description = description;
-         this.leaseNumber = leaseNumner;
+         this.leaseNumber = leaseNumber;
          this.monthlyPay = monthlyPay;
          this.costNew = costNew;
          this.startEndDates = startEndDates;

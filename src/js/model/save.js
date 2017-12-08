@@ -72,9 +72,6 @@ function enableAutoSave() {
         }
         //if (rowId === undefined) {console.log("Invalid rowId...exiting."); return;}
         rowId = '#' + rowIdSelected;
-        console.log("I'm in boi" + rowId);
-        console.log('this is: ');
-        console.log($(this).val());
         switch($(this).attr('name')) {
             case 'yearAcquired':
                 REPORT.personal.items[rowIdLast].yearAcquired = parseInt($(rowId + ' [name="yearAcquired"]').val());
@@ -95,7 +92,7 @@ function enableAutoSave() {
                 //      when a total needs to be updated, just sum the values in
                 //      that array
 
-                if (parseInt($(rowId + ' [name="amtChanged"]').val()) !==
+                /*if (parseInt($(rowId + ' [name="amtChanged"]').val()) !==
                     REPORT.personal.items[rowIdLast].amtChanged) {
                         isAmtChanged = true;
                         let oldAmt = REPORT.personal.items[rowIdLast].amtChanged;
@@ -118,13 +115,14 @@ function enableAutoSave() {
                         } else if (oldAmt === undefined) {
                             amtChanged = newAmt;
 
-                        }
-                        REPORT.personal.items[rowIdLast].amtChanged = parseInt($(rowId + ' [name="amtChanged"]').val());
-                }
+                        }*/
+                REPORT.personal.items[rowIdLast].amtChanged = parseInt($(rowId + ' [name="amtChanged"]').val());
+                console.log("amtChanged: " + REPORT.personal.items[rowIdLast].amtChanged);
+                //}
                 break;
             case 'cost':
-                console.log("cost is: " + PERSONAL_COST);
-                if (parseInt($(rowId + ' [name="cost"]').val()) !==
+                //console.log("cost is: " + PERSONAL_COST);
+                /*if (parseInt($(rowId + ' [name="cost"]').val()) !==
                     REPORT.personal.items[rowIdLast].amtChanged) {
                         let oldCost = REPORT.personal.items[rowIdLast].cost;
                         let newCost = parseInt($(rowId + ' [name="amtChanged"]').val());
@@ -134,16 +132,16 @@ function enableAutoSave() {
 
                         cost = REPORT.personal.items[rowIdLast].cost;
                         isCostChanged = true;
-                }
+                }*/
                 REPORT.personal.items[rowIdLast].cost = parseInt($(rowId + ' [name="cost"]').val());
-
+                console.log("cost: " + REPORT.personal.items[rowIdLast].cost);
                 break;
+        //}
+
+        //var status = $('#personal [name="status"]').val();
+        //changeCost("personal", cost, amtChanged, status);
+        //console.log("total cost: " + PERSONAL_COST);
         }
-
-        var status = $('#personal [name="status"]').val();
-        changeCost("personal", cost, amtChanged, status);
-        console.log("total cost: " + PERSONAL_COST);
-
     });
 
     // Vehicles section
@@ -225,6 +223,21 @@ function enableAutoSave() {
                 break;
         }
     });
+
+
+    // TODO: Fix bug, still doesn't work
+    /*
+    $('.datepicker-panel').on('hide.datepicker', function () {
+        console.log("Datepicker hide");
+    });
+
+    $('.datepicker-dropdown').blur(function() {
+        console.log("Datepicker onblur fired!");
+        console.log($(this).val());
+
+    });
+    */
+
 }
 
 // Save all inputs/selects/textareas
@@ -256,8 +269,8 @@ function manualSave() {
         REPORT.personal.items[i].itemDescription = $('#personal #' + rowId + ' [name="itemDescription"]').val();
         REPORT.personal.items[i].group = $('#personal #' + rowId + ' [name="group"]').val();
         REPORT.personal.items[i].status = $('#personal #' + rowId + ' [name="status"]').val();
-        REPORT.personal.items[i].amtChanged = $('#personal #' + rowId + ' [name="amtChanged"]').val();
-        REPORT.personal.items[i].cost = $('#personal #' + rowId + ' [name="cost"]').val();
+        REPORT.personal.items[i].amtChanged = parseInt($('#personal #' + rowId + ' [name="amtChanged"]').val());
+        REPORT.personal.items[i].cost = parseInt($('#personal #' + rowId + ' [name="cost"]').val());
     }
 
     // Vehicles
@@ -274,7 +287,7 @@ function manualSave() {
         REPORT.vehicle.items[i].titleNum = $('#vehicles #' + rowId + ' [name="titleNum"]').val();
         REPORT.vehicle.items[i].vehicleId = $('#vehicles #' + rowId + ' [name="vehicleId"]').val();
         REPORT.vehicle.items[i].group = $('#vehicles #' + rowId + ' [name="group"]').val();
-        REPORT.vehicle.items[i].cost = $('#vehicles #' + rowId + ' [name="cost"]').val();
+        REPORT.vehicle.items[i].cost = parseInt($('#vehicles #' + rowId + ' [name="cost"]').val());
     }
 
     // Other & supplies
@@ -285,21 +298,9 @@ function manualSave() {
         var rowId = rowIdFirst + "-" + i;
         REPORT.other.items[i].yearAcquired = $('#other-supplies #' + rowId + ' [name="yearAcquired"]').val();
         REPORT.other.items[i].itemDescription = $('#other-supplies #' + rowId + ' [name="itemDescription"]').val();
-        REPORT.other.items[i].cost = $('#other-supplies #' + rowId + ' [name="cost"]').val();
+        REPORT.other.items[i].cost = parseInt($('#other-supplies #' + rowId + ' [name="cost"]').val());
     }
 
     // Affirmation
     REPORT.other.items[0].signature = $('[name="signature"]').val();
-
-
-    // TODO: Fix bug, still doesn't work
-    $('.datepicker-panel').on('hide.datepicker', function () {
-        console.log("Datepicker hide");
-    });
-
-    $('.datepicker-dropdown').blur(function() {
-        console.log("Ayo datepicker onblur fired!");
-        console.log($(this).val());
-
-    });
 }
