@@ -116,7 +116,8 @@ function enableAutoSave() {
                             amtChanged = newAmt;
 
                         }*/
-                        REPORT.personal.items[rowIdLast].amtChanged = parseInt($(rowId + ' [name="amtChanged"]').val());
+                REPORT.personal.items[rowIdLast].amtChanged = parseInt($(rowId + ' [name="amtChanged"]').val());
+                console.log("amtChanged: " + REPORT.personal.items[rowIdLast].amtChanged);
                 //}
                 break;
             case 'cost':
@@ -133,7 +134,7 @@ function enableAutoSave() {
                         isCostChanged = true;
                 }*/
                 REPORT.personal.items[rowIdLast].cost = parseInt($(rowId + ' [name="cost"]').val());
-
+                console.log("cost: " + REPORT.personal.items[rowIdLast].cost);
                 break;
         //}
 

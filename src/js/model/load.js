@@ -99,13 +99,15 @@ function updateState(rowIndex) {
     // Set status to prior
     var oldStatus = $('#personal [name="status"]').val();
     REPORT.personal.items[i].status = 0;
-
+    console.log("old status: " + oldStatus);
     //Update Cost
     var newCost = 0;
     var oldCost = REPORT.personal.items[rowIndex].cost;
     var amtChanged = REPORT.personal.items[rowIndex].amtChanged;
-    if (oldStatus === 2) amtChanged *= -1; // make it negative
-    newCost = oldCost + amtChanged;
+    if (oldStatus == 2) amtChanged *= -1; // make it negative
+
+    if (oldStatus == 0 || oldStatus == null) newCost = oldCost;
+    else newCost = oldCost + amtChanged;
     //console.log("newCost: " + newCost + " : " + oldCost);
     REPORT.personal.items[rowIndex].cost = newCost;
     REPORT.personal.items[rowIndex].amtChanged = "";
