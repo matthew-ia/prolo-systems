@@ -29,7 +29,7 @@ a:hover {
 }
 
 h2 {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     text-transform: uppercase;
     color: #666791;
 }
@@ -582,4 +582,18 @@ tbody tr td:first-child {
     margin: auto;
     font-weight: 700;
     font-size: 0.85rem;
+}
+
+span.schedule {
+    color: #B8B9D5;
+    padding-right: 10px;
+}
+
+#copyReport:active, #deleteReport:active {
+    outline: none;
+}
+
+#affirmation tr {
+    height: 45px;
+    border-bottom: 1px solid #666791;
 }

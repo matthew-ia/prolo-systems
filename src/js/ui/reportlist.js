@@ -73,7 +73,6 @@ function displayReports() {
         deleteReport(reportName);
         $(this).parents('tr').remove();
         displayReports();
-        return;
     });
 
     $('#report-list #copyReport').hover(

@@ -63,7 +63,7 @@ function generalTable() {
 }
 
 function personalPropertyTable() {
-  $('#personal').append('<h2>Personal Property</h2>');
+  $('#personal').append('<h2><span class="schedule">Schedule A</span>Personal Property</h2>');
   $('#personal').append('<form id="personalPropertyForm"></form>');
   $('#personal form').append('<table></table>')
   $('#personal table').append('<thead></thead>');
@@ -111,7 +111,7 @@ function personalPropertyTable() {
 
 function vehiclesTable()
 {
-  $('#vehicles').append('<h2>Vehicles &amp; Equipment</h2>');
+  $('#vehicles').append('<h2><span class="schedule">Schedule B</span>Vehicles &amp; Equipment</h2>');
   $('#vehicles').append('<form id="vehiclesForm"></form>');
   $('#vehicles form').append('<table></table>');
   $('#vehicles table').append('<thead></thead>');
@@ -151,7 +151,7 @@ function vehiclesTable()
 }
 
 function otherSuppliesTable(){
-  $('#other-supplies').append('<h2>Other &amp; Supplies</h2>');
+  $('#other-supplies').append('<h2><span class="schedule">Schedule B</span>Other &amp; Supplies</h2>');
   $('#other-supplies').append('<form id="otherSuppliesForm"></form>');
   $('#other-supplies form').append('<table></table>');
   $('#other-supplies table').append('<thead></thead>');
@@ -182,7 +182,7 @@ function affirmationTable(){
 
 /* 12/6 edited */
 function sectionCTable(){
-  $('#sectionC').append('<h2>Schedule C</h2>');
+  $('#sectionC').append('<h2><span class="schedule">Schedule C</span>Owned by Others</h2>');
   $('#sectionC').append('<form id="sectionCForm"></form>');
   $('#sectionC form').append('<table></table>');
   $('#sectionC table').append('<thead></thead>');
